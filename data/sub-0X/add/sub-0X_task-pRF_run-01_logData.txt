@@ -1,0 +1,708 @@
+bar pass 1 started at 165644.223174
+bar pass 1 event mri_trigger val = -8 at 165644.248713
+bar pass 1 trial onset at 165644.265778
+bar pass 1 trial offset at 165645.448870
+bar pass 1 trial onset at 165645.465557
+bar pass 1 trial offset at 165646.648664
+bar pass 1 trial onset at 165646.665320
+bar pass 1 trial offset at 165647.848614
+bar pass 1 trial onset at 165647.865290
+bar pass 1 trial offset at 165649.048642
+bar pass 1 trial onset at 165649.065326
+bar pass 1 trial offset at 165650.248632
+bar pass 1 trial onset at 165650.265293
+bar pass 1 trial offset at 165651.448660
+bar pass 1 trial onset at 165651.465308
+bar pass 1 trial offset at 165652.648650
+bar pass 1 trial onset at 165652.665287
+bar pass 1 trial offset at 165653.848646
+bar pass 1 trial onset at 165653.865284
+bar pass 1 trial offset at 165655.048630
+bar pass 1 trial onset at 165655.065306
+bar pass 1 trial offset at 165656.248686
+bar pass 1 trial onset at 165656.265331
+bar pass 1 trial offset at 165657.448669
+bar pass 1 trial onset at 165657.465338
+bar pass 1 trial offset at 165658.648658
+bar pass 1 trial onset at 165658.665335
+bar pass 1 trial offset at 165659.848708
+bar pass 1 trial onset at 165659.865343
+bar pass 1 trial offset at 165661.048637
+bar pass 1 trial onset at 165661.065328
+bar pass 1 trial offset at 165662.248637
+bar pass 1 trial onset at 165662.265321
+bar pass 1 trial offset at 165663.448642
+bar pass 1 - 192/192 drawn bar stimuli - and 0/0 probes - 0 missed sync on 1152 frames, 0.0% (mean/median delay = NaN/NaN ms)
+bar pass 1 stopped at 165663.476379
+bar pass 2 started at 165663.477084
+bar pass 2 trial onset at 165663.516617
+bar pass 2 stimulus probe onset at 165663.899378
+bar pass 2 event u at 165664.566732
+bar pass 2 trial offset at 165664.832028
+bar pass 2 trial onset at 165664.848699
+bar pass 2 stimulus probe onset at 165665.232000
+bar pass 2 event r at 165665.817479
+bar pass 2 trial offset at 165666.131991
+bar pass 2 trial onset at 165666.148665
+bar pass 2 stimulus probe onset at 165666.548684
+bar pass 2 event u at 165667.148753
+stimulus staircase updated to 8.00 at 165667.149959
+bar pass 2 trial offset at 165667.448655
+bar pass 2 trial onset at 165667.465329
+bar pass 2 stimulus probe onset at 165667.865333
+bar pass 2 event u at 165668.548882
+bar pass 2 trial offset at 165668.815357
+bar pass 2 trial onset at 165668.832019
+bar pass 2 stimulus probe onset at 165669.231983
+bar pass 2 event u at 165669.865827
+bar pass 2 trial offset at 165670.165325
+bar pass 2 trial onset at 165670.181991
+bar pass 2 stimulus probe onset at 165670.581997
+bar pass 2 event u at 165671.182190
+stimulus staircase updated to 7.00 at 165671.182444
+bar pass 2 trial offset at 165671.532038
+bar pass 2 trial onset at 165671.548720
+bar pass 2 stimulus probe onset at 165671.948701
+bar pass 2 event r at 165672.565652
+bar pass 2 trial offset at 165672.881990
+bar pass 2 trial onset at 165672.898667
+bar pass 2 stimulus probe onset at 165673.281958
+bar pass 2 event r at 165673.948832
+bar pass 2 trial offset at 165674.182000
+bar pass 2 trial onset at 165674.198654
+bar pass 2 stimulus probe onset at 165674.598763
+bar pass 2 event r at 165675.282240
+stimulus staircase updated to 6.00 at 165675.282619
+bar pass 2 trial offset at 165675.531987
+bar pass 2 trial onset at 165675.548630
+bar pass 2 stimulus probe onset at 165675.932029
+bar pass 2 event r at 165676.682213
+bar pass 2 trial offset at 165676.865378
+bar pass 2 trial onset at 165676.882005
+bar pass 2 stimulus probe onset at 165677.282055
+bar pass 2 event u at 165677.932117
+bar pass 2 trial offset at 165678.215365
+bar pass 2 trial onset at 165678.232023
+bar pass 2 stimulus probe onset at 165678.632023
+bar pass 2 event r at 165679.298847
+stimulus staircase updated to 7.00 at 165679.299494
+bar pass 2 trial offset at 165679.565369
+bar pass 2 trial onset at 165679.582042
+bar pass 2 stimulus probe onset at 165679.965401
+bar pass 2 event u at 165680.748768
+stimulus staircase updated to 8.00 at 165680.749402
+bar pass 2 trial offset at 165680.865426
+bar pass 2 trial onset at 165680.882059
+bar pass 2 stimulus probe onset at 165681.282064
+bar pass 2 event u at 165682.048935
+stimulus staircase updated to 9.00 at 165682.049318
+bar pass 2 trial offset at 165682.215328
+bar pass 2 trial onset at 165682.231996
+bar pass 2 stimulus probe onset at 165682.615348
+bar pass 2 event r at 165683.382080
+stimulus staircase updated to 10.00 at 165683.382317
+bar pass 2 trial offset at 165683.532012
+bar pass 2 trial onset at 165683.548671
+bar pass 2 stimulus probe onset at 165683.948688
+bar pass 2 event u at 165684.815585
+stimulus staircase updated to 11.00 at 165684.815915
+bar pass 2 trial offset at 165684.865352
+bar pass 2 trial onset at 165684.882007
+bar pass 2 stimulus probe onset at 165685.265399
+bar pass 2 event r at 165686.098809
+stimulus staircase updated to 12.00 at 165686.099079
+bar pass 2 trial offset at 165686.198702
+bar pass 2 trial onset at 165686.215349
+bar pass 2 stimulus probe onset at 165686.598686
+bar pass 2 event u at 165687.432503
+stimulus staircase updated to 13.00 at 165687.433231
+bar pass 2 trial offset at 165687.498604
+bar pass 2 trial onset at 165687.515378
+bar pass 2 stimulus probe onset at 165687.915326
+bar pass 2 event u at 165688.682273
+stimulus staircase updated to 14.00 at 165688.682567
+bar pass 2 trial offset at 165688.848646
+bar pass 2 trial onset at 165688.865340
+bar pass 2 stimulus probe onset at 165689.265338
+bar pass 2 event r at 165690.115393
+stimulus staircase updated to 15.00 at 165690.115611
+bar pass 2 trial offset at 165690.165350
+bar pass 2 trial onset at 165690.182031
+bar pass 2 stimulus probe onset at 165690.582031
+bar pass 2 trial offset at 165691.498638
+bar pass 2 event r at 165691.498997
+stimulus staircase updated to 15.00 at 165691.499180
+bar pass 2 trial onset at 165691.515369
+bar pass 2 stimulus probe onset at 165691.898683
+bar pass 2 trial offset at 165692.832130
+bar pass 2 event r at 165692.832590
+stimulus staircase updated to 15.00 at 165692.832808
+bar pass 2 trial onset at 165692.848710
+bar pass 2 stimulus probe onset at 165693.232036
+bar pass 2 event u at 165694.066175
+stimulus staircase updated to 15.00 at 165694.066794
+bar pass 2 trial offset at 165694.182021
+bar pass 2 trial onset at 165694.198631
+bar pass 2 stimulus probe onset at 165694.598701
+bar pass 2 event r at 165695.432262
+stimulus staircase updated to 15.00 at 165695.432555
+bar pass 2 trial offset at 165695.548615
+bar pass 2 trial onset at 165695.565360
+bar pass 2 stimulus probe onset at 165695.965355
+bar pass 2 trial offset at 165696.898719
+bar pass 2 trial onset at 165696.915208
+bar pass 2 stimulus probe onset at 165697.298703
+bar pass 2 trial offset at 165698.215368
+bar pass 2 trial onset at 165698.232021
+bar pass 2 stimulus probe onset at 165698.615357
+bar pass 2 trial offset at 165699.548696
+bar pass 2 trial onset at 165699.565356
+bar pass 2 stimulus probe onset at 165699.965391
+bar pass 2 event r at 165700.800321
+bar pass 2 trial offset at 165700.898650
+bar pass 2 trial onset at 165700.915401
+bar pass 2 stimulus probe onset at 165701.315370
+bar pass 2 event u at 165702.032322
+bar pass 2 trial offset at 165702.265472
+bar pass 2 trial onset at 165702.282159
+bar pass 2 stimulus probe onset at 165702.665398
+bar pass 2 event r at 165703.415685
+stimulus staircase updated to 14.00 at 165703.415994
+bar pass 2 trial offset at 165703.632064
+bar pass 2 trial onset at 165703.648726
+bar pass 2 stimulus probe onset at 165704.048724
+bar pass 2 event r at 165704.748717
+bar pass 2 trial offset at 165704.965386
+bar pass 2 trial onset at 165704.982068
+bar pass 2 stimulus probe onset at 165705.365374
+bar pass 2 event u at 165706.115533
+bar pass 2 trial offset at 165706.298741
+bar pass 2 - 384/384 drawn bar stimuli - and 160/160 probes - 26 missed sync on 2304 frames, 1.1% (mean/median delay = 13.3/13.3 ms)
+bar pass 2 stopped at 165706.302589
+bar pass 3 started at 165706.302770
+bar pass 3 trial onset at 165706.315542
+bar pass 3 trial offset at 165707.498696
+bar pass 3 trial onset at 165707.515363
+bar pass 3 trial offset at 165708.698696
+bar pass 3 trial onset at 165708.715367
+bar pass 3 trial offset at 165709.898718
+bar pass 3 trial onset at 165709.915380
+bar pass 3 trial offset at 165711.098703
+bar pass 3 trial onset at 165711.115367
+bar pass 3 trial offset at 165712.298743
+bar pass 3 trial onset at 165712.315393
+bar pass 3 trial offset at 165713.498652
+bar pass 3 trial onset at 165713.515314
+bar pass 3 trial offset at 165714.698654
+bar pass 3 trial onset at 165714.715396
+bar pass 3 trial offset at 165715.898714
+bar pass 3 trial onset at 165715.915393
+bar pass 3 trial offset at 165717.098746
+bar pass 3 trial onset at 165717.115379
+bar pass 3 trial offset at 165718.298718
+bar pass 3 trial onset at 165718.315409
+bar pass 3 trial offset at 165719.498726
+bar pass 3 trial onset at 165719.515406
+bar pass 3 trial offset at 165720.698664
+bar pass 3 trial onset at 165720.715402
+bar pass 3 trial offset at 165721.898720
+bar pass 3 trial onset at 165721.915403
+bar pass 3 trial offset at 165723.098737
+bar pass 3 trial onset at 165723.115398
+bar pass 3 trial offset at 165724.298725
+bar pass 3 trial onset at 165724.315368
+bar pass 3 trial offset at 165725.498747
+bar pass 3 - 192/192 drawn bar stimuli - and 0/0 probes - 0 missed sync on 1152 frames, 0.0% (mean/median delay = NaN/NaN ms)
+bar pass 3 stopped at 165725.501765
+bar pass 4 started at 165725.501937
+bar pass 4 trial onset at 165725.532267
+bar pass 4 stimulus probe onset at 165725.915385
+bar pass 4 event u at 165726.699987
+stimulus staircase updated to 13.00 at 165726.700157
+bar pass 4 trial offset at 165726.798736
+bar pass 4 trial onset at 165726.815427
+bar pass 4 stimulus probe onset at 165727.215411
+bar pass 4 event u at 165727.815931
+bar pass 4 trial offset at 165728.132071
+bar pass 4 trial onset at 165728.148753
+bar pass 4 stimulus probe onset at 165728.548725
+bar pass 4 event r at 165729.232283
+bar pass 4 trial offset at 165729.448703
+bar pass 4 trial onset at 165729.465403
+bar pass 4 stimulus probe onset at 165729.865392
+bar pass 4 event r at 165730.482791
+stimulus staircase updated to 12.00 at 165730.482985
+bar pass 4 trial offset at 165730.815424
+bar pass 4 trial onset at 165730.832080
+bar pass 4 stimulus probe onset at 165731.232062
+bar pass 4 event u at 165731.915447
+bar pass 4 trial offset at 165732.165423
+bar pass 4 trial onset at 165732.182093
+bar pass 4 stimulus probe onset at 165732.582024
+bar pass 4 event u at 165733.199016
+bar pass 4 trial offset at 165733.532081
+bar pass 4 trial onset at 165733.548759
+bar pass 4 stimulus probe onset at 165733.948736
+bar pass 4 event u at 165734.498972
+stimulus staircase updated to 11.00 at 165734.499266
+bar pass 4 trial offset at 165734.882057
+bar pass 4 trial onset at 165734.898720
+bar pass 4 stimulus probe onset at 165735.282069
+bar pass 4 event r at 165735.915393
+bar pass 4 trial offset at 165736.182104
+bar pass 4 trial onset at 165736.198721
+bar pass 4 stimulus probe onset at 165736.598743
+bar pass 4 event r at 165737.249010
+bar pass 4 trial offset at 165737.532138
+bar pass 4 trial onset at 165737.548779
+bar pass 4 stimulus probe onset at 165737.932143
+bar pass 4 event u at 165738.565538
+stimulus staircase updated to 10.00 at 165738.565767
+bar pass 4 trial offset at 165738.882066
+bar pass 4 trial onset at 165738.898839
+bar pass 4 stimulus probe onset at 165739.298810
+bar pass 4 event u at 165739.865690
+bar pass 4 trial offset at 165740.248732
+bar pass 4 trial onset at 165740.265431
+bar pass 4 stimulus probe onset at 165740.665424
+bar pass 4 event r at 165741.315492
+bar pass 4 trial offset at 165741.598761
+bar pass 4 trial onset at 165741.615430
+bar pass 4 stimulus probe onset at 165741.998747
+bar pass 4 event u at 165742.515435
+stimulus staircase updated to 9.00 at 165742.515602
+bar pass 4 trial offset at 165742.915439
+bar pass 4 trial onset at 165742.932100
+bar pass 4 stimulus probe onset at 165743.332107
+bar pass 4 event u at 165743.899009
+bar pass 4 trial offset at 165744.265417
+bar pass 4 trial onset at 165744.282098
+bar pass 4 stimulus probe onset at 165744.665386
+bar pass 4 event u at 165745.365611
+bar pass 4 trial offset at 165745.598681
+bar pass 4 trial onset at 165745.615442
+bar pass 4 stimulus probe onset at 165746.015417
+bar pass 4 event u at 165746.682345
+stimulus staircase updated to 8.00 at 165746.682584
+bar pass 4 trial offset at 165746.932102
+bar pass 4 trial onset at 165746.948801
+bar pass 4 stimulus probe onset at 165747.332092
+bar pass 4 event u at 165747.965537
+bar pass 4 trial offset at 165748.265443
+bar pass 4 trial onset at 165748.282126
+bar pass 4 stimulus probe onset at 165748.665457
+bar pass 4 event u at 165749.298852
+bar pass 4 trial offset at 165749.565457
+bar pass 4 trial onset at 165749.582092
+bar pass 4 stimulus probe onset at 165749.982096
+bar pass 4 event u at 165750.582160
+stimulus staircase updated to 7.00 at 165750.582761
+bar pass 4 trial offset at 165750.915428
+bar pass 4 trial onset at 165750.932130
+bar pass 4 stimulus probe onset at 165751.332091
+bar pass 4 event u at 165751.948756
+bar pass 4 trial offset at 165752.232148
+bar pass 4 trial onset at 165752.248786
+bar pass 4 stimulus probe onset at 165752.648764
+bar pass 4 event u at 165753.233177
+bar pass 4 trial offset at 165753.565443
+bar pass 4 trial onset at 165753.582110
+bar pass 4 stimulus probe onset at 165753.982125
+bar pass 4 event u at 165754.648972
+stimulus staircase updated to 6.00 at 165754.649211
+bar pass 4 trial offset at 165754.915452
+bar pass 4 trial onset at 165754.932106
+bar pass 4 stimulus probe onset at 165755.315384
+bar pass 4 event r at 165756.015685
+bar pass 4 trial offset at 165756.265446
+bar pass 4 trial onset at 165756.282057
+bar pass 4 stimulus probe onset at 165756.682118
+bar pass 4 event u at 165757.382353
+bar pass 4 trial offset at 165757.632111
+bar pass 4 trial onset at 165757.648777
+bar pass 4 stimulus probe onset at 165758.048782
+bar pass 4 event u at 165758.715662
+stimulus staircase updated to 5.00 at 165758.715905
+bar pass 4 trial offset at 165758.982136
+bar pass 4 trial onset at 165758.998755
+bar pass 4 stimulus probe onset at 165759.398749
+bar pass 4 event r at 165760.048997
+bar pass 4 trial offset at 165760.315473
+bar pass 4 trial onset at 165760.332116
+bar pass 4 stimulus probe onset at 165760.732129
+bar pass 4 event u at 165761.348963
+bar pass 4 trial offset at 165761.665468
+bar pass 4 trial onset at 165761.682114
+bar pass 4 stimulus probe onset at 165762.082120
+bar pass 4 event u at 165762.698868
+stimulus staircase updated to 4.00 at 165762.699037
+bar pass 4 trial offset at 165763.015443
+bar pass 4 trial onset at 165763.032112
+bar pass 4 stimulus probe onset at 165763.432114
+bar pass 4 event u at 165764.148842
+stimulus staircase updated to 5.00 at 165764.149034
+bar pass 4 trial offset at 165764.382154
+bar pass 4 trial onset at 165764.398781
+bar pass 4 stimulus probe onset at 165764.782163
+bar pass 4 event r at 165765.449416
+stimulus staircase updated to 6.00 at 165765.449897
+bar pass 4 trial offset at 165765.748826
+bar pass 4 trial onset at 165765.765485
+bar pass 4 stimulus probe onset at 165766.165471
+bar pass 4 event r at 165766.682342
+stimulus staircase updated to 7.00 at 165766.682581
+bar pass 4 trial offset at 165767.082107
+bar pass 4 trial onset at 165767.098803
+bar pass 4 stimulus probe onset at 165767.482126
+bar pass 4 event r at 165768.065494
+stimulus staircase updated to 8.00 at 165768.066095
+bar pass 4 trial offset at 165768.415477
+bar pass 4 - 384/384 drawn bar stimuli - and 160/160 probes - 9 missed sync on 2304 frames, 0.4% (mean/median delay = 13.3/13.3 ms)
+bar pass 4 stopped at 165768.417702
+bar pass 5 started at 165768.417871
+bar pass 5 trial onset at 165768.432358
+bar pass 5 trial offset at 165769.615467
+bar pass 5 trial onset at 165769.632127
+bar pass 5 trial offset at 165770.815459
+bar pass 5 trial onset at 165770.832060
+bar pass 5 trial offset at 165772.015430
+bar pass 5 trial onset at 165772.032139
+bar pass 5 trial offset at 165773.215472
+bar pass 5 trial onset at 165773.232141
+bar pass 5 trial offset at 165774.415473
+bar pass 5 trial onset at 165774.432142
+bar pass 5 trial offset at 165775.615459
+bar pass 5 trial onset at 165775.632140
+bar pass 5 trial offset at 165776.815482
+bar pass 5 trial onset at 165776.832155
+bar pass 5 trial offset at 165778.015473
+bar pass 5 trial onset at 165778.032193
+bar pass 5 trial offset at 165779.215489
+bar pass 5 trial onset at 165779.232127
+bar pass 5 trial offset at 165780.415479
+bar pass 5 trial onset at 165780.432156
+bar pass 5 trial offset at 165781.615413
+bar pass 5 trial onset at 165781.632074
+bar pass 5 trial offset at 165782.815465
+bar pass 5 trial onset at 165782.832153
+bar pass 5 trial offset at 165784.015540
+bar pass 5 trial onset at 165784.032230
+bar pass 5 trial offset at 165785.215460
+bar pass 5 trial onset at 165785.232161
+bar pass 5 trial offset at 165786.415490
+bar pass 5 trial onset at 165786.432148
+bar pass 5 trial offset at 165787.615494
+bar pass 5 - 192/192 drawn bar stimuli - and 0/0 probes - 0 missed sync on 1152 frames, 0.0% (mean/median delay = NaN/NaN ms)
+bar pass 5 stopped at 165787.624874
+bar pass 6 started at 165787.625006
+bar pass 6 trial onset at 165787.649053
+bar pass 6 stimulus probe onset at 165787.998806
+bar pass 6 trial offset at 165788.915486
+bar pass 6 trial onset at 165788.932144
+bar pass 6 stimulus probe onset at 165789.282143
+bar pass 6 event r at 165789.998953
+bar pass 6 trial offset at 165790.198808
+bar pass 6 trial onset at 165790.215485
+bar pass 6 stimulus probe onset at 165790.548826
+bar pass 6 event r at 165791.115475
+bar pass 6 trial offset at 165791.448840
+bar pass 6 trial onset at 165791.465509
+bar pass 6 stimulus probe onset at 165791.798793
+bar pass 6 event u at 165792.365515
+stimulus staircase updated to 7.00 at 165792.365681
+bar pass 6 trial offset at 165792.732174
+bar pass 6 trial onset at 165792.748839
+bar pass 6 stimulus probe onset at 165793.082071
+bar pass 6 event r at 165793.765442
+bar pass 6 trial offset at 165793.998753
+bar pass 6 trial onset at 165794.015362
+bar pass 6 stimulus probe onset at 165794.348816
+bar pass 6 event u at 165794.982859
+bar pass 6 trial offset at 165795.248812
+bar pass 6 trial onset at 165795.265465
+bar pass 6 stimulus probe onset at 165795.615477
+bar pass 6 event u at 165796.232114
+stimulus staircase updated to 6.00 at 165796.232254
+bar pass 6 trial offset at 165796.515372
+bar pass 6 trial onset at 165796.532013
+bar pass 6 stimulus probe onset at 165796.865469
+bar pass 6 event r at 165797.532218
+bar pass 6 trial offset at 165797.765425
+bar pass 6 trial onset at 165797.782144
+bar pass 6 stimulus probe onset at 165798.115379
+bar pass 6 event r at 165798.732180
+bar pass 6 trial offset at 165799.032117
+bar pass 6 trial onset at 165799.048762
+bar pass 6 stimulus probe onset at 165799.381999
+bar pass 6 event r at 165800.065756
+stimulus staircase updated to 7.00 at 165800.066521
+bar pass 6 trial offset at 165800.248762
+bar pass 6 trial onset at 165800.265505
+bar pass 6 stimulus probe onset at 165800.598770
+bar pass 6 event r at 165801.299016
+bar pass 6 trial offset at 165801.532158
+bar pass 6 trial onset at 165801.548775
+bar pass 6 stimulus probe onset at 165801.882129
+bar pass 6 event r at 165802.482387
+bar pass 6 trial offset at 165802.798817
+bar pass 6 trial onset at 165802.815450
+bar pass 6 stimulus probe onset at 165803.165411
+bar pass 6 event r at 165803.748829
+stimulus staircase updated to 6.00 at 165803.749031
+bar pass 6 trial offset at 165804.015449
+bar pass 6 trial onset at 165804.032231
+bar pass 6 stimulus probe onset at 165804.382065
+bar pass 6 event u at 165805.065649
+bar pass 6 trial offset at 165805.315451
+bar pass 6 trial onset at 165805.332186
+bar pass 6 stimulus probe onset at 165805.665523
+bar pass 6 event r at 165806.332192
+bar pass 6 trial offset at 165806.582170
+bar pass 6 trial onset at 165806.598840
+bar pass 6 stimulus probe onset at 165806.948682
+bar pass 6 event r at 165807.682992
+stimulus staircase updated to 5.00 at 165807.683158
+bar pass 6 trial offset at 165807.865434
+bar pass 6 trial onset at 165807.882125
+bar pass 6 stimulus probe onset at 165808.215471
+bar pass 6 event u at 165808.832370
+bar pass 6 trial offset at 165809.115518
+bar pass 6 trial onset at 165809.132179
+bar pass 6 stimulus probe onset at 165809.482179
+bar pass 6 event r at 165810.182287
+bar pass 6 trial offset at 165810.382235
+bar pass 6 trial onset at 165810.398763
+bar pass 6 stimulus probe onset at 165810.748872
+bar pass 6 event u at 165811.433457
+stimulus staircase updated to 4.00 at 165811.438101
+bar pass 6 trial offset at 165811.632155
+bar pass 6 trial onset at 165811.648798
+bar pass 6 stimulus probe onset at 165812.015455
+bar pass 6 trial offset at 165812.915546
+bar pass 6 trial onset at 165812.932199
+bar pass 6 stimulus probe onset at 165813.298868
+bar pass 6 event r at 165813.848810
+bar pass 6 trial offset at 165814.165525
+bar pass 6 trial onset at 165814.182144
+bar pass 6 stimulus probe onset at 165814.548756
+bar pass 6 trial offset at 165815.399982
+bar pass 6 event u at 165815.400310
+stimulus staircase updated to 5.00 at 165815.400456
+bar pass 6 trial onset at 165815.415386
+bar pass 6 stimulus probe onset at 165815.782134
+bar pass 6 event r at 165816.465797
+stimulus staircase updated to 6.00 at 165816.466029
+bar pass 6 trial offset at 165816.698797
+bar pass 6 trial onset at 165816.715373
+bar pass 6 stimulus probe onset at 165817.082198
+bar pass 6 event r at 165817.866296
+bar pass 6 trial offset at 165817.982029
+bar pass 6 trial onset at 165817.998788
+bar pass 6 stimulus probe onset at 165818.348866
+bar pass 6 event r at 165819.149376
+stimulus staircase updated to 7.00 at 165819.151354
+bar pass 6 trial offset at 165819.232125
+bar pass 6 trial onset at 165819.248797
+bar pass 6 stimulus probe onset at 165819.632205
+bar pass 6 event r at 165820.383291
+stimulus staircase updated to 8.00 at 165820.384149
+bar pass 6 trial offset at 165820.515417
+bar pass 6 trial onset at 165820.532189
+bar pass 6 stimulus probe onset at 165820.865565
+bar pass 6 event r at 165821.599761
+stimulus staircase updated to 9.00 at 165821.599964
+bar pass 6 trial offset at 165821.748804
+bar pass 6 trial onset at 165821.765405
+bar pass 6 stimulus probe onset at 165822.115394
+bar pass 6 event r at 165822.832491
+stimulus staircase updated to 10.00 at 165822.832938
+bar pass 6 trial offset at 165822.982135
+bar pass 6 trial onset at 165822.998800
+bar pass 6 stimulus probe onset at 165823.382149
+bar pass 6 event r at 165824.016799
+bar pass 6 trial offset at 165824.282165
+bar pass 6 trial onset at 165824.298818
+bar pass 6 stimulus probe onset at 165824.665478
+bar pass 6 event r at 165825.248869
+bar pass 6 trial offset at 165825.565552
+bar pass 6 trial onset at 165825.582153
+bar pass 6 stimulus probe onset at 165825.932233
+bar pass 6 event r at 165826.433081
+stimulus staircase updated to 9.00 at 165826.433257
+bar pass 6 trial offset at 165826.798894
+bar pass 6 trial onset at 165826.815568
+bar pass 6 stimulus probe onset at 165827.148753
+bar pass 6 event r at 165827.582180
+stimulus staircase updated to 10.00 at 165827.582322
+bar pass 6 trial offset at 165828.015410
+bar pass 6 - 384/384 drawn bar stimuli - and 160/160 probes - 11 missed sync on 2304 frames, 0.5% (mean/median delay = 13.4/13.3 ms)
+bar pass 6 stopped at 165828.020018
+bar pass 7 started at 165828.020088
+bar pass 7 trial onset at 165828.032146
+bar pass 7 trial offset at 165829.215405
+bar pass 7 trial onset at 165829.232100
+bar pass 7 trial offset at 165830.415531
+bar pass 7 trial onset at 165830.432157
+bar pass 7 trial offset at 165831.615580
+bar pass 7 trial onset at 165831.632240
+bar pass 7 trial offset at 165832.815485
+bar pass 7 trial onset at 165832.832199
+bar pass 7 trial offset at 165834.015487
+bar pass 7 trial onset at 165834.032111
+bar pass 7 trial offset at 165835.215444
+bar pass 7 trial onset at 165835.232093
+bar pass 7 trial offset at 165836.415555
+bar pass 7 trial onset at 165836.432149
+bar pass 7 trial offset at 165837.615605
+bar pass 7 trial onset at 165837.632221
+bar pass 7 trial offset at 165838.815492
+bar pass 7 trial onset at 165838.832117
+bar pass 7 trial offset at 165840.015467
+bar pass 7 trial onset at 165840.032235
+bar pass 7 trial offset at 165841.215458
+bar pass 7 trial onset at 165841.232105
+bar pass 7 trial offset at 165842.415438
+bar pass 7 trial onset at 165842.432170
+bar pass 7 trial offset at 165843.615422
+bar pass 7 trial onset at 165843.632116
+bar pass 7 trial offset at 165844.815560
+bar pass 7 trial onset at 165844.832194
+bar pass 7 trial offset at 165846.015456
+bar pass 7 trial onset at 165846.032109
+bar pass 7 trial offset at 165847.215580
+bar pass 7 - 192/192 drawn bar stimuli - and 0/0 probes - 0 missed sync on 1152 frames, 0.0% (mean/median delay = NaN/NaN ms)
+bar pass 7 stopped at 165847.216724
+bar pass 8 started at 165847.216857
+bar pass 8 trial onset at 165847.249039
+bar pass 8 stimulus probe onset at 165847.632150
+bar pass 8 trial offset at 165848.565571
+bar pass 8 trial onset at 165848.582227
+bar pass 8 stimulus probe onset at 165848.982243
+bar pass 8 trial offset at 165849.898890
+bar pass 8 trial onset at 165849.915553
+bar pass 8 stimulus probe onset at 165850.315562
+bar pass 8 trial offset at 165851.215481
+bar pass 8 trial onset at 165851.232249
+bar pass 8 stimulus probe onset at 165851.632232
+bar pass 8 trial offset at 165852.582251
+bar pass 8 trial onset at 165852.598904
+bar pass 8 stimulus probe onset at 165852.998898
+bar pass 8 trial offset at 165853.932244
+bar pass 8 trial onset at 165853.948938
+bar pass 8 stimulus probe onset at 165854.348914
+bar pass 8 trial offset at 165855.298876
+bar pass 8 trial onset at 165855.315569
+bar pass 8 stimulus probe onset at 165855.715609
+bar pass 8 trial offset at 165856.648944
+bar pass 8 trial onset at 165856.665647
+bar pass 8 stimulus probe onset at 165857.048929
+bar pass 8 trial offset at 165857.948952
+bar pass 8 trial onset at 165857.965538
+bar pass 8 stimulus probe onset at 165858.365620
+bar pass 8 trial offset at 165859.298956
+bar pass 8 trial onset at 165859.315625
+bar pass 8 stimulus probe onset at 165859.698961
+bar pass 8 trial offset at 165860.648946
+bar pass 8 trial onset at 165860.665572
+bar pass 8 stimulus probe onset at 165861.065621
+bar pass 8 trial offset at 165862.015564
+bar pass 8 trial onset at 165862.032307
+bar pass 8 stimulus probe onset at 165862.432292
+bar pass 8 trial offset at 165863.365636
+bar pass 8 trial onset at 165863.382306
+bar pass 8 stimulus probe onset at 165863.765626
+bar pass 8 trial offset at 165864.665648
+bar pass 8 trial onset at 165864.682209
+bar pass 8 stimulus probe onset at 165865.082213
+bar pass 8 trial offset at 165866.015540
+bar pass 8 trial onset at 165866.032288
+bar pass 8 stimulus probe onset at 165866.415650
+bar pass 8 trial offset at 165867.348977
+bar pass 8 trial onset at 165867.365593
+bar pass 8 stimulus probe onset at 165867.765639
+bar pass 8 trial offset at 165868.682319
+bar pass 8 trial onset at 165868.698895
+bar pass 8 stimulus probe onset at 165869.082323
+bar pass 8 trial offset at 165870.015641
+bar pass 8 trial onset at 165870.032334
+bar pass 8 stimulus probe onset at 165870.415649
+bar pass 8 trial offset at 165871.315571
+bar pass 8 trial onset at 165871.332290
+bar pass 8 stimulus probe onset at 165871.732239
+bar pass 8 trial offset at 165872.665641
+bar pass 8 trial onset at 165872.682300
+bar pass 8 stimulus probe onset at 165873.082299
+bar pass 8 trial offset at 165873.982323
+bar pass 8 trial onset at 165873.998892
+bar pass 8 stimulus probe onset at 165874.398961
+bar pass 8 trial offset at 165875.315651
+bar pass 8 trial onset at 165875.332318
+bar pass 8 stimulus probe onset at 165875.732280
+bar pass 8 trial offset at 165876.665559
+bar pass 8 trial onset at 165876.682341
+bar pass 8 stimulus probe onset at 165877.065628
+bar pass 8 trial offset at 165878.015649
+bar pass 8 trial onset at 165878.032299
+bar pass 8 stimulus probe onset at 165878.432321
+bar pass 8 trial offset at 165879.382327
+bar pass 8 trial onset at 165879.399003
+bar pass 8 stimulus probe onset at 165879.798967
+bar pass 8 trial offset at 165880.732313
+bar pass 8 trial onset at 165880.748989
+bar pass 8 stimulus probe onset at 165881.148991
+bar pass 8 trial offset at 165882.065680
+bar pass 8 trial onset at 165882.082330
+bar pass 8 stimulus probe onset at 165882.482328
+bar pass 8 trial offset at 165883.415642
+bar pass 8 trial onset at 165883.432326
+bar pass 8 stimulus probe onset at 165883.832327
+bar pass 8 trial offset at 165884.765610
+bar pass 8 trial onset at 165884.782305
+bar pass 8 stimulus probe onset at 165885.182317
+bar pass 8 trial offset at 165886.132325
+bar pass 8 trial onset at 165886.148963
+bar pass 8 stimulus probe onset at 165886.532326
+bar pass 8 trial offset at 165887.498969
+bar pass 8 trial onset at 165887.515663
+bar pass 8 stimulus probe onset at 165887.915646
+bar pass 8 trial offset at 165888.832319
+bar pass 8 trial onset at 165888.848994
+bar pass 8 stimulus probe onset at 165889.232292
+bar pass 8 trial offset at 165890.148993
+bar pass 8 - 384/384 drawn bar stimuli - and 160/160 probes - 8 missed sync on 2304 frames, 0.3% (mean/median delay = 13.3/13.3 ms)
+bar pass 8 stopped at 165890.150162
+bar pass 9 started at 165890.150294
+bar pass 9 trial onset at 165890.165666
+bar pass 9 trial offset at 165891.348973
+bar pass 9 trial onset at 165891.365544
+bar pass 9 trial offset at 165892.548965
+bar pass 9 trial onset at 165892.565628
+bar pass 9 trial offset at 165893.748997
+bar pass 9 trial onset at 165893.765562
+bar pass 9 trial offset at 165894.948974
+bar pass 9 trial onset at 165894.965616
+bar pass 9 trial offset at 165896.148981
+bar pass 9 trial onset at 165896.165631
+bar pass 9 trial offset at 165897.348917
+bar pass 9 trial onset at 165897.365642
+bar pass 9 trial offset at 165898.549004
+bar pass 9 trial onset at 165898.565572
+bar pass 9 trial offset at 165899.748991
+bar pass 9 trial onset at 165899.765606
+bar pass 9 trial offset at 165900.948911
+bar pass 9 trial onset at 165900.965651
+bar pass 9 trial offset at 165902.148994
+bar pass 9 trial onset at 165902.165603
+bar pass 9 trial offset at 165903.348965
+bar pass 9 trial onset at 165903.365667
+bar pass 9 trial offset at 165904.549006
+bar pass 9 trial onset at 165904.565668
+bar pass 9 trial offset at 165905.749013
+bar pass 9 trial onset at 165905.765661
+bar pass 9 trial offset at 165906.948941
+bar pass 9 trial onset at 165906.965672
+bar pass 9 trial offset at 165908.149005
+bar pass 9 trial onset at 165908.165597
+bar pass 9 trial offset at 165909.348984
+bar pass 9 - 192/192 drawn bar stimuli - and 0/0 probes - 0 missed sync on 1152 frames, 0.0% (mean/median delay = NaN/NaN ms)
+bar pass 9 stopped at 165909.349932
