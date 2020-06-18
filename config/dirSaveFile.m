@@ -55,6 +55,9 @@ const.add_output_file   =   sprintf('data/%s/add/%s_task-%s_%s',const.sjct,const
 % Define .mat saving file
 const.mat_file          =   sprintf('%s_matFile.mat',const.add_output_file);
 
+% Staircase file
+const.staircase_file    =   sprintf('data/%s/add/%s_staircases.mat',const.sjct,const.sjct);
+
 % Log file
 if const.writeLogTxt
     const.log_file          =   sprintf('%s_logData.txt',const.add_output_file);
