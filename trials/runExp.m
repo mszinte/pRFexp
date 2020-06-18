@@ -186,6 +186,13 @@ end
 config.scr = scr; config.const = const; config.expDes = expDes; config.my_key = my_key;
 save(const.mat_file,'config');
 
+% Save staircases
+% ---------------
+staircase.stim_stair_val    =   expDes.stim_stair_val;
+staircase.cor_count_stim    =   expDes.cor_count_stim;
+staircase.incor_count_stim  =   expDes.incor_count_stim;
+save(const.staircase_file,'staircase');
+
 % Stop Eyelink
 % ------------
 if const.tracker
