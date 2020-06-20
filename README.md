@@ -1,6 +1,6 @@
 # pMFexp
 By :      Martin SZINTE<br/>
-Projet :  pRFseqTest<br/>
+Projet :  pRFexp<br/>
 With :    Vanessa Morita, Anna Montagnini & Guillaume Masson<br/>
 Version:  1.0<br/>
 
@@ -20,8 +20,4 @@ Experiment in which we first use a square full screen 4 directions (left/right/u
 To define later
 
 ## Behavioral analysis
-* get eye coordinates using stats/behav_analysis/extract_eyetraces.py
-* get saccade parameters using stats/behav_analysis/extract_saccades.py
-* plot eye traces per run using stats/behav_analysis/plot_eye_traces_run.py
-* plot eye traces per saccade sequence using stats/behav_analysis/plot_eye_traces_sac_seq.py
-* plot eye traces per trial using stats/behav_analysis/plot_eye_traces_trial.py
+To define later
