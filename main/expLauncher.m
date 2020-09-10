@@ -27,7 +27,7 @@ Screen('CloseAll');clear all;clear mex;clear functions;close all;home;AssertOpen
 const.expName           =   'pRFexp';       % experiment name
 const.expStart          =   1;              % Start of a recording exp                          0 = NO  , 1 = YES
 const.checkTrial        =   0;              % Print trial conditions (for debugging)            0 = NO  , 1 = YES
-const.writeLogTxt       =   1;              % write a log file in addition to eyelink file      0 = NO  , 1 = YES
+const.writeLogTxt       =   0;              % write a log file in addition to eyelink file      0 = NO  , 1 = YES
 const.genStimuli        =   input(sprintf('\n\tGenerate stim (1 = Yes; 0 = No): '));%           0 = NO  , 1 = YES
 const.drawStimuli       =   0;              % Draw stimuli generated                            0 = NO  , 1 = YES
 const.mkVideo           =   0;              % Make a video of a run                             0 = NO  , 1 = YES
@@ -35,7 +35,7 @@ const.mkVideo           =   0;              % Make a video of a run             
 % External controls
 % -----------------
 const.tracker           =   1;              % run with eye tracker                              0 = NO  , 1 = YES
-const.scanner           =   0;              % run in MRI scanner                                0 = NO  , 1 = YES
+const.scanner           =   1;              % run in MRI scanner                                0 = NO  , 1 = YES
 const.scannerTest       =   1;              % run with T returned at TR time                    0 = NO  , 1 = YES
 const.room              =   1;              % run in MRI or eye-tracking room                   1 = MRI , 2 = eye-tracking
 
@@ -46,7 +46,7 @@ const.cond_run_num      =   [01;02;03;04;05];
 
 % Desired screen setting
 % ----------------------
-const.desiredFD         =   120;            % Desired refresh rate
+const.desiredFD         =   60;            % Desired refresh rate
 %fprintf(1,'\n\n\tDon''t forget to change before testing\n');
 %const.desiredRes        =   [1280,720];    % Desired resolution
 const.desiredRes        =   [1920,1080];    % Desired resolution

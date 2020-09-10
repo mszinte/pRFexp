@@ -138,10 +138,10 @@ for t = 1:const.bar_dir_num
         end
         num_frame_max           =   num_frame_max_cond;
     end
-    matf = matfile(screen_filename);
-    expDes.texnew              =   Screen('MakeTexture',scr.main,matf.screen_stim,[],[],[],angle);
-    %load(screen_filename,'screen_stim');
-    %expDes.texnew              =   Screen('MakeTexture',scr.main,screen_stim,[],[],[],angle);
+    %matf = matfile(screen_filename);
+    %expDes.texnew              =   Screen('MakeTexture',scr.main,matf.screen_stim,[],[],[],angle);
+    load(screen_filename,'screen_stim');
+    expDes.texnew              =   Screen('MakeTexture',scr.main,screen_stim,[],[],[],angle);
 
     % wait for T press in trial beginning
     if t == 1
@@ -257,14 +257,14 @@ for t = 1:const.bar_dir_num
                 end
             end
             % load the matrix
-            matf = matfile(screen_filename);
-            %load(screen_filename,'screen_stim');
+            %matf = matfile(screen_filename);
+            load(screen_filename,'screen_stim');
          end
 
         % make the texture
         if time2make
-            expDes.texnew           =   Screen('MakeTexture',scr.main,matf.screen_stim,[],[],[],angle);
-            %expDes.texnew           =   Screen('MakeTexture',scr.main,screen_stim,[],[],[],angle);
+            %expDes.texnew           =   Screen('MakeTexture',scr.main,matf.screen_stim,[],[],[],angle);
+            expDes.texnew           =   Screen('MakeTexture',scr.main,screen_stim,[],[],[],angle);
 
             % save stim staircase level
             expDes.expMat(bar_trials_num(bar_step),10)  =   expDes.stim_stair_val;
