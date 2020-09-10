@@ -1,0 +1,116 @@
+bar pass 1 started at 2070.971616
+bar pass 1 event mri_trigger val = -8 at 2070.998883
+bar pass 1 trial onset at 2071.007963
+bar pass 1 trial offset at 2072.239181
+bar pass 1 trial onset at 2072.247459
+bar pass 1 trial offset at 2073.437989
+bar pass 1 trial onset at 2073.446260
+bar pass 1 trial offset at 2074.636717
+bar pass 1 trial onset at 2074.645034
+bar pass 1 trial offset at 2075.835529
+bar pass 1 - 48/48 drawn bar stimuli - and 0/0 probes - 2 missed sync on 576 frames, 0.3% (mean/median delay = 7.9/7.9 ms)
+bar pass 1 stopped at 2075.851392
+bar pass 2 started at 2075.851625
+bar pass 2 trial onset at 2075.869381
+bar pass 2 stimulus probe onset at 2076.210186
+bar pass 2 trial offset at 2077.059404
+bar pass 2 trial onset at 2077.067715
+bar pass 2 stimulus probe onset at 2077.408994
+bar pass 2 trial offset at 2078.258075
+bar pass 2 trial onset at 2078.266440
+bar pass 2 stimulus probe onset at 2078.607824
+bar pass 2 trial offset at 2079.473526
+bar pass 2 trial onset at 2079.481865
+bar pass 2 stimulus probe onset at 2079.823255
+bar pass 2 trial offset at 2080.689035
+bar pass 2 - 47/48 drawn bar stimuli - and 20/20 probes - 1 missed sync on 576 frames, 0.2% (mean/median delay = 7.9/7.9 ms)
+bar pass 2 stopped at 2080.692115
+bar pass 3 started at 2080.692355
+bar pass 3 trial onset at 2080.705956
+bar pass 3 trial offset at 2081.896254
+bar pass 3 trial onset at 2081.904425
+bar pass 3 trial offset at 2083.094875
+bar pass 3 trial onset at 2083.103198
+bar pass 3 trial offset at 2084.293677
+bar pass 3 trial onset at 2084.302009
+bar pass 3 trial offset at 2085.492479
+bar pass 3 - 48/48 drawn bar stimuli - and 0/0 probes - 0 missed sync on 576 frames, 0.0% (mean/median delay = NaN/NaN ms)
+bar pass 3 stopped at 2085.494222
+bar pass 4 started at 2085.494457
+bar pass 4 trial onset at 2085.509414
+bar pass 4 stimulus probe onset at 2085.850732
+bar pass 4 trial offset at 2086.707901
+bar pass 4 trial onset at 2086.716240
+bar pass 4 stimulus probe onset at 2087.057859
+bar pass 4 trial offset at 2087.906711
+bar pass 4 trial onset at 2087.915024
+bar pass 4 stimulus probe onset at 2088.256360
+bar pass 4 trial offset at 2089.122233
+bar pass 4 trial onset at 2089.130448
+bar pass 4 stimulus probe onset at 2089.471846
+bar pass 4 trial offset at 2090.337702
+bar pass 4 - 48/48 drawn bar stimuli - and 20/20 probes - 1 missed sync on 576 frames, 0.2% (mean/median delay = 7.9/7.9 ms)
+bar pass 4 stopped at 2090.339098
+bar pass 5 started at 2090.339541
+bar pass 5 trial onset at 2090.354206
+bar pass 5 trial offset at 2091.544724
+bar pass 5 trial onset at 2091.553054
+bar pass 5 trial offset at 2092.743541
+bar pass 5 trial onset at 2092.751838
+bar pass 5 trial offset at 2093.942430
+bar pass 5 trial onset at 2093.950764
+bar pass 5 trial offset at 2095.141161
+bar pass 5 - 48/48 drawn bar stimuli - and 0/0 probes - 0 missed sync on 576 frames, 0.0% (mean/median delay = NaN/NaN ms)
+bar pass 5 stopped at 2095.148887
+bar pass 6 started at 2095.150047
+bar pass 6 trial onset at 2095.175001
+bar pass 6 stimulus probe onset at 2095.515795
+bar pass 6 trial offset at 2096.364877
+bar pass 6 trial onset at 2096.373224
+bar pass 6 stimulus probe onset at 2096.714539
+bar pass 6 trial offset at 2097.563688
+bar pass 6 trial onset at 2097.572054
+bar pass 6 stimulus probe onset at 2097.913313
+bar pass 6 trial offset at 2098.762542
+bar pass 6 trial onset at 2098.770792
+bar pass 6 stimulus probe onset at 2099.112109
+bar pass 6 trial offset at 2099.961300
+bar pass 6 - 47/48 drawn bar stimuli - and 20/20 probes - 1 missed sync on 576 frames, 0.2% (mean/median delay = 8.0/8.0 ms)
+bar pass 6 stopped at 2099.966131
+bar pass 7 started at 2099.966898
+bar pass 7 trial onset at 2099.977933
+bar pass 7 trial offset at 2101.168389
+bar pass 7 trial onset at 2101.176711
+bar pass 7 trial offset at 2102.367225
+bar pass 7 trial onset at 2102.375582
+bar pass 7 trial offset at 2103.566031
+bar pass 7 trial onset at 2103.574346
+bar pass 7 trial offset at 2104.764777
+bar pass 7 - 48/48 drawn bar stimuli - and 0/0 probes - 0 missed sync on 576 frames, 0.0% (mean/median delay = NaN/NaN ms)
+bar pass 7 stopped at 2104.765650
+bar pass 8 started at 2104.765860
+bar pass 8 trial onset at 2104.781485
+bar pass 8 stimulus probe onset at 2105.122807
+bar pass 8 trial offset at 2105.971901
+bar pass 8 trial onset at 2105.980211
+bar pass 8 stimulus probe onset at 2106.321615
+bar pass 8 trial offset at 2107.170686
+bar pass 8 trial onset at 2107.179013
+bar pass 8 stimulus probe onset at 2107.520337
+bar pass 8 trial offset at 2108.369493
+bar pass 8 trial onset at 2108.377822
+bar pass 8 stimulus probe onset at 2108.719119
+bar pass 8 trial offset at 2109.568293
+bar pass 8 - 48/48 drawn bar stimuli - and 20/20 probes - 0 missed sync on 576 frames, 0.0% (mean/median delay = NaN/NaN ms)
+bar pass 8 stopped at 2109.569115
+bar pass 9 started at 2109.569262
+bar pass 9 trial onset at 2109.585005
+bar pass 9 trial offset at 2110.775417
+bar pass 9 trial onset at 2110.783803
+bar pass 9 trial offset at 2111.974219
+bar pass 9 trial onset at 2111.982533
+bar pass 9 trial offset at 2113.173008
+bar pass 9 trial onset at 2113.181320
+bar pass 9 trial offset at 2114.371849
+bar pass 9 - 48/48 drawn bar stimuli - and 0/0 probes - 0 missed sync on 576 frames, 0.0% (mean/median delay = NaN/NaN ms)
+bar pass 9 stopped at 2114.374799

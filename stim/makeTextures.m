@@ -168,8 +168,8 @@ for kappa_val_stim = 2:kappa_val_num
                     end
                     screen_filename         =   sprintf('%s/%sprobe_barStep-%i_kappaStim%i_stimOri-%i_noiseRand%i.mat',...
                         const.stim_folder,dir_txt,bar_step,kappa_val_stim,stim_ori,noise_rand);
-                    
-                    save(screen_filename,'screen_stim')
+                    save(screen_filename,'screen_stim','-v7.3','-nocompression')
+                    %save(screen_filename,'screen_stim')
                     clear screen_stim
                     
                     numPrint                =   numPrint+1;
@@ -246,7 +246,8 @@ for noise_rand = 1:noise_rand_num
             screen_filename         =   sprintf('%s/%snoprobe_barStep-%i_noiseRand%i.mat',...
                 const.stim_folder,dir_txt,bar_step,noise_rand);
             
-            save(screen_filename,'screen_stim')
+            save(screen_filename,'screen_stim','-v7.3','-nocompression')
+            %save(screen_filename,'screen_stim')
             clear screen_stim
             
             numPrint                =   numPrint+1;
@@ -281,7 +282,8 @@ else
     screen_stim             =   Screen('GetImage', scr.main,const.stim_rect,'backBuffer',[],1);
 end
 screen_filename         =   sprintf('%s/blank.mat',const.stim_folder);
-save(screen_filename,'screen_stim')
+save(screen_filename,'screen_stim','-v7.3','-nocompression')
+%save(screen_filename,'screen_stim')
 clear screen_stim
 
 numPrint                =   numPrint+1;

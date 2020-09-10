@@ -34,10 +34,10 @@ const.mkVideo           =   0;              % Make a video of a run             
 
 % External controls
 % -----------------
-const.tracker           =   0;              % run with eye tracker                              0 = NO  , 1 = YES
+const.tracker           =   1;              % run with eye tracker                              0 = NO  , 1 = YES
 const.scanner           =   0;              % run in MRI scanner                                0 = NO  , 1 = YES
 const.scannerTest       =   1;              % run with T returned at TR time                    0 = NO  , 1 = YES
-const.room              =   2;              % run in MRI or eye-tracking room                   1 = MRI , 2 = eye-tracking
+const.room              =   1;              % run in MRI or eye-tracking room                   1 = MRI , 2 = eye-tracking
 
 % Run order and number per condition
 % ----------------------------------
@@ -48,6 +48,7 @@ const.cond_run_num      =   [01;02;03;04;05];
 % ----------------------
 const.desiredFD         =   120;            % Desired refresh rate
 %fprintf(1,'\n\n\tDon''t forget to change before testing\n');
+%const.desiredRes        =   [1280,720];    % Desired resolution
 const.desiredRes        =   [1920,1080];    % Desired resolution
 
 % Path

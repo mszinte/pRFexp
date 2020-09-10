@@ -54,7 +54,7 @@ while ~push_button
         keyCode                 =   keyCode+keyC;
     end
     
-    if const.room == 1
+    if const.scanner == 1
         input_return = my_key.ni_session.inputSingleScan;
         if input_return(my_key.idx_button_right1) == my_key.button_press_val
             keyPressed              = 1;
