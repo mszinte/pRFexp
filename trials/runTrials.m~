@@ -78,8 +78,8 @@ for t = 1:const.bar_dir_num
         time2log_cond           =   const.time2log_hor;
         trial_start_cond        =   const.trial_start_hor;
         trial_end_cond          =   const.trial_end_hor;
-        %probe_to_draw_cond      =   const.probe_to_draw_hor;
-        %frame_to_draw_cond      =   const.frame_to_draw_hor;
+        probe_to_draw_cond      =   const.probe_to_draw_hor;
+        frame_to_draw_cond      =   const.frame_to_draw_hor;
     elseif var1(1) == 3 || var1(1) == 7
         rand_num_tex_cond       =   const.rand_num_tex_ver;
         bar_step_val_cond       =   1:const.bar_step_ver;
@@ -95,18 +95,18 @@ for t = 1:const.bar_dir_num
         time2log_cond           =   const.time2log_ver;
         trial_start_cond        =   const.trial_start_ver;
         trial_end_cond          =   const.trial_end_ver;
-        %probe_to_draw_cond      =   const.probe_to_draw_ver;
-        %frame_to_draw_cond      =   const.frame_to_draw_ver;
+        probe_to_draw_cond      =   const.probe_to_draw_ver;
+        frame_to_draw_cond      =   const.frame_to_draw_ver;
     end
 
     bar_step_val_rev_cond   =   bar_step_val_cond(end:-1:1);
     rand_num_tex            =   rand_num_tex_cond;
 
     num_tex                 =   1;
-%     drawn_frame             =   0;
-%     drawn_probe             =   0;
+    drawn_frame             =   0;
+    drawn_probe             =   0;
     resp                    =   0;
-%     missed_all              =   [];
+    missed_all              =   [];
 
     % define image of next frame
     bar_step                =   1;
@@ -200,12 +200,12 @@ for t = 1:const.bar_dir_num
     % Trial loop
     % ----------
     nbf = 0;
-    nbf_t0 = GetSecs;
+    b
     while nbf < num_frame_max
 
         % flip count
-        %nbf                     =   nbf + 1;
-        nbf                     =   round(((GetSecs-nbf_t0)-(scr.frame_duration/2))/scr.frame_duration) + 1;
+        
+        nbf                     =   nbf + 1;
 
         % define bar step position
         bar_step                =   bar_step_cond(nbf,t);
@@ -260,11 +260,13 @@ for t = 1:const.bar_dir_num
                 end
             end
             % load the matrix
+            %matf = matfile(screen_filename);
             load(screen_filename,'screen_stim');
          end
 
         % make the texture
         if time2make
+            %expDes.texnew           =   Screen('MakeTexture',scr.main,matf.screen_stim,[],[],[],angle);
             expDes.texnew           =   Screen('MakeTexture',scr.main,screen_stim,[],[],[],angle);
 
             % save stim staircase level
@@ -274,45 +276,34 @@ for t = 1:const.bar_dir_num
             if num_tex < size(const.rand_num_tex,2)
                 num_tex                     =   num_tex + 1;
             end
-            
-            % draw the texture
-            Screen('Close',expDes.tex);
-            expDes.tex = expDes.texnew;
-            tex2draw =   expDes.tex;
-            Screen('DrawTexture',scr.main,tex2draw,[],const.stim_rect)
-
         end
 
         % draw the texture
         if time2draw
-            Screen('Flip',scr.main,[],[],1);
+            Screen('Close',expDes.tex);
+            expDes.tex = expDes.texnew;
+            tex2draw =   expDes.tex;
         end
- 
-%         % draw the texture
-%         if time2draw
-%             Screen('Close',expDes.tex);
-%             expDes.tex = expDes.texnew;
-%             tex2draw =   expDes.tex;
-%         end
 
-%         % Screen flip
-%         Screen('DrawTexture',scr.main,tex2draw,[],const.stim_rect)
-%         [~,~,~,missed]    =   Screen('Flip',scr.main);
+        % Screen flip
+        Screen('DrawTexture',scr.main,tex2draw,[],const.stim_rect)
+        [~,~,~,missed]    =   Screen('Flip',scr.main);
+
         
-%         if sign(missed) == 1
-%             missed_val              =   1;
-%             missed_all              =   [missed_all;missed,missed_val];
-%         else
-%             missed_val              =   0;
-%             missed_all              =   [missed_all;missed,missed_val];
-%         end
+        if sign(missed) == 1
+            missed_val              =   1;
+            missed_all              =   [missed_all;missed,missed_val];
+        else
+            missed_val              =   0;
+            missed_all              =   [missed_all;missed,missed_val];
+        end
 
-%         if time2draw
-%             drawn_frame             =   drawn_frame + 1 - missed_val;
-%             if time2probe
-%                 drawn_probe             =   drawn_probe + 1 - missed_val;
-%             end
-%         end
+        if time2draw
+            drawn_frame             =   drawn_frame + 1 - missed_val;
+            if time2probe
+                drawn_probe             =   drawn_probe + 1 - missed_val;
+            end
+        end
 
         % Create movie
         % ------------
@@ -458,25 +449,25 @@ for t = 1:const.bar_dir_num
     end
 
     % Get number of stim and probe played
-%     %  -----------------------------------
-%     % write in log/edf
-%     if var1(1) == 9
-%         probe_to_draw           =   0;
-%         frame_to_draw           =   const.frame_to_draw_blk;
-%     else
-%         probe_to_draw           =   probe_to_draw_cond;
-%         frame_to_draw           =   frame_to_draw_cond;
-%     end
-%     log_txt                 =   sprintf('bar pass %i - %i/%i drawn bar stimuli - and %i/%i probes - %i missed sync on %i frames, %1.1f%% (mean/median delay = %1.1f/%1.1f ms)',...
-%                                                 t,drawn_frame,frame_to_draw,drawn_probe,probe_to_draw,...
-%                                                 [sum(missed_all(:,2)>0),size(missed_all,1),sum(missed_all(:,2)>0)/size(missed_all,1)*100],...
-%                                                 mean(missed_all(missed_all(:,2)==1))*1000,median(missed_all(missed_all(:,2)==1))*1000);
-%     if const.writeLogTxt
-%         fprintf(const.log_file_fid,'%s\n',log_txt);
-%     end
-%     if const.tracker
-%         Eyelink('message','%s',log_txt);
-%     end
+    %  -----------------------------------
+    % write in log/edf
+    if var1(1) == 9
+        probe_to_draw           =   0;
+        frame_to_draw           =   const.frame_to_draw_blk;
+    else
+        probe_to_draw           =   probe_to_draw_cond;
+        frame_to_draw           =   frame_to_draw_cond;
+    end
+    log_txt                 =   sprintf('bar pass %i - %i/%i drawn bar stimuli - and %i/%i probes - %i missed sync on %i frames, %1.1f%% (mean/median delay = %1.1f/%1.1f ms)',...
+                                                t,drawn_frame,frame_to_draw,drawn_probe,probe_to_draw,...
+                                                [sum(missed_all(:,2)>0),size(missed_all,1),sum(missed_all(:,2)>0)/size(missed_all,1)*100],...
+                                                mean(missed_all(missed_all(:,2)==1))*1000,median(missed_all(missed_all(:,2)==1))*1000);
+    if const.writeLogTxt
+        fprintf(const.log_file_fid,'%s\n',log_txt);
+    end
+    if const.tracker
+        Eyelink('message','%s',log_txt);
+    end
     
     % write in log/edf
     log_txt                     =   sprintf('bar pass %i stopped at %f',t,GetSecs);

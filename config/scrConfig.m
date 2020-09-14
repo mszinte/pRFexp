@@ -60,7 +60,7 @@ scr.clr_depth = Screen('PixelSize', scr.scr_num);
 scr.frame_duration      =   1/(Screen('FrameRate',scr.scr_num));
 if scr.frame_duration == inf
     scr.frame_duration  = 1/const.desiredFD;
-elseif scr.frame_duration ==0
+elseif scr.frame_duration == 0
     scr.frame_duration  = 1/const.desiredFD;
 end
 
