@@ -38,9 +38,9 @@ const.TR_dur            =   1.2;                                                
 const.TR_num            =   (round(const.TR_dur/scr.frame_duration));                           % repetition time in screen frames
 const.bar_dir_num       =   9;                                                                  % number of bar passes and break
 
-const.bar_step_ver      =   4;%32                                                                 % bar steps for vertical bar pass
-const.bar_step_hor      =   4;%32                                                                 % bar steps for horizontal bar pass 
-const.blk_step          =   4;%16                                                                 % blank period step
+const.bar_step_ver      =   32;                                                                 % bar steps for vertical bar pass
+const.bar_step_hor      =   32;                                                                 % bar steps for horizontal bar pass 
+const.blk_step          =   16;                                                                 % blank period step
 
 const.bar_step_dur_ver  =   const.TR_dur;                                                       % bar step duration for vertical bar pass in seconds
 const.bar_step_num_ver  =   (round(const.bar_step_dur_ver/scr.frame_duration));                 % bar step duration for vertical bar pass in screen frames
@@ -69,7 +69,7 @@ const.num_frame_max_blk =   const.blk_step*const.TR_num;                        
 
 %% Stim parameters
 % Noise patches
-const.noise_num         =   2;%5                                                                  % number of generated patches per kappa
+const.noise_num         =   5;                                                                  % number of generated patches per kappa
 const.stim_size         =   [scr.scr_sizeY/2,scr.scr_sizeY/2];                                  % full screen stimuli size in pixels
 
 const.stim_rect         =   [   scr.x_mid-const.stim_size(1);...                                % rect of the actual stimulus
@@ -77,7 +77,7 @@ const.stim_rect         =   [   scr.x_mid-const.stim_size(1);...                
                                 scr.x_mid+const.stim_size(1);...
                                 scr.y_mid+const.stim_size(2)];
 
-const.num_steps_kappa   =   5;%15                                                                 % number of kappa steps
+const.num_steps_kappa   =   15;                                                                 % number of kappa steps
 const.noise_kappa       =   [0,10.^(linspace(-1,1.5,const.num_steps_kappa-1))];                 % von misses filter kappa parameter (1st = noise, last = less noisy)
 const.good_4_harder     =   3;                                                                  % amount of trials before (harder) staircase update
 const.bad_4_easier      =   1;                                                                  % amount of trials before (easier) staircase update
