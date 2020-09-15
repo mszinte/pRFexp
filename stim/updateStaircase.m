@@ -1,6 +1,6 @@
-function [expDes] = updateStaircase(cond1,const,expDes,response,current_time)
+function [expDes] = updateStaircase(cond1,const,expDes,response)
 % ----------------------------------------------------------------------
-% [expDes] = updateStaircase(cond1,const,expDes,response,current_time)
+% [expDes] = updateStaircase(cond1,const,expDes,response)
 % ----------------------------------------------------------------------
 % Goal of the function :
 % Update the staircase value in function of the response
@@ -10,7 +10,6 @@ function [expDes] = updateStaircase(cond1,const,expDes,response,current_time)
 % const : struct containing constant configurations
 % expDes : struct containg experimental design
 % response: response returned by participant
-% current_time : last GetSecs (clock)
 % ----------------------------------------------------------------------
 % Output(s):
 % expDes : experimental trial config
@@ -51,10 +50,7 @@ if cond1 == 1
     end
     
     if update_stim
-        log_txt                 =   sprintf('stimulus staircase updated to %1.2f at %f',expDes.stim_stair_val,current_time);
-        if const.writeLogTxt
-            fprintf(const.log_file_fid,'%s\n',log_txt);
-        end
+        log_txt                 =   sprintf('stimulus staircase updated to %1.2f',expDes.stim_stair_val);
         if const.tracker
             Eyelink('message','%s',log_txt);
         end

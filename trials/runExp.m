@@ -111,8 +111,6 @@ fprintf(1,'\n\n\tBUTTON PRESSED BY SUBJECT\n');
 
 % make empty texture
 screen_filename         =   sprintf('%s/blank.mat',const.stim_folder);
-%matf = matfile(screen_filename);
-%expDes.tex_blank        =   Screen('MakeTexture',scr.main,matf.screen_stim);
 load(screen_filename,'screen_stim');
 expDes.tex_blank        =   Screen('MakeTexture',scr.main,screen_stim);
 

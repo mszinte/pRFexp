@@ -24,10 +24,7 @@ function [expDes] = runTrials(scr,const,expDes,my_key)
 for t = 1:const.bar_dir_num
     
     % Write in log/edf
-    log_txt                     =   sprintf('bar pass %i started at %f\n',t,GetSecs);
-    if const.writeLogTxt
-        fprintf(const.log_file_fid,log_txt);
-    end
+    log_txt                     =   sprintf('bar pass %i started',t);
     if const.tracker
         Eyelink('message','%s',log_txt);
     end
@@ -183,11 +180,7 @@ for t = 1:const.bar_dir_num
         end
         
         % write in log/edf
-        bar_pass_start          =   GetSecs;
-        log_txt                 =   sprintf('bar pass %i event mri_trigger val = %i at %f',t,mri_band_val,bar_pass_start);
-        if const.writeLogTxt
-            fprintf(const.log_file_fid,'%s\n',log_txt);
-        end
+        log_txt                 =   sprintf('bar pass %i event mri_trigger val = %i',t,mri_band_val);
         if const.tracker
             Eyelink('message','%s',log_txt);
         end
@@ -282,23 +275,8 @@ for t = 1:const.bar_dir_num
 
         % Screen flip
         Screen('DrawTexture',scr.main,tex2draw,[],const.stim_rect)
-        [~,~,~,missed]    =   Screen('Flip',scr.main);
+        vbl = Screen('Flip',scr.main);
         
-        if sign(missed) == 1
-            missed_val              =   1;
-            missed_all              =   [missed_all;missed,missed_val];
-        else
-            missed_val              =   0;
-            missed_all              =   [missed_all;missed,missed_val];
-        end
-
-        if time2draw
-            drawn_frame             =   drawn_frame + 1 - missed_val;
-            if time2probe
-                drawn_probe             =   drawn_probe + 1 - missed_val;
-            end
-        end
-
         % Create movie
         % ------------
         if const.mkVideo
@@ -312,39 +290,30 @@ for t = 1:const.bar_dir_num
         if time2log
             % probe onset
             if cond1(bar_step) == 1
-                log_txt                 =   sprintf('bar pass %i stimulus probe onset at %f',t,GetSecs);
-            end
-            if const.writeLogTxt
-                fprintf(const.log_file_fid,'%s\n',log_txt);
+                log_txt                 =   sprintf('bar pass %i stimulus probe onset',t);
             end
             if const.tracker
                 Eyelink('message','%s',log_txt);
             end
-            expDes.expMat(bar_trials_num(bar_step),12)  =   GetSecs;
+            expDes.expMat(bar_trials_num(bar_step),12)  =   vbl;
         end
 
         if trial_start_cond(nbf,t)
             % trial onset
-            log_txt                 =   sprintf('bar pass %i trial onset at %f',t,GetSecs);
-            if const.writeLogTxt
-                fprintf(const.log_file_fid,'%s\n',log_txt);
-            end
+            log_txt                 =   sprintf('bar pass %i trial onset',t);
             if const.tracker
                 Eyelink('message','%s',log_txt);
             end
-            expDes.expMat(bar_trials_num(bar_step),8) =   GetSecs;
+            expDes.expMat(bar_trials_num(bar_step),8) =   vbl;
         end
 
         if trial_end_cond(nbf,t)
             % trial offset
-            log_txt                 =   sprintf('bar pass %i trial offset at %f',t,GetSecs);
-            if const.writeLogTxt
-                fprintf(const.log_file_fid,'%s\n',log_txt);
-            end
+            log_txt                 =   sprintf('bar pass %i trial offset',t);
             if const.tracker
                 Eyelink('message','%s',log_txt);
             end
-            expDes.expMat(bar_trials_num(bar_step),9)  =   GetSecs;
+            expDes.expMat(bar_trials_num(bar_step),9)  =   vbl;
         end
 
         % Check keyboard
@@ -381,10 +350,7 @@ for t = 1:const.bar_dir_num
         if keyPressed
             if keyCode(my_key.mri_tr)
                 % write in log/edf
-                log_txt                 =   sprintf('bar pass %i event mri_trigger val = %i at %f',t,mri_band_val,GetSecs);
-                if const.writeLogTxt
-                    fprintf(const.log_file_fid,'%s\n',log_txt);
-                end
+                log_txt                 =   sprintf('bar pass %i event mri_trigger val = %i',t,mri_band_val);
                 if const.tracker
                     Eyelink('message','%s',log_txt);
                 end
@@ -397,10 +363,7 @@ for t = 1:const.bar_dir_num
                 % update staircase
                 if time2resp && resp == 0
                     % write in log/edf
-                    log_txt                 =   sprintf('bar pass %i event %s at %f',t,my_key.left4Val,GetSecs);
-                    if const.writeLogTxt
-                        fprintf(const.log_file_fid,'%s\n',log_txt);
-                    end
+                    log_txt                 =   sprintf('bar pass %i event %s',t,my_key.left4Val);
                     if const.tracker
                         Eyelink('message','%s',log_txt);
                     end
@@ -412,18 +375,15 @@ for t = 1:const.bar_dir_num
                         end
                     end
                     expDes.expMat(bar_trials_num(bar_step),11)  =   response;
-                    expDes.expMat(bar_trials_num(bar_step),13)  =   GetSecs;
-                    [expDes]                =   updateStaircase(cond1(bar_step),const,expDes,response,GetSecs);
+                    expDes.expMat(bar_trials_num(bar_step),13)  =   vbl;
+                    [expDes]                =   updateStaircase(cond1(bar_step),const,expDes,response);
                     resp                    =   1;
                 end
             elseif keyCode(my_key.right1)  % cw button
                 % update staircase
                 if time2resp && resp == 0
                     % write in log/edf
-                    log_txt                 =   sprintf('bar pass %i event %s at %f',t,my_key.right1Val,GetSecs);
-                    if const.writeLogTxt
-                        fprintf(const.log_file_fid,'%s\n',log_txt);
-                    end
+                    log_txt                 =   sprintf('bar pass %i event %s',t,my_key.right1Val);
                     if const.tracker
                         Eyelink('message','%s',log_txt);
                     end
@@ -434,40 +394,17 @@ for t = 1:const.bar_dir_num
                         end
                     end
                     expDes.expMat(bar_trials_num(bar_step),11)  =   response;
-                    expDes.expMat(bar_trials_num(bar_step),13)  =   GetSecs;
-                    [expDes]                =   updateStaircase(cond1(bar_step),const,expDes,response,GetSecs);
+                    expDes.expMat(bar_trials_num(bar_step),13)  =   vbl;
+                    [expDes]                =   updateStaircase(cond1(bar_step),const,expDes,response);
                     resp                    =   1;
                 end
             end
         end
     end
 
-    % Get number of stim and probe played
-    %  -----------------------------------
-    % write in log/edf
-    if var1(1) == 9
-        probe_to_draw           =   0;
-        frame_to_draw           =   const.frame_to_draw_blk;
-    else
-        probe_to_draw           =   probe_to_draw_cond;
-        frame_to_draw           =   frame_to_draw_cond;
-    end
-    log_txt                 =   sprintf('bar pass %i - %i/%i drawn bar stimuli - and %i/%i probes - %i missed sync on %i frames, %1.1f%% (mean/median delay = %1.1f/%1.1f ms)',...
-                                                t,drawn_frame,frame_to_draw,drawn_probe,probe_to_draw,...
-                                                [sum(missed_all(:,2)>0),size(missed_all,1),sum(missed_all(:,2)>0)/size(missed_all,1)*100],...
-                                                mean(missed_all(missed_all(:,2)==1))*1000,median(missed_all(missed_all(:,2)==1))*1000);
-    if const.writeLogTxt
-        fprintf(const.log_file_fid,'%s\n',log_txt);
-    end
-    if const.tracker
-        Eyelink('message','%s',log_txt);
-    end
     
     % write in log/edf
-    log_txt                     =   sprintf('bar pass %i stopped at %f',t,GetSecs);
-    if const.writeLogTxt
-        fprintf(const.log_file_fid,'%s\n',log_txt);
-    end
+    log_txt                     =   sprintf('bar pass %i stopped',t);
     if const.tracker
         Eyelink('message', '%s',log_txt);
     end

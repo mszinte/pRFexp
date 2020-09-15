@@ -34,9 +34,6 @@ end
 % Close all fid
 % ------------- 
 fclose(const.behav_file_fid);
-if const.writeLogTxt
-    fclose(const.log_file_fid);
-end
 
 % Transfer .edf file
 % ------------------
