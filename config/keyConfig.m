@@ -95,7 +95,7 @@ if const.scanner == 1
     if ~isempty(my_key.port_mri_bands); my_key.channel_mri_bands = my_key.ni_session1.addDigitalChannel(my_key.ni_device_ID1,my_key.port_mri_bands,my_key.ni_measurement_type);  end
     
     % first reading execution
-    my_key.first_val = my_key.ni_session.inputSingleScan;
+    my_key.first_val = [my_key.ni_session2.inputSingleScan,my_key.ni_session1.inputSingleScan];
 else
     my_key.first_val = [0, 0, 0];
 end

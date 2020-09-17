@@ -159,7 +159,7 @@ for t = 1:const.bar_dir_num
                     keyCode                 =   keyCode+keyC;
                 end
                 if const.scanner == 1
-                    input_return = my_key.ni_session.inputSingleScan;
+                    input_return = [my_key.ni_session2.inputSingleScan,my_key.ni_session1.inputSingleScan];
 
                     if input_return(my_key.idx_mri_bands) == ~expDes.mri_band_val
                         keyPressed              = 1;
@@ -327,7 +327,7 @@ for t = 1:const.bar_dir_num
         end
 
         if const.scanner == 1
-            input_return = my_key.ni_session.inputSingleScan;
+            input_return =  [my_key.ni_session2.inputSingleScan,my_key.ni_session1.inputSingleScan];
 
             % button press
             if input_return(my_key.idx_button_right1) == my_key.button_press_val
