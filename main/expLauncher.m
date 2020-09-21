@@ -3,7 +3,6 @@
 % By :      Martin SZINTE
 % Projet :  pRFexp
 % With :    Vanessa Morita, Anna MONTAGNINI & Guillaume MASSON
-% Version:  1.0
 
 % Version description
 % ===================
@@ -17,6 +16,10 @@
 % To do
 % -----
 % behavioral data with python
+% check problem negative reaction time
+% check problem with wrong values in table
+% check with eye tracker
+% check with scanner
 
 % First settings
 % --------------

@@ -57,9 +57,9 @@ const.frame_to_draw_ver =   const.bar_step_ver*const.bar_step_dur_ver*const.nois
 const.frame_to_draw_hor =   const.bar_step_hor*const.bar_step_dur_hor*const.noise_freq;         % number of drawn frame per pass for horizontal bar pass
 const.frame_to_draw_blk =   const.blk_step*const.TR_dur*const.noise_freq;                       % number of drawn frame per bar pass for blank
 
-const.num_drawf_max_hor =   const.bar_step_hor*const.TR_dur/const.patch_dur;                    % number of flip per pass in horizontal bar pass
-const.num_drawf_max_ver =   const.bar_step_ver*const.TR_dur/const.patch_dur;                    % number of flip per pass in vertical bar pass
-const.num_drawf_max_blk =   const.blk_step*const.TR_dur/const.patch_dur;                        % number of flip per pass when blank bar pass
+const.num_drawf_max_hor =   round(const.bar_step_hor*const.TR_dur/const.patch_dur);             % number of flip per pass in horizontal bar pass
+const.num_drawf_max_ver =   round(const.bar_step_ver*const.TR_dur/const.patch_dur);             % number of flip per pass in vertical bar pass
+const.num_drawf_max_blk =   round(const.blk_step*const.TR_dur/const.patch_dur);                 % number of flip per pass when blank bar pass
 
 const.dur_max_hor       =   const.bar_step_hor*const.TR_dur;                                    % duration of pass in horizontal bar pass
 const.dur_max_ver       =   const.bar_step_ver*const.TR_dur;                                    % duration of pass in vertical bar pass
