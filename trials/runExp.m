@@ -25,7 +25,7 @@ function [const] = runExp(scr,const,expDes,el,my_key)
 if const.mkVideo
     expDes.vid_num          =   0;
     const.vid_obj           =   VideoWriter(const.movie_file,'MPEG-4');
-    const.vid_obj.FrameRate =   60;
+    const.vid_obj.FrameRate =   const.noise_freq;
 	const.vid_obj.Quality   =   100;
     open(const.vid_obj);
 end
@@ -108,11 +108,6 @@ for keyb = 1:size(my_key.keyboard_idx,2)
     KbQueueFlush(my_key.keyboard_idx(keyb));
 end
 fprintf(1,'\n\n\tBUTTON PRESSED BY SUBJECT\n');
-
-% make empty texture
-screen_filename         =   sprintf('%s/blank.mat',const.stim_folder);
-load(screen_filename,'screen_stim');
-expDes.tex_blank        =   Screen('MakeTexture',scr.main,screen_stim);
 
 % Write on eyelink screen
 if const.tracker

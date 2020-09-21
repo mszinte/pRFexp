@@ -42,30 +42,32 @@ const.bar_step_ver      =   32;                                                 
 const.bar_step_hor      =   32;                                                                 % bar steps for horizontal bar pass 
 const.blk_step          =   16;                                                                 % blank period step
 
-const.bar_step_dur_ver  =   const.TR_dur;                                                       % bar step duration for vertical bar pass in seconds
-const.bar_step_num_ver  =   (round(const.bar_step_dur_ver/scr.frame_duration));                 % bar step duration for vertical bar pass in screen frames
-const.bar_step_dur_hor  =   const.TR_dur;                                                       % bar step duration for horizontal bar pass in seconds
-const.bar_step_num_hor  =   (round(const.bar_step_dur_hor/scr.frame_duration));                 % bar step duration for horizontal bar pass in screen frames
-const.blk_step_dur      =   const.TR_dur;                                                       % blank step duration in seconds
-const.blk_step_num      =   (round(const.blk_step_dur/scr.frame_duration));                     % blank step duration in screen frames
-
 const.noise_freq        =   10;                                                                 % compute noise frequency in hertz
 const.patch_dur         =   1/const.noise_freq;                                                 % compute single patch duration in seconds
 const.patch_num         =   (round(const.patch_dur/scr.frame_duration));                        % compute single patch duration in screen frames
 
-const.probe_duration    =   0.500;                                                              % probe duration in seconds
-const.probe_num_redraw  =   (round(const.probe_duration/(1/const.noise_freq)));                 % probe duration in redraw frames
-const.probe_num         =   (round(const.probe_duration/scr.frame_duration));                   % probe duration in screen frames
+const.bar_step_dur_ver  =   const.TR_dur;                                                       % bar step duration for vertical bar pass in seconds
+const.bar_step_drawf_ver=   (round(const.bar_step_dur_ver/const.patch_dur));                    % bar step duration for vertical bar pass in screen frames drawn
+const.bar_step_dur_hor  =   const.TR_dur;                                                       % bar step duration for horizontal bar pass in seconds
+const.bar_step_drawf_hor=   (round(const.bar_step_dur_hor/const.patch_dur));                    % bar step duration for horizontal bar pass in screen frames drawn
+const.blk_step_dur      =   const.TR_dur;                                                       % blank step duration in seconds
+const.blk_step_drawf    =   (round(const.blk_step_dur/const.patch_dur));                        % blank step duration in screen frames drawn
 
 const.frame_to_draw_ver =   const.bar_step_ver*const.bar_step_dur_ver*const.noise_freq;         % number of drawn frame per pass for vertical bar pass
 const.frame_to_draw_hor =   const.bar_step_hor*const.bar_step_dur_hor*const.noise_freq;         % number of drawn frame per pass for horizontal bar pass
 const.frame_to_draw_blk =   const.blk_step*const.TR_dur*const.noise_freq;                       % number of drawn frame per bar pass for blank
 
-const.probe_to_draw_ver =   const.bar_step_ver*const.probe_num_redraw;                          % number of probes to draw per pass in horizontal bar pass
-const.probe_to_draw_hor =   const.bar_step_hor*const.probe_num_redraw;                          % number of probes to draw per pass in vertical bar pass
-const.num_frame_max_hor =   const.bar_step_hor*const.TR_num;                                    % number of flip per pass in horizontal bar pass
-const.num_frame_max_ver =   const.bar_step_ver*const.TR_num;                                    % number of flip per pass in vertical bar pass
-const.num_frame_max_blk =   const.blk_step*const.TR_num;                                        % number of flip per pass when blank bar pass
+const.num_drawf_max_hor =   const.bar_step_hor*const.TR_dur/const.patch_dur;                    % number of flip per pass in horizontal bar pass
+const.num_drawf_max_ver =   const.bar_step_ver*const.TR_dur/const.patch_dur;                    % number of flip per pass in vertical bar pass
+const.num_drawf_max_blk =   const.blk_step*const.TR_dur/const.patch_dur;                        % number of flip per pass when blank bar pass
+
+const.dur_max_hor       =   const.bar_step_hor*const.TR_dur;                                    % duration of pass in horizontal bar pass
+const.dur_max_ver       =   const.bar_step_ver*const.TR_dur;                                    % duration of pass in vertical bar pass
+const.dur_max_blk       =   const.blk_step*const.TR_dur;                                        % duration of pass when blank bar pass
+
+const.probe_duration    =   const.patch_dur*6;                                                  % probe duration in seconds
+const.probe_drawf       =   (round(const.probe_duration/const.patch_dur));                      % probe duration in screen frames drawn
+const.bef_probe_drawf   =   (const.bar_step_drawf_ver - const.probe_drawf)/2;                   % time before probe per bar step in screen frames drawn
 
 %% Stim parameters
 % Noise patches
@@ -81,7 +83,7 @@ const.num_steps_kappa   =   15;                                                 
 const.noise_kappa       =   [0,10.^(linspace(-1,1.5,const.num_steps_kappa-1))];                 % von misses filter kappa parameter (1st = noise, last = less noisy)
 const.good_4_harder     =   3;                                                                  % amount of trials before (harder) staircase update
 const.bad_4_easier      =   1;                                                                  % amount of trials before (easier) staircase update
-const.stim_stair_val     =   round(const.num_steps_kappa*0.60);                                 % starting value of the bar staircase kappa value
+const.stim_stair_val    =   round(const.num_steps_kappa*0.60);                                  % starting value of the bar staircase kappa value
 if const.mkVideo
     const.stim_stair_val     =   const.num_steps_kappa;                                         % starting value of the stimulus staircase kappa value
 end
@@ -164,6 +166,9 @@ const.right_propixx_hide = [(scr.scr_sizeX-scr.scr_sizeY)/2+scr.scr_sizeY,...   
                             scr.scr_sizeX,...
                             scr.scr_sizeY];
 
+% Define bar positions
+% --------------------
+  
 % define horizontal bar pass
 for tAng = 1:size(const.bar_dir_ang,2)
     for tSteps = 1:const.bar_step_hor
@@ -175,11 +180,6 @@ for tAng = 1:size(const.bar_dir_ang,2)
         
         const.bar_aperture_rect_hor(:,:,tSteps,tAng) =  CenterRectOnPoint(const.bar_aperture_rect,const.barCtr_hor(1,tSteps,tAng),const.barCtr_hor(2,tSteps,tAng));                 % bar rect
         const.bar_aperture_rect_hor(:,:,tSteps,tAng) =  const.bar_aperture_rect_hor(:,:,tSteps,tAng);% + [const.stim_offset(const.cond2,:),const.stim_offset(const.cond2,:)];
-        
-        const.probe_num_start_hor(tSteps)  =    const.bar_step_num_hor*(tSteps-1) + const.bar_step_num_hor/2 - const.probe_num/2;      % bar probe frame start
-        const.probe_num_end_hor(tSteps)    =    const.bar_step_num_hor*(tSteps-1) + const.bar_step_num_hor/2 + const.probe_num/2 - 1;  % bar probe frame end
-        const.resp_num_start_hor(tSteps)   =    const.probe_num_start_hor(tSteps);
-        const.resp_num_end_hor(tSteps)     =    const.resp_num_start_hor(tSteps)+const.bar_step_num_hor - 1;
     end
 end
 
@@ -195,125 +195,94 @@ for tAng = 1:size(const.bar_dir_ang,2)
         const.bar_aperture_rect_ver(:,:,tSteps,tAng) =  CenterRectOnPoint(const.bar_aperture_rect,const.barCtr_ver(1,tSteps,tAng),const.barCtr_ver(2,tSteps,tAng));     % bar rect
         const.bar_aperture_rect_ver(:,:,tSteps,tAng) =  const.bar_aperture_rect_ver(:,:,tSteps,tAng);% + [const.stim_offset(const.cond2,:),const.stim_offset(const.cond2,:)];
         
-        const.probe_num_start_ver(tSteps)  =    const.bar_step_num_ver*(tSteps-1) + const.bar_step_num_ver/2 - const.probe_num/2;      % bar probe frame start
-        const.probe_num_end_ver(tSteps)    =    const.bar_step_num_ver*(tSteps-1) + const.bar_step_num_ver/2 + const.probe_num/2 - 1;  % bar probe frame end
-        const.resp_num_start_ver(tSteps)   =    const.probe_num_start_ver(tSteps);
-        const.resp_num_end_ver(tSteps)     =    const.resp_num_start_ver(tSteps)+const.bar_step_num_ver - 1;
-    end
+   end
 end
 
 
-% define all frames
-var1 = const.bar_dir_run;
-
+% Define all drawing frames
+% -------------------------
 % define horizontal bar pass
+var1 = const.bar_dir_run;
 for tAng = 1:size(var1,2)
-    for nbf = 1:const.num_frame_max_hor
+    for drawf = 1:const.num_drawf_max_hor
         
         % define bar position step number
-        const.bar_steps_hor(nbf,tAng)    =   ceil(nbf/const.bar_step_num_hor);
+        const.bar_steps_hor(drawf,tAng)    =   ceil(drawf/const.bar_step_drawf_hor);
         
-        if mod(nbf,const.TR_num) == 1;          const.trial_start_hor(nbf,tAng) =   1;
-        else                                    const.trial_start_hor(nbf,tAng) =   0;
-        end
-        
-        if mod(nbf,const.TR_num) == 0;          const.trial_end_hor(nbf,tAng)   =   1;
-        else                                    const.trial_end_hor(nbf,tAng)   =   0;
-        end
-        
-        % define time to re-draw noise
-        if mod(nbf,const.patch_num) == 1;       const.time2draw_hor(nbf,tAng)   =   1;
-        else                                    const.time2draw_hor(nbf,tAng)   =   0;
-        end
-        
-        % define time to show probe frame
-        if nbf >= const.probe_num_start_hor(const.bar_steps_hor(nbf,tAng)) && nbf <= const.probe_num_end_hor(const.bar_steps_hor(nbf,tAng)) && var1(tAng) ~= 9
-            const.time2probe_hor(nbf,tAng)  =   1;
+        % define trial start & end drawing frames
+        if drawf == (const.bar_steps_hor(drawf,tAng))*const.bar_step_drawf_hor
+            const.trial_start_hor(drawf,tAng)  =   1;
+            const.trial_end_hor(drawf,tAng)   =   1;
         else
-            const.time2probe_hor(nbf,tAng)  =   0;
+            const.trial_start_hor(drawf,tAng)  =   0;
+            const.trial_end_hor(drawf,tAng)   =   0;
         end
         
-        % define response frames
-        if nbf >= const.resp_num_start_hor(const.bar_steps_hor(nbf,tAng)) && nbf <= const.resp_num_end_hor(const.bar_steps_hor(nbf,tAng)) && var1(tAng) ~= 9
-            const.time2resp_hor(nbf,tAng)   =   1;
+        % define time probe drawing frames
+        if drawf >= (const.bar_steps_hor(drawf,tAng)-1)*const.bar_step_drawf_hor + const.bef_probe_drawf + 1 &&  ...
+                drawf <= (const.bar_steps_hor(drawf,tAng)-1)*const.bar_step_drawf_hor + const.bef_probe_drawf + const.probe_drawf
+            const.time2probe_hor(drawf,tAng)  =   1;
         else
-            const.time2resp_hor(nbf,tAng)	=   0;
+            const.time2probe_hor(drawf,tAng)  =   0;
         end
         
-        % define when to write the log of the probes
-        if nbf == const.probe_num_start_hor(const.bar_steps_hor(nbf,tAng)) && const.time2probe_hor(nbf,tAng)
-            const.time2log_hor(nbf,tAng)    =   1;
+        % define response drawing frames
+        if drawf >= (const.bar_steps_hor(drawf,tAng)-1)*const.bar_step_drawf_hor + const.bef_probe_drawf + 1 &&  ...
+                drawf <= (const.bar_steps_hor(drawf,tAng)-1)*const.bar_step_drawf_hor + const.bar_step_drawf_hor
+            const.time2resp_hor(drawf,tAng)  =   1;
         else
-            const.time2log_hor(nbf,tAng)    =   0;
+            const.time2resp_hor(drawf,tAng)  =   0;
         end
         
-        % define response reset
-        if nbf == const.resp_num_start_hor(const.bar_steps_hor(nbf,tAng))
-            const.resp_reset_hor(nbf,tAng)  =   1;
+        % define response reset drawing frames
+        if drawf == (const.bar_steps_hor(drawf,tAng)-1)*const.bar_step_drawf_hor + 1
+            const.resp_reset_hor(drawf,tAng)  =   1;
         else
-            const.resp_reset_hor(nbf,tAng)  =   0;
+            const.resp_reset_hor(drawf,tAng)  =   0;
         end
     end
 end
-
-const.time2load_hor     =   [zeros(1,size(const.time2draw_hor,2));const.time2draw_hor];
-const.time2load_hor     =   const.time2load_hor(1:size(const.time2draw_hor,1),:);
-const.time2make_hor     =   [zeros(1,size(const.time2draw_hor,2));zeros(round(const.patch_num*0.5)-1,size(const.time2draw_hor,2));const.time2draw_hor];
-const.time2make_hor     =   const.time2make_hor(1:size(const.time2draw_hor,1),:);
 
 % define vertical bar pass
 for tAng = 1:size(var1,2)
-    for nbf = 1:const.num_frame_max_ver
-        
+    for drawf = 1:const.num_drawf_max_ver
+                      
         % define bar position step number
-        const.bar_steps_ver(nbf,tAng)    =   ceil(nbf/const.bar_step_num_ver);
+        const.bar_steps_ver(drawf,tAng)    =   ceil(drawf/const.bar_step_drawf_ver);
         
-        if mod(nbf,const.TR_num) == 1;          const.trial_start_ver(nbf,tAng) =   1;
-        else                                    const.trial_start_ver(nbf,tAng) =   0;
-        end
-        
-        if mod(nbf,const.TR_num) == 0;          const.trial_end_ver(nbf,tAng)   =   1;
-        else                                    const.trial_end_ver(nbf,tAng)   =   0;
-        end
-        
-        % define time to re-draw noise
-        if mod(nbf,const.patch_num) == 1;       const.time2draw_ver(nbf,tAng)   =   1;
-        else                                    const.time2draw_ver(nbf,tAng)   =   0;
-        end
-        
-        % define time to show probe frame
-        if nbf >= const.probe_num_start_ver(const.bar_steps_ver(nbf,tAng)) && nbf <= const.probe_num_end_ver(const.bar_steps_ver(nbf,tAng)) && var1(tAng) ~= 9
-            const.time2probe_ver(nbf,tAng)  =   1;
+        % define trial start & end drawing frames
+        if drawf == (const.bar_steps_ver(drawf,tAng))*const.bar_step_drawf_ver
+            const.trial_start_ver(drawf,tAng)  =   1;
+            const.trial_end_ver(drawf,tAng)   =   1;
         else
-            const.time2probe_ver(nbf,tAng)  =   0;
+            const.trial_start_ver(drawf,tAng)  =   0;
+            const.trial_end_ver(drawf,tAng)   =   0;
+        end
+                        
+        % define time probe drawing frames
+        if drawf >= (const.bar_steps_ver(drawf,tAng)-1)*const.bar_step_drawf_ver + const.bef_probe_drawf + 1 &&  ...
+                drawf <= (const.bar_steps_ver(drawf,tAng)-1)*const.bar_step_drawf_ver + const.bef_probe_drawf + const.probe_drawf
+            const.time2probe_ver(drawf,tAng)  =   1;
+        else
+            const.time2probe_ver(drawf,tAng)  =   0;
         end
         
-        % define response frames
-        if nbf >= const.resp_num_start_ver(const.bar_steps_ver(nbf,tAng)) && nbf <= const.resp_num_end_ver(const.bar_steps_ver(nbf,tAng)) && var1(tAng) ~= 9
-            const.time2resp_ver(nbf,tAng)   =   1;
+        % define response drawing frames
+        if drawf >= (const.bar_steps_ver(drawf,tAng)-1)*const.bar_step_drawf_ver + const.bef_probe_drawf + 1 &&  ...
+                drawf <= (const.bar_steps_ver(drawf,tAng)-1)*const.bar_step_drawf_ver + const.bef_probe_drawf*2 + const.probe_drawf
+            const.time2resp_ver(drawf,tAng)  =   1;
         else
-            const.time2resp_ver(nbf,tAng)	=   0;
+            const.time2resp_ver(drawf,tAng)  =   0;
         end
         
-        % define when to write the log of the probes
-        if nbf == const.probe_num_start_ver(const.bar_steps_ver(nbf,tAng)) && const.time2probe_ver(nbf,tAng)
-            const.time2log_ver(nbf,tAng)    =   1;
+        % define response reset drawing frames
+        if drawf == (const.bar_steps_ver(drawf,tAng)-1)*const.bar_step_drawf_ver + 1
+            const.resp_reset_ver(drawf,tAng)  =   1;
         else
-            const.time2log_ver(nbf,tAng)    =   0;
-        end
-        
-        % define response reset
-        if nbf == const.resp_num_start_ver(const.bar_steps_ver(nbf,tAng))
-            const.resp_reset_ver(nbf,tAng)  =   1;
-        else
-            const.resp_reset_ver(nbf,tAng)  =   0;
+            const.resp_reset_ver(drawf,tAng)  =   0;
         end
     end
 end
-const.time2load_ver     =   [zeros(1,size(const.time2draw_ver,2));const.time2draw_ver];
-const.time2load_ver     =   const.time2load_ver(1:size(const.time2draw_ver,1),:);
-const.time2make_ver     =   [zeros(1,size(const.time2draw_ver,2));zeros(round(const.patch_num*0.5)-1,size(const.time2draw_ver,2));const.time2draw_ver];
-const.time2make_ver     =   const.time2make_ver(1:size(const.time2draw_ver,1),:);
 
 % define TR for scanner
 if const.scanner

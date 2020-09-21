@@ -21,10 +21,11 @@ function [expDes] = runTrials(scr,const,expDes,my_key)
 % Version :     1.0
 % ----------------------------------------------------------------------
 
-for t = 1:const.bar_dir_num
+for bar_pass = 1:const.bar_dir_num
     
     % Write in log/edf
-    log_txt                     =   sprintf('bar pass %i started',t);
+    log_txt     =   sprintf('bar pass %i started',bar_pass);
+    
     if const.tracker
         Eyelink('message','%s',log_txt);
     end
@@ -33,7 +34,7 @@ for t = 1:const.bar_dir_num
     % ---------------------------------
 
     % trials number in this bar pass    
-    bar_trials              =   expDes.expMat(:,5) == t;
+    bar_trials              =   expDes.expMat(:,5) == bar_pass;
     bar_trials_num          =   expDes.expMat(bar_trials,2);
 
     % Cond1 : Task
@@ -46,13 +47,13 @@ for t = 1:const.bar_dir_num
     rand1                   =   expDes.expMat(bar_trials,7);
 
     if const.checkTrial && const.expStart == 0
-        fprintf(1,'\n\n\t========================  BAR PASS %3.0f ========================\n',t);
-        fprintf(1,'\n\tTask                         =\t');
-        fprintf(1,'%s\t',expDes.txt_cond1{cond1(1)});
-        fprintf(1,'\n\tBar direction                =\t');
-        fprintf(1,'%s\t',expDes.txt_var1{var1(1)});
-        fprintf(1,'\n\tStimulus orientation         =\t');
-        fprintf(1,'%s\t',expDes.txt_rand1{rand1});
+        fprintf(1,'\n\n\bar_pass========================  BAR PASS %3.0f ========================\n',bar_pass);
+        fprintf(1,'\n\tTask                         =\bar_pass');
+        fprintf(1,'%s\bar_pass',expDes.txt_cond1{cond1(1)});
+        fprintf(1,'\n\tBar direction                =\bar_pass');
+        fprintf(1,'%s\bar_pass',expDes.txt_var1{var1(1)});
+        fprintf(1,'\n\tStimulus orientation         =\bar_pass');
+        fprintf(1,'%s\bar_pass',expDes.txt_rand1{rand1});
     end
 
     % Prepare stimuli
@@ -63,84 +64,45 @@ for t = 1:const.bar_dir_num
         rand_num_tex_cond       =   const.rand_num_tex_hor;
         bar_step_val_cond       =   1:const.bar_step_hor;
         pre_txt_cond            =   'hor_';
-        num_frame_max_cond      =   const.num_frame_max_hor;
         bar_step_cond           =   const.bar_steps_hor;
-        time2load_cond          =   const.time2load_hor;
-        time2draw_cond          =   const.time2draw_hor;
         time2probe_cond         =   const.time2probe_hor;
         time2resp_cond          =   const.time2resp_hor;
-        time2make_cond          =   const.time2make_hor;
         resp_reset_cond         =   const.resp_reset_hor;
-        time2log_cond           =   const.time2log_hor;
         trial_start_cond        =   const.trial_start_hor;
         trial_end_cond          =   const.trial_end_hor;
-        probe_to_draw_cond      =   const.probe_to_draw_hor;
-        frame_to_draw_cond      =   const.frame_to_draw_hor;
+
     elseif var1(1) == 3 || var1(1) == 7
         rand_num_tex_cond       =   const.rand_num_tex_ver;
         bar_step_val_cond       =   1:const.bar_step_ver;
         pre_txt_cond            =   'ver_';
-        num_frame_max_cond      =   const.num_frame_max_ver;
         bar_step_cond           =   const.bar_steps_ver;
-        time2load_cond          =   const.time2load_ver;
-        time2draw_cond          =   const.time2draw_ver;
         time2probe_cond         =   const.time2probe_ver;
         time2resp_cond          =   const.time2resp_ver;
-        time2make_cond          =   const.time2make_ver;
         resp_reset_cond         =   const.resp_reset_ver;
-        time2log_cond           =   const.time2log_ver;
         trial_start_cond        =   const.trial_start_ver;
         trial_end_cond          =   const.trial_end_ver;
-        probe_to_draw_cond      =   const.probe_to_draw_ver;
-        frame_to_draw_cond      =   const.frame_to_draw_ver;
     end
-
-    bar_step_val_rev_cond   =   bar_step_val_cond(end:-1:1);
-    rand_num_tex            =   rand_num_tex_cond;
-
-    num_tex                 =   1;
-    drawn_frame             =   0;
-    drawn_probe             =   0;
-    resp                    =   0;
-    missed_all              =   [];
 
     % define image of next frame
     bar_step                =   1;
 
-    % define order of the bar (only one direction is saved as img)
+    % define order of the bar (only one direction is saved as img) + duration of the trial
+    bar_step_val_rev_cond   =   bar_step_val_cond(end:-1:1);
+    rand_num_tex            =   rand_num_tex_cond;
     if var1(bar_step) == 1 || var1(bar_step) == 3
-        bar_step_num            =   bar_step_val_cond(bar_step);
+        drawf_max = const.num_drawf_max_hor;
     elseif var1(bar_step) == 5 || var1(bar_step) == 7
-        bar_step_num            =   bar_step_val_rev_cond(bar_step);
+        drawf_max = const.num_drawf_max_ver;
     elseif var1(bar_step) == 9
-        bar_step_num            =  1:const.blk_step;
+        drawf_max = const.num_drawf_max_blk;
     end
-
-    % define displayed direction of the bar (only 0 deg direcion motion
-    % reversing the bar and fix stim reversed)
-    angle                   =   0;
-    stim_ori                =   rand1(bar_step);
-
-    if var1(bar_step) == 9
-        screen_filename         =   sprintf('%s/blank.mat',const.stim_folder);
-        num_frame_max           =   const.num_frame_max_blk;
-    else
-        if time2probe_cond(1,t)
-            screen_filename         =   sprintf('%s/%sprobe_barStep-%i_kappaStim%i_stimOri-%i_noiseRand%i.mat',...
-                const.stim_folder,pre_txt_cond,bar_step_num,expDes.stim_stair_val,stim_ori,rand_num_tex(num_tex));
-        else
-            screen_filename         =   sprintf('%s/%snoprobe_barStep-%i_noiseRand%i.mat',...
-                const.stim_folder,pre_txt_cond,bar_step_num,rand_num_tex(num_tex));
-        end
-        num_frame_max           =   num_frame_max_cond;
-    end
-    load(screen_filename,'screen_stim');
-    expDes.texnew              =   Screen('MakeTexture',scr.main,screen_stim,[],[],[],angle);
-
-    % wait for T press in trial beginning
-    if t == 1
+    
+    % wait for bar_pass press in trial beginning
+    if bar_pass == 1
         % show the iti image
-        expDes.tex              =   expDes.tex_blank;
+        screen_filename = sprintf('%s/blank.mat',const.stim_folder);
+        load(screen_filename,'screen_stim');
+        expDes.tex = Screen('MakeTexture',scr.main,screen_stim,[],[],[],0);
         Screen('DrawTexture',scr.main,expDes.tex,[],const.stim_rect);
         Screen('Flip',scr.main);
         first_trigger           =   0;
@@ -150,6 +112,7 @@ for t = 1:const.bar_dir_num
             if const.scanner == 0 || const.scannerTest
                 first_trigger           =   1;
                 mri_band_val            =   -8;
+                
             else
                 keyPressed              =   0;
                 keyCode                 =   zeros(1,my_key.keyCodeNum);
@@ -180,142 +143,67 @@ for t = 1:const.bar_dir_num
         end
         
         % write in log/edf
-        log_txt                 =   sprintf('bar pass %i event mri_trigger val = %i',t,mri_band_val);
+        log_txt                 =   sprintf('bar pass %i event mri_trigger val = %i',bar_pass,mri_band_val);
         if const.tracker
             Eyelink('message','%s',log_txt);
         end
+    
+        t_start = GetSecs;
+        vbl = GetSecs;
+        log_txt  =   sprintf('bar pass %i trial onset',bar_pass);
+        if const.tracker
+            Eyelink('message','%s',log_txt);
+        end
+        expDes.expMat(bar_trials_num(bar_step),8) = vbl;
     end
+    
+    drawf = 1;
+    while drawf <= drawf_max
+         
+        % get bar step value
+        bar_step =   bar_step_cond(drawf,bar_pass);
+        
+        % load stim
+        % define order of the bar (only one direction is saved as img)
+        if var1(bar_step) == 1 || var1(bar_step) == 3
+            bar_step_num            =   bar_step_val_cond(bar_step);
+        elseif var1(bar_step) == 5 || var1(bar_step) == 7
+            bar_step_num            =   bar_step_val_rev_cond(bar_step);
+        end
 
-    % Trial loop
-    % ----------
-    nbf = 0;
-    while nbf < num_frame_max
-
-        % flip count
-        nbf                     =   nbf + 1;
-
-        % define bar step position
-        bar_step                =   bar_step_cond(nbf,t);
-
-        % time to load the image
-        time2load               =   time2load_cond(nbf,t);
-
-        % time to make the texture
-        time2make               =   time2make_cond(nbf,t);
-
-        % define redraw time
-        time2draw               =   time2draw_cond(nbf,t);
-
-        % define probe frames
-        time2probe              =   time2probe_cond(nbf,t);
-
-        % define response frames
-        time2resp               =   time2resp_cond(nbf,t);
-
-        % log time
-        time2log                =   time2log_cond(nbf,t);
-
+        % define displayed direction of the bar (only 0 deg direcion motion
+        % reversing the bar and fix stim reversed)
+        angle                   =   0;
+        stim_ori                =   rand1(bar_step);
+        
         % define when to reset resp
-        if resp_reset_cond(nbf,t)
+        if resp_reset_cond(drawf,bar_pass)
             resp                =   0;
         end
 
-        % load stim image
-        if time2load
-            % define order of the bar (only one direction is saved as img)
-            if var1(bar_step) == 1 || var1(bar_step) == 3
-                bar_step_num            =   bar_step_val_cond(bar_step);
-            elseif var1(bar_step) == 5 || var1(bar_step) == 7
-                bar_step_num            =   bar_step_val_rev_cond(bar_step);
-            end
-
-            % define displayed direction of the bar (only 0 deg direcion motion
-            % reversing the bar and fix stim reversed)
-            angle                   =   0;
-            stim_ori                =   rand1(bar_step);
-
-            % define name of next frame
-            if var1(bar_step) == 9
-                screen_filename         =   sprintf('%s/blank.mat',const.stim_folder);
+        % define name of next frame
+        if var1(bar_step) == 9
+            screen_filename         =   sprintf('%s/blank.mat',const.stim_folder);
+        else
+            if time2probe_cond(drawf,bar_pass)
+                screen_filename         =   sprintf('%s/%sprobe_barStep-%i_kappaStim%i_stimOri-%i_noiseRand%i.mat',...
+                    const.stim_folder,pre_txt_cond,bar_step_num,expDes.stim_stair_val,stim_ori,rand_num_tex(drawf));
             else
-                if time2probe
-                    screen_filename         =   sprintf('%s/%sprobe_barStep-%i_kappaStim%i_stimOri-%i_noiseRand%i.mat',...
-                                                        const.stim_folder,pre_txt_cond,bar_step_num,expDes.stim_stair_val,stim_ori,rand_num_tex(num_tex));
-                else
-                    screen_filename         =   sprintf('%s/%snoprobe_barStep-%i_noiseRand%i.mat',...
-                                                        const.stim_folder,pre_txt_cond,bar_step_num,rand_num_tex(num_tex));
-                end
+                screen_filename         =   sprintf('%s/%snoprobe_barStep-%i_noiseRand%i.mat',...
+                    const.stim_folder,pre_txt_cond,bar_step_num,rand_num_tex(drawf));
             end
-            % load the matrix
-            load(screen_filename,'screen_stim');
-         end
-
-        % make the texture
-        if time2make
-            expDes.texnew           =   Screen('MakeTexture',scr.main,screen_stim,[],[],[],angle);
-
-            % save stim staircase level
-            expDes.expMat(bar_trials_num(bar_step),10)  =   expDes.stim_stair_val;
-
-            % define random number of noise patches
-            if num_tex < size(const.rand_num_tex,2)
-                num_tex                     =   num_tex + 1;
-            end
-            
-            
-
         end
-
-        % draw the texture
-        if time2draw
-            Screen('Close',expDes.tex);
-            expDes.tex = expDes.texnew;
-            tex2draw =   expDes.tex;
-        end
-
-        % Screen flip
-        Screen('DrawTexture',scr.main,tex2draw,[],const.stim_rect)
-        vbl = Screen('Flip',scr.main);
         
-        % Create movie
-        % ------------
-        if const.mkVideo
-            expDes.vid_num          =   expDes.vid_num + 1;
-            image_vid               =   Screen('GetImage', scr.main);
-            imwrite(image_vid,sprintf('%s_frame_%i.png',const.movie_image_file,expDes.vid_num))
-            writeVideo(const.vid_obj,image_vid);
-        end
-
-        % Save trials times
-        if time2log
-            % probe onset
-            if cond1(bar_step) == 1
-                log_txt                 =   sprintf('bar pass %i stimulus probe onset',t);
-            end
-            if const.tracker
-                Eyelink('message','%s',log_txt);
-            end
-            expDes.expMat(bar_trials_num(bar_step),12)  =   vbl;
-        end
-
-        if trial_start_cond(nbf,t)
-            % trial onset
-            log_txt                 =   sprintf('bar pass %i trial onset',t);
-            if const.tracker
-                Eyelink('message','%s',log_txt);
-            end
-            expDes.expMat(bar_trials_num(bar_step),8) =   vbl;
-        end
-
-        if trial_end_cond(nbf,t)
-            % trial offset
-            log_txt                 =   sprintf('bar pass %i trial offset',t);
-            if const.tracker
-                Eyelink('message','%s',log_txt);
-            end
-            expDes.expMat(bar_trials_num(bar_step),9)  =   vbl;
-        end
-
+        % load the matrix
+        load(screen_filename,'screen_stim');
+        
+        % make texture
+        expDes.tex = Screen('MakeTexture',scr.main,screen_stim,[],[],[],angle);
+        
+        % draw texture
+        Screen('DrawTexture',scr.main,expDes.tex,[],const.stim_rect)        
+        
+        
         % Check keyboard
         % --------------
         keyPressed              =   0;
@@ -350,7 +238,7 @@ for t = 1:const.bar_dir_num
         if keyPressed
             if keyCode(my_key.mri_tr)
                 % write in log/edf
-                log_txt                 =   sprintf('bar pass %i event mri_trigger val = %i',t,mri_band_val);
+                log_txt                 =   sprintf('bar pass %i event mri_trigger val = %i',bar_pass,mri_band_val);
                 if const.tracker
                     Eyelink('message','%s',log_txt);
                 end
@@ -361,9 +249,9 @@ for t = 1:const.bar_dir_num
                 end
             elseif keyCode(my_key.left4)
                 % update staircase
-                if time2resp && resp == 0
+                if time2resp_cond(drawf,bar_pass) && resp == 0
                     % write in log/edf
-                    log_txt                 =   sprintf('bar pass %i event %s',t,my_key.left4Val);
+                    log_txt                 =   sprintf('bar pass %i event %s',bar_pass,my_key.left4Val);
                     if const.tracker
                         Eyelink('message','%s',log_txt);
                     end
@@ -375,15 +263,15 @@ for t = 1:const.bar_dir_num
                         end
                     end
                     expDes.expMat(bar_trials_num(bar_step),11)  =   response;
-                    expDes.expMat(bar_trials_num(bar_step),13)  =   vbl;
+                    expDes.expMat(bar_trials_num(bar_step),13)  =   GetSecs;
                     [expDes]                =   updateStaircase(cond1(bar_step),const,expDes,response);
                     resp                    =   1;
                 end
             elseif keyCode(my_key.right1)  % cw button
                 % update staircase
-                if time2resp && resp == 0
+                if time2resp_cond(drawf,bar_pass) && resp == 0
                     % write in log/edf
-                    log_txt                 =   sprintf('bar pass %i event %s',t,my_key.right1Val);
+                    log_txt                 =   sprintf('bar pass %i event %s',bar_pass,my_key.right1Val);
                     if const.tracker
                         Eyelink('message','%s',log_txt);
                     end
@@ -394,20 +282,68 @@ for t = 1:const.bar_dir_num
                         end
                     end
                     expDes.expMat(bar_trials_num(bar_step),11)  =   response;
-                    expDes.expMat(bar_trials_num(bar_step),13)  =   vbl;
+                    expDes.expMat(bar_trials_num(bar_step),13)  =   GetSecs;
                     [expDes]                =   updateStaircase(cond1(bar_step),const,expDes,response);
                     resp                    =   1;
                 end
             end
         end
+        
+        % Create movie
+        if const.mkVideo
+            expDes.vid_num          =   expDes.vid_num + 1;
+            image_vid               =   Screen('GetImage', scr.main);
+            imwrite(image_vid,sprintf('%s_frame_%i.png',const.movie_image_file,expDes.vid_num))
+            writeVideo(const.vid_obj,image_vid);
+        end
+        
+        % flip screen
+        when2flip = vbl + const.patch_dur - scr.frame_duration/2;
+        vbl = Screen('Flip',scr.main, when2flip);
+
+        % probe
+        if time2probe_cond(drawf,bar_pass)
+            % probe onset
+            if cond1(bar_step) == 1
+                log_txt                 =   sprintf('bar pass %i stimulus probe onset',bar_pass);
+            end
+            if const.tracker
+                Eyelink('message','%s',log_txt);
+            end
+            expDes.expMat(bar_trials_num(bar_step),12) = vbl;
+        end
+        
+        % trial onset
+        if trial_start_cond(drawf,bar_pass) && ~(bar_pass == const.bar_dir_num && drawf == drawf_max)
+            log_txt  =   sprintf('bar pass %i trial onset',bar_pass);
+            if const.tracker
+                Eyelink('message','%s',log_txt);
+            end
+            expDes.expMat(bar_trials_num(bar_step)+1,8) = vbl;
+        end
+        
+        if trial_end_cond(drawf,bar_pass)
+            % trial offset
+            log_txt = sprintf('bar pass %i trial offset',bar_pass);
+            if const.tracker
+                Eyelink('message','%s',log_txt);
+            end
+            expDes.expMat(bar_trials_num(bar_step),9) = vbl;
+        end
+         
+        % Drawing frame number
+        drawf = drawf + 1;
+
+    end
+    if const.checkTrial
+        fprintf(1,'num draw = %i, dur = %1.2f',drawf, GetSecs - t_start);
     end
 
-    
     % write in log/edf
-    log_txt                     =   sprintf('bar pass %i stopped',t);
+    log_txt                     =   sprintf('bar pass %i stopped',bar_pass);
     if const.tracker
         Eyelink('message', '%s',log_txt);
     end
-end
 
+end
 end
