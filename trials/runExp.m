@@ -199,5 +199,5 @@ if const.tracker
     Eyelink('message', 'RECORD_STOP');
     eyeLinkClearScreen(el.bgCol);eyeLinkDrawText(scr.x_mid,scr.y_mid,el.txtCol,'THE END - PRESS SPACE OR WAIT');
 end
-
+sca
 end

@@ -36,7 +36,7 @@ const.dot_probe_color   =   const.black;                                        
 %% Time parameters
 const.TR_dur            =   1.2;                                                                % repetition time
 const.TR_num            =   (round(const.TR_dur/scr.frame_duration));                           % repetition time in screen frames
-const.bar_dir_num       =   9;                                                                  % number of bar passes and break
+const.bar_dir_num       =   1;                                                                  % number of bar passes and break
 
 const.bar_step_ver      =   32;                                                                 % bar steps for vertical bar pass
 const.bar_step_hor      =   32;                                                                 % bar steps for horizontal bar pass 
@@ -137,7 +137,7 @@ const.fix_dot           =   compFixDot(const);
 const.fix_dot_probe     =   const.fix_dot;
 
 % Bar
-const.bar_dir_run       =   [9,1,9,3,9,5,9,7,9];                                                % direction (1 = 180 deg, 2 = 225 deg, 3 =  270 deg, 4 = 315 deg,
+const.bar_dir_run       =   1;%[9,1,9,3,9,5,9,7,9];                                                % direction (1 = 180 deg, 2 = 225 deg, 3 =  270 deg, 4 = 315 deg,
                                                                                                 %            5 = 0 deg,   6 = 45 deg,  7 = 90 deg,   8 = 135 deg; 9 = none)
 
 const.bar_width_deg     =   2;                                                                  % bar width in dva
