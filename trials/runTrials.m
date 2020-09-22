@@ -16,7 +16,7 @@ function [expDes] = runTrials(scr,const,expDes,my_key)
 % expDes : struct containing all the variable design configurations.
 % ----------------------------------------------------------------------
 % Function created by Martin SZINTE (martin.szinte@gmail.com)
-% Last update : 17 / 06 / 2020
+% Last update : 22 / 09 / 2020
 % Project :     pRFexp
 % Version :     1.0
 % ----------------------------------------------------------------------
@@ -70,6 +70,7 @@ for bar_pass = 1:const.bar_dir_num
         resp_reset_cond         =   const.resp_reset_hor;
         trial_start_cond        =   const.trial_start_hor;
         trial_end_cond          =   const.trial_end_hor;
+        probe_onset_cond        =   const.probe_onset_hor;
 
     elseif var1(1) == 3 || var1(1) == 7
         rand_num_tex_cond       =   const.rand_num_tex_ver;
@@ -81,6 +82,8 @@ for bar_pass = 1:const.bar_dir_num
         resp_reset_cond         =   const.resp_reset_ver;
         trial_start_cond        =   const.trial_start_ver;
         trial_end_cond          =   const.trial_end_ver;
+        probe_onset_cond        =   const.probe_onset_ver;
+        
     end
 
     % define image of next frame
@@ -200,6 +203,9 @@ for bar_pass = 1:const.bar_dir_num
         % make texture
         expDes.tex = Screen('MakeTexture',scr.main,screen_stim,[],[],[],angle);
         
+        % save stim staircase level
+        expDes.expMat(bar_trials_num(bar_step),10)  =   expDes.stim_stair_val;
+        
         % draw texture
         Screen('DrawTexture',scr.main,expDes.tex,[],const.stim_rect)        
         
@@ -302,7 +308,7 @@ for bar_pass = 1:const.bar_dir_num
         vbl = Screen('Flip',scr.main, when2flip);
 
         % probe
-        if time2probe_cond(drawf,bar_pass)
+        if probe_onset_cond(drawf,bar_pass)
             % probe onset
             if cond1(bar_step) == 1
                 log_txt                 =   sprintf('bar pass %i stimulus probe onset',bar_pass);

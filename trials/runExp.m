@@ -15,7 +15,7 @@ function [const] = runExp(scr,const,expDes,el,my_key)
 % const : struct containing constant configurations
 % ----------------------------------------------------------------------
 % Function created by Martin SZINTE (martin.szinte@gmail.com)
-% Last update : 17 / 06 / 2020
+% Last update : 22 / 09 / 2020
 % Project :     pRFexp
 % Version :     1.0
 % ----------------------------------------------------------------------

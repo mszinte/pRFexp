@@ -13,7 +13,7 @@ function [const]=constConfig(scr,const)
 % const : struct containing constant configurations
 % ----------------------------------------------------------------------
 % Function created by Martin SZINTE (martin.szinte@gmail.com)
-% Last update : 10 / 06 / 2020
+% Last update : 22 / 09 / 2020
 % Project :     pRFexp
 % Version :     1.0
 % ----------------------------------------------------------------------
@@ -226,6 +226,13 @@ for tAng = 1:size(var1,2)
             const.time2probe_hor(drawf,tAng)  =   0;
         end
         
+        % define probe onset drawing frames
+        if drawf == (const.bar_steps_hor(drawf,tAng)-1)*const.bar_step_drawf_hor + const.bef_probe_drawf + 1
+            const.probe_onset_hor(drawf,tAng)  =   1;
+        else
+            const.probe_onset_hor(drawf,tAng)  =   0;
+        end
+
         % define response drawing frames
         if drawf >= (const.bar_steps_hor(drawf,tAng)-1)*const.bar_step_drawf_hor + const.bef_probe_drawf + 1 &&  ...
                 drawf <= (const.bar_steps_hor(drawf,tAng)-1)*const.bar_step_drawf_hor + const.bar_step_drawf_hor
@@ -267,6 +274,13 @@ for tAng = 1:size(var1,2)
             const.time2probe_ver(drawf,tAng)  =   0;
         end
         
+        % define probe onset drawing frames
+        if drawf == (const.bar_steps_ver(drawf,tAng)-1)*const.bar_step_drawf_ver + const.bef_probe_drawf + 1
+            const.probe_onset_ver(drawf,tAng)  =   1;
+        else
+            const.probe_onset_ver(drawf,tAng)  =   0;
+        end
+
         % define response drawing frames
         if drawf >= (const.bar_steps_ver(drawf,tAng)-1)*const.bar_step_drawf_ver + const.bef_probe_drawf + 1 &&  ...
                 drawf <= (const.bar_steps_ver(drawf,tAng)-1)*const.bar_step_drawf_ver + const.bef_probe_drawf*2 + const.probe_drawf
