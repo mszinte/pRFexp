@@ -36,7 +36,7 @@ const.dot_probe_color   =   const.black;                                        
 %% Time parameters
 const.TR_dur            =   1.2;                                                                % repetition time
 const.TR_num            =   (round(const.TR_dur/scr.frame_duration));                           % repetition time in screen frames
-const.bar_dir_num       =   1;                                                                  % number of bar passes and break
+const.bar_dir_num       =   9;                                                                  % number of bar passes and break
 
 const.bar_step_ver      =   32;                                                                 % bar steps for vertical bar pass
 const.bar_step_hor      =   32;                                                                 % bar steps for horizontal bar pass 
@@ -137,7 +137,7 @@ const.fix_dot           =   compFixDot(const);
 const.fix_dot_probe     =   const.fix_dot;
 
 % Bar
-const.bar_dir_run       =   1;%[9,1,9,3,9,5,9,7,9];                                                % direction (1 = 180 deg, 2 = 225 deg, 3 =  270 deg, 4 = 315 deg,
+const.bar_dir_run       =   [9,1,9,3,9,5,9,7,9];                                                % direction (1 = 180 deg, 2 = 225 deg, 3 =  270 deg, 4 = 315 deg,
                                                                                                 %            5 = 0 deg,   6 = 45 deg,  7 = 90 deg,   8 = 135 deg; 9 = none)
 
 const.bar_width_deg     =   2;                                                                  % bar width in dva
@@ -202,8 +202,7 @@ end
 % Define all drawing frames
 % -------------------------
 % define horizontal bar pass
-var1 = const.bar_dir_run;
-for tAng = 1:size(var1,2)
+for tAng = 1:size( const.bar_dir_run,2)
     for drawf = 1:const.num_drawf_max_hor
         
         % define bar position step number
@@ -220,14 +219,16 @@ for tAng = 1:size(var1,2)
         
         % define time probe drawing frames
         if drawf >= (const.bar_steps_hor(drawf,tAng)-1)*const.bar_step_drawf_hor + const.bef_probe_drawf + 1 &&  ...
-                drawf <= (const.bar_steps_hor(drawf,tAng)-1)*const.bar_step_drawf_hor + const.bef_probe_drawf + const.probe_drawf
+                drawf <= (const.bar_steps_hor(drawf,tAng)-1)*const.bar_step_drawf_hor + const.bef_probe_drawf + const.probe_drawf...
+                && const.bar_dir_run(tAng)~=9
             const.time2probe_hor(drawf,tAng)  =   1;
         else
             const.time2probe_hor(drawf,tAng)  =   0;
         end
         
         % define probe onset drawing frames
-        if drawf == (const.bar_steps_hor(drawf,tAng)-1)*const.bar_step_drawf_hor + const.bef_probe_drawf + 1
+        if drawf == (const.bar_steps_hor(drawf,tAng)-1)*const.bar_step_drawf_hor + const.bef_probe_drawf + 1 ...
+            && const.bar_dir_run(tAng)~=9
             const.probe_onset_hor(drawf,tAng)  =   1;
         else
             const.probe_onset_hor(drawf,tAng)  =   0;
@@ -235,14 +236,16 @@ for tAng = 1:size(var1,2)
 
         % define response drawing frames
         if drawf >= (const.bar_steps_hor(drawf,tAng)-1)*const.bar_step_drawf_hor + const.bef_probe_drawf + 1 &&  ...
-                drawf <= (const.bar_steps_hor(drawf,tAng)-1)*const.bar_step_drawf_hor + const.bar_step_drawf_hor
+                drawf <= (const.bar_steps_hor(drawf,tAng)-1)*const.bar_step_drawf_hor + const.bar_step_drawf_hor ...
+                && const.bar_dir_run(tAng)~=9
             const.time2resp_hor(drawf,tAng)  =   1;
         else
             const.time2resp_hor(drawf,tAng)  =   0;
         end
         
         % define response reset drawing frames
-        if drawf == (const.bar_steps_hor(drawf,tAng)-1)*const.bar_step_drawf_hor + 1
+        if drawf == (const.bar_steps_hor(drawf,tAng)-1)*const.bar_step_drawf_hor + 1 ...
+                && const.bar_dir_run(tAng)~=9
             const.resp_reset_hor(drawf,tAng)  =   1;
         else
             const.resp_reset_hor(drawf,tAng)  =   0;
@@ -251,7 +254,7 @@ for tAng = 1:size(var1,2)
 end
 
 % define vertical bar pass
-for tAng = 1:size(var1,2)
+for tAng = 1:size( const.bar_dir_run,2)
     for drawf = 1:const.num_drawf_max_ver
                       
         % define bar position step number
@@ -265,17 +268,19 @@ for tAng = 1:size(var1,2)
             const.trial_start_ver(drawf,tAng)  =   0;
             const.trial_end_ver(drawf,tAng)   =   0;
         end
-                        
+                         
         % define time probe drawing frames
         if drawf >= (const.bar_steps_ver(drawf,tAng)-1)*const.bar_step_drawf_ver + const.bef_probe_drawf + 1 &&  ...
-                drawf <= (const.bar_steps_ver(drawf,tAng)-1)*const.bar_step_drawf_ver + const.bef_probe_drawf + const.probe_drawf
+                drawf <= (const.bar_steps_ver(drawf,tAng)-1)*const.bar_step_drawf_ver + const.bef_probe_drawf + const.probe_drawf ...
+                && const.bar_dir_run(tAng)~=9
             const.time2probe_ver(drawf,tAng)  =   1;
         else
             const.time2probe_ver(drawf,tAng)  =   0;
         end
         
         % define probe onset drawing frames
-        if drawf == (const.bar_steps_ver(drawf,tAng)-1)*const.bar_step_drawf_ver + const.bef_probe_drawf + 1
+        if drawf == (const.bar_steps_ver(drawf,tAng)-1)*const.bar_step_drawf_ver + const.bef_probe_drawf + 1 ...
+            && const.bar_dir_run(tAng)~=9
             const.probe_onset_ver(drawf,tAng)  =   1;
         else
             const.probe_onset_ver(drawf,tAng)  =   0;
@@ -283,14 +288,15 @@ for tAng = 1:size(var1,2)
 
         % define response drawing frames
         if drawf >= (const.bar_steps_ver(drawf,tAng)-1)*const.bar_step_drawf_ver + const.bef_probe_drawf + 1 &&  ...
-                drawf <= (const.bar_steps_ver(drawf,tAng)-1)*const.bar_step_drawf_ver + const.bef_probe_drawf*2 + const.probe_drawf
+                drawf <= (const.bar_steps_ver(drawf,tAng)-1)*const.bar_step_drawf_ver + const.bef_probe_drawf*2 + const.probe_drawf ...
+                && const.bar_dir_run(tAng)~=9
             const.time2resp_ver(drawf,tAng)  =   1;
         else
             const.time2resp_ver(drawf,tAng)  =   0;
         end
         
         % define response reset drawing frames
-        if drawf == (const.bar_steps_ver(drawf,tAng)-1)*const.bar_step_drawf_ver + 1
+        if drawf == (const.bar_steps_ver(drawf,tAng)-1)*const.bar_step_drawf_ver + 1 && const.bar_dir_run(tAng)~=9
             const.resp_reset_ver(drawf,tAng)  =   1;
         else
             const.resp_reset_ver(drawf,tAng)  =   0;
@@ -302,12 +308,12 @@ end
 if const.scanner
     const.TRs = 0;
     for bar_pass = 1:const.bar_dir_num        
-        if var1(bar_pass) == 9
+        if  const.bar_dir_run(bar_pass) == 9
             TR_bar_pass             =   const.blk_step;
         else
-            if var1(bar_pass) == 1 || var1(bar_pass) == 5
+            if  const.bar_dir_run(bar_pass) == 1 ||  const.bar_dir_run(bar_pass) == 5
                 TR_bar_pass     =   const.bar_step_hor;
-            elseif var1(bar_pass) == 3 || var1(bar_pass) == 7
+            elseif  const.bar_dir_run(bar_pass) == 3 || const.bar_dir_run(bar_pass) == 7
                 TR_bar_pass     =   const.bar_step_ver;
             end
         end

@@ -257,7 +257,7 @@ for bar_pass = 1:const.bar_dir_num
                 % update staircase
                 if time2resp_cond(drawf,bar_pass) && resp == 0
                     % write in log/edf
-                    log_txt                 =   sprintf('bar pass %i event %s',bar_pass,my_key.left4Val);
+                    log_txt                 =   sprintf('bar pass %i trial %i event %s',bar_pass, bar_trials_num(bar_step), my_key.left4Val);
                     if const.tracker
                         Eyelink('message','%s',log_txt);
                     end
@@ -277,7 +277,7 @@ for bar_pass = 1:const.bar_dir_num
                 % update staircase
                 if time2resp_cond(drawf,bar_pass) && resp == 0
                     % write in log/edf
-                    log_txt                 =   sprintf('bar pass %i event %s',bar_pass,my_key.right1Val);
+                    log_txt                 =   sprintf('bar pass %i trial %i event %s',bar_pass,bar_trials_num(bar_step), my_key.right1Val);
                     if const.tracker
                         Eyelink('message','%s',log_txt);
                     end
