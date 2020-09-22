@@ -16,7 +16,6 @@
 % To do
 % -----
 % behavioral data with python
-% check with eye tracker
 % check with scanner
 % add change to other experiments
 
@@ -27,11 +26,11 @@ Screen('CloseAll');clear all;clear mex;clear functions;close all;home;AssertOpen
 % General settings
 % ----------------
 const.expName           =   'pRFexp';       % experiment name
-const.expStart          =   1;              % Start of a recording exp                          0 = NO  , 1 = YES
+const.expStart          =   0;              % Start of a recording exp                          0 = NO  , 1 = YES
 const.checkTrial        =   0;              % Print trial conditions (for debugging)            0 = NO  , 1 = YES
 const.genStimuli        =   0;              % Generate the stimuli                              0 = NO  , 1 = YES
 const.drawStimuli       =   0;              % Draw stimuli generated                            0 = NO  , 1 = YES
-const.mkVideo           =   0;              % Make a video of a run                             0 = NO  , 1 = YES
+const.mkVideo           =   1;              % Make a video of a run                             0 = NO  , 1 = YES
 
 % External controls
 % -----------------
