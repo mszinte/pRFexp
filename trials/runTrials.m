@@ -153,7 +153,7 @@ for bar_pass = 1:const.bar_dir_num
     
         t_start = GetSecs;
         vbl = GetSecs;
-        log_txt  =   sprintf('bar pass %i trial onset',bar_pass);
+        log_txt  =   sprintf('bar pass %i trial onset %i',bar_pass,bar_trials_num(bar_step));
         if const.tracker
             Eyelink('message','%s',log_txt);
         end
@@ -311,7 +311,7 @@ for bar_pass = 1:const.bar_dir_num
         if probe_onset_cond(drawf,bar_pass)
             % probe onset
             if cond1(bar_step) == 1
-                log_txt                 =   sprintf('bar pass %i stimulus probe onset',bar_pass);
+                log_txt                 =   sprintf('bar pass %i stimulus probe onset %i',bar_pass,bar_trials_num(bar_step));
             end
             if const.tracker
                 Eyelink('message','%s',log_txt);
@@ -319,24 +319,24 @@ for bar_pass = 1:const.bar_dir_num
             expDes.expMat(bar_trials_num(bar_step),12) = vbl;
         end
         
+        if trial_end_cond(drawf,bar_pass)
+            % trial offset
+            log_txt = sprintf('bar pass %i trial offset %i',bar_pass, bar_trials_num(bar_step));
+            if const.tracker
+                Eyelink('message','%s',log_txt);
+            end
+            expDes.expMat(bar_trials_num(bar_step),9) = vbl;
+        end
+        
         % trial onset
         if trial_start_cond(drawf,bar_pass) && ~(bar_pass == const.bar_dir_num && drawf == drawf_max)
-            log_txt  =   sprintf('bar pass %i trial onset',bar_pass);
+            log_txt  =   sprintf('bar pass %i trial onset %i',bar_pass, bar_trials_num(bar_step)+1);
             if const.tracker
                 Eyelink('message','%s',log_txt);
             end
             expDes.expMat(bar_trials_num(bar_step)+1,8) = vbl;
         end
         
-        if trial_end_cond(drawf,bar_pass)
-            % trial offset
-            log_txt = sprintf('bar pass %i trial offset',bar_pass);
-            if const.tracker
-                Eyelink('message','%s',log_txt);
-            end
-            expDes.expMat(bar_trials_num(bar_step),9) = vbl;
-        end
-         
         % Drawing frame number
         drawf = drawf + 1;
 
