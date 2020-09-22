@@ -330,10 +330,15 @@ for bar_pass = 1:const.bar_dir_num
         
         % trial onset
         if trial_start_cond(drawf,bar_pass) && ~(bar_pass == const.bar_dir_num && drawf == drawf_max)
-            log_txt  =   sprintf('bar pass %i trial onset %i',bar_pass, bar_trials_num(bar_step)+1);
+            if drawf == drawf_max
+                log_txt  =   sprintf('bar pass %i trial onset %i',bar_pass+1, bar_trials_num(bar_step)+1);
+            else
+                log_txt  =   sprintf('bar pass %i trial onset %i',bar_pass, bar_trials_num(bar_step)+1);
+            end
             if const.tracker
                 Eyelink('message','%s',log_txt);
             end
+            
             expDes.expMat(bar_trials_num(bar_step)+1,8) = vbl;
         end
         
