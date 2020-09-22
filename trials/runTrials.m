@@ -184,6 +184,11 @@ for bar_pass = 1:const.bar_dir_num
             resp                =   0;
         end
 
+        % save stim staircase level
+        if probe_onset_cond(drawf,bar_pass)
+            expDes.expMat(bar_trials_num(bar_step),10)  =   expDes.stim_stair_val;
+        end
+        
         % define name of next frame
         if var1(bar_step) == 9
             screen_filename         =   sprintf('%s/blank.mat',const.stim_folder);
@@ -202,9 +207,6 @@ for bar_pass = 1:const.bar_dir_num
         
         % make texture
         expDes.tex = Screen('MakeTexture',scr.main,screen_stim,[],[],[],angle);
-        
-        % save stim staircase level
-        expDes.expMat(bar_trials_num(bar_step),10)  =   expDes.stim_stair_val;
         
         % draw texture
         Screen('DrawTexture',scr.main,expDes.tex,[],const.stim_rect)        
@@ -309,6 +311,7 @@ for bar_pass = 1:const.bar_dir_num
 
         % probe
         if probe_onset_cond(drawf,bar_pass)
+            
             % probe onset
             if cond1(bar_step) == 1
                 log_txt                 =   sprintf('bar pass %i stimulus probe onset %i',bar_pass,bar_trials_num(bar_step));
