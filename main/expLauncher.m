@@ -16,8 +16,6 @@
 % To do
 % -----
 % behavioral data with python
-% check with scanner
-% add change to other experiments
 
 % First settings
 % --------------
