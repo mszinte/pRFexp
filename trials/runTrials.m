@@ -102,11 +102,8 @@ for bar_pass = 1:const.bar_dir_num
     
     % wait for bar_pass press in trial beginning
     if bar_pass == 1
-        % show the iti image
-        screen_filename = sprintf('%s/blank.mat',const.stim_folder);
-        load(screen_filename,'screen_stim');
-        expDes.tex = Screen('MakeTexture',scr.main,screen_stim,[],[],[],0);
-        Screen('DrawTexture',scr.main,expDes.tex,[],const.stim_rect);
+        Screen('FillRect',scr.main,const.background_color);
+        drawEmptyTarget(scr,const,scr.x_mid,scr.y_mid);
         Screen('Flip',scr.main);
         first_trigger           =   0;
         expDes.mri_band_val     =   my_key.first_val(3);
