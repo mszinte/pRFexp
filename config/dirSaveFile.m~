@@ -18,12 +18,12 @@ function [const] = dirSaveFile(const)
 % ----------------------------------------------------------------------
 
 % Create data directory 
-if ~isdir(sprintf('data/%s/%s/func/',const.sjct,const.session))
-    mkdir(sprintf('data/%s/%s/func/',const.sjct,const.session))
+if ~isdir(sprintf('data/%s/%s/func/',const.sjct,const.ses))
+    mkdir(sprintf('data/%s/func/',const.sjct))
 end
 
 % Define directory
-const.dat_output_file   =   sprintf('data/%s/%s/func/%s_%s_task-%s_%s',const.sjct,const.session,const.sjct,const.session,const.cond1_txt,const.run_txt);
+const.dat_output_file   =   sprintf('data/%s/func/%s_task-%s_%s',const.sjct,const.sjct,const.cond1_txt,const.run_txt);
 
 % Eye data
 const.eyelink_temp_file =   'XX.edf';
@@ -45,18 +45,18 @@ end
 const.behav_file_fid    =   fopen(const.behav_file,'w');
 
 % Create additional info directory
-if ~isdir(sprintf('data/%s/%s/add/',const.sjct,const.session))
-    mkdir(sprintf('data/%s/%s/add/',const.sjct,const.session))
+if ~isdir(sprintf('data/%s/add/',const.sjct))
+    mkdir(sprintf('data/%s/add/',const.sjct))
 end
 
 % Define directory
-const.add_output_file   =   sprintf('data/%s/%s/add/%s_%s_task-%s_%s',const.sjct,const.session,const.sjct,const.session,const.cond1_txt,const.run_txt);
+const.add_output_file   =   sprintf('data/%s/add/%s_%s_task-%s_%s',const.sjct,const.sjct,const.session,const.cond1_txt,const.run_txt);
 
 % Define .mat saving file
 const.mat_file          =   sprintf('%s_matFile.mat',const.add_output_file);
 
 % Staircase file
-const.staircase_file    =   sprintf('data/%s/%s/add/%s_staircases.mat',const.sjct,const.session,const.sjct);
+const.staircase_file    =   sprintf('data/%s/add/%s_staircases.mat',const.sjct,const.sjct);
 
 % Define .mat stimuli file
 const.stim_folder       =   sprintf('stim/screenshots');
