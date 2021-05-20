@@ -12,7 +12,7 @@ function [const] = dirSaveFile(const)
 % const : struct containing constant configurations
 % ----------------------------------------------------------------------
 % Function created by Martin SZINTE (martin.szinte@gmail.com)
-% Last update : 10 / 06 / 2020
+% Last update : 06 / 10 / 2020
 % Project :     pRFexp
 % Version :     1.0
 % ----------------------------------------------------------------------
