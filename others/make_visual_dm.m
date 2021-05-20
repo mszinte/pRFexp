@@ -26,7 +26,7 @@ function make_visual_dm(in_dir,in_file,tr,trs,out_size,plot_vid)
 % in_file = 'pRF'
 % tr = 1.2
 % trs = 208
-% out_size = [240,135]
+% out_size = [135,135]
 % plot_vid = 1
 % make_visual_dm(in_dir,in_file,tr,trs,out_size,plot_vid)
 % ----------------------------------------------------------------------
