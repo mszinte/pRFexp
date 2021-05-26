@@ -26,7 +26,7 @@ function make_visual_dm(in_dir,in_file,tr,trs,out_size,plot_vid)
 % in_file = 'pRF'
 % tr = 1.2
 % trs = 208
-% out_size = [240,135]
+% out_size = [135,135]
 % plot_vid = 1
 % make_visual_dm(in_dir,in_file,tr,trs,out_size,plot_vid)
 % ----------------------------------------------------------------------
@@ -44,6 +44,7 @@ for frame_num = frame_to_draw
     mat_frame = read(v ,frame_num);                
     mat_frame(mat_frame>=5)=255;                   
     mat_frame = mat_frame(:,:,1);
+    mat_frame = mat_frame(:,(1920-1080)/2+1:(1920-(1920-1080)/2));
     mat_frame = imresize(mat_frame,fliplr(out_size)); 
     
     if plot_vid
