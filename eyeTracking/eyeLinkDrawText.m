@@ -15,11 +15,9 @@ function eyeLinkDrawText(x,y,color,text)
 % none
 % ----------------------------------------------------------------------
 % Function created by Martin SZINTE (martin.szinte@gmail.com)
-% Last update : 21 / 11 / 2016
-% Project :     pRF_gazeMod
-% Version :     1.0
 % ----------------------------------------------------------------------
 
-Eyelink('command','draw_text %d %d %d %s', round(x),round(y),color,text);
+Eyelink('command', 'draw_text %d %d %d %s', round(x), round(y), color, ...
+    text);
 
 end
