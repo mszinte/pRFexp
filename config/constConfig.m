@@ -85,7 +85,9 @@ const.noise_kappa = [0, 10.^(linspace(-1, 1.5, const.num_steps_kappa - 1))];% vo
 const.good_4_harder = 3;                                                    % amount of trials before (harder) staircase update
 const.bad_4_easier = 1;                                                     % amount of trials before (easier) staircase update
 const.stim_stair_val = round(const.num_steps_kappa * 0.6);                  % starting value of the bar staircase kappa value
-if const.mkVideo; const.stim_stair_val = const.num_steps_kappa; end         % starting value of the stimulus staircase kappa value
+if const.mkVideo
+    const.stim_stair_val = input(sprintf('\n\tSTAIRCASE: '));              % starting value of the stimulus staircase kappa value
+end
 const.noise_size = sqrt((const.stim_size(1) * 2)^2 + ...                    % size of the patch to allow 45deg rotation
     (const.stim_size(1) * 2)^2);
 const.noise_angle = [45, -45, NaN];                                         % noise rotation angles

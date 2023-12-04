@@ -1,6 +1,6 @@
-function [expDes]=designConfig(const)
+function expDes = designConfig(const)
 % ----------------------------------------------------------------------
-% [expDes]=designConfig(const)
+% expDes = designConfig(const)
 % ----------------------------------------------------------------------
 % Goal of the function :
 % Define experimental design
@@ -15,7 +15,6 @@ function [expDes]=designConfig(const)
 % ----------------------------------------------------------------------
 
 % Experimental random variables
-
 % Var 1 : bar direction (9 modalities)
 expDes.oneV = [1;3;5;7];
 expDes.txt_var1 = {'180 deg', '225 deg', '270 deg', '315 deg', '0 deg',...
@@ -85,18 +84,23 @@ for t_bar_pass = 1:size(const.bar_dir_run, 2)
         % 01: trial onset
         % 02: trial duration
         % 03: run number
-        % 04: bar direction
-        % 05: bar pass period
-        % 06: bar step
-        % 07: stimulus orientation
+        % 04: trial number
+        % 05: bar direction
+        % 06: bar pass period
+        % 07: bar step
+        % 08: stimulus orientation
         % 09: trial offset time
         % 10: stimulus noise staircase value
         % 11: reponse value (correct/incorrect)
         % 12: Probe time
-        % 13: Response time
+        % 13: Reaction time
     end
 end
 
 expDes.nb_trials = size(expDes.expMat,1);
+if const.mkVideo
+    expDes.expMat = expDes.expMat(1, :);
+    expDes.nb_trials = 1;
+end
 
 end

@@ -48,7 +48,6 @@ end
 if const.genStimuli; makeTextures(scr, const, expDes); end
 
 % Trial runner
-%% I'm here
 const = runExp(scr, const, expDes, my_key, eyetrack);
 
 % End

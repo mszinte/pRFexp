@@ -62,12 +62,9 @@ bgCol = 0;
 % Clear screen
 eyeLinkClearScreen(bgCol);
 
-% Cond2 : fixation direction
-rect_ctr = [scr.x_mid, scr.y_mid];
-
-%% Draw Stimulus
-
+% Draw Stimulus
 % Fixation box
+rect_ctr = [scr.x_mid, scr.y_mid];
 eyeLinkDrawBox(rect_ctr(1), rect_ctr(2), const.fix_out_rim_rad * 2, ...
     const.fix_out_rim_rad * 2, 2, frameCol, ftCol);
 WaitSecs(0.1);
