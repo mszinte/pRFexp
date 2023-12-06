@@ -29,7 +29,7 @@ const.drawStimuli = 0;          % Draw stimuli generated (0 = NO, 1 = YES)
 const.mkVideo = 0;              % Make a video of a run
 
 % External controls
-const.tracker = 0;              % run with eye tracker (0 = NO, 1 = YES)
+const.tracker = 1;              % run with eye tracker (0 = NO, 1 = YES)
 const.comp = 1;                 % run in which computer (1 = MRI; 2 = Can laptop; 3 = Diplay++)
 const.scanner = 0;              % run in MRI scanner (0 = NO, 1 = YES)
 const.scannerTest = 1;          % fake scanner trigger (0 = NO, 1 = YES)
