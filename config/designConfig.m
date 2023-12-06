@@ -98,9 +98,6 @@ for t_bar_pass = 1:size(const.bar_dir_run, 2)
 end
 
 expDes.nb_trials = size(expDes.expMat,1);
-if const.mkVideo
-    expDes.expMat = expDes.expMat(1, :);
-    expDes.nb_trials = 1;
-end
+
 
 end

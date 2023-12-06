@@ -18,6 +18,11 @@ function expDes = runTrials(scr, const, expDes, my_key)
 % Function created by Martin SZINTE (martin.szinte@gmail.com)
 % ----------------------------------------------------------------------
 
+% Open video
+if const.mkVideo
+    open(const.vid_obj);
+end
+
 for bar_pass = 1:const.bar_dir_num
     
     % Write in log/edf

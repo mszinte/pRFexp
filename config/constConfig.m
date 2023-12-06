@@ -86,7 +86,7 @@ const.good_4_harder = 3;                                                    % am
 const.bad_4_easier = 1;                                                     % amount of trials before (easier) staircase update
 const.stim_stair_val = round(const.num_steps_kappa * 0.6);                  % starting value of the bar staircase kappa value
 if const.mkVideo
-    const.stim_stair_val = input(sprintf('\n\tSTAIRCASE: '));              % starting value of the stimulus staircase kappa value
+    const.stim_stair_val = input(sprintf('\n\tSTAIRCASE (0->14): '));       % starting value of the stimulus staircase kappa value
 end
 const.noise_size = sqrt((const.stim_size(1) * 2)^2 + ...                    % size of the patch to allow 45deg rotation
     (const.stim_size(1) * 2)^2);

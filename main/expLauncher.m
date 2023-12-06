@@ -13,10 +13,8 @@
 
 % To do
 % -----
-% 1/ test multiple runs and see staircase
-% 2/ test stimuli generation
-% 3/ test data analysis
-% 4/ test make video
+% 2/ test data analysis
+% 4/ test with Eyelink and fast screen
 
 % First settings
 Screen('CloseAll'); clear all; clear mex; clear functions; close all; ...
@@ -24,7 +22,7 @@ Screen('CloseAll'); clear all; clear mex; clear functions; close all; ...
 
 % General settings
 const.expName = 'pRF';          % experiment name
-const.expStart = 0;             % Start of a recording exp (0 = NO, 1 = YES)
+const.expStart = 1;             % Start of a recording exp (0 = NO, 1 = YES)
 const.checkTrial = 0;           % Print trial conditions (0 = NO, 1 = YES)
 const.genStimuli = 0;           % Generate the stimuli (0 = NO, 1 = YES)
 const.drawStimuli = 0;          % Draw stimuli generated (0 = NO, 1 = YES)
@@ -39,7 +37,7 @@ const.training = 0;             % training session (0 = NO, 1 = YES)
 const.run_total = 5;            % number of run in total
 
 % Desired screen setting
-const.desiredFD = 60;          % Desired refresh rate
+const.desiredFD = 120;          % Desired refresh rate
 const.desiredRes = [1920, 1080];% Desired resolution
 
 % Path

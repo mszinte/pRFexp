@@ -27,10 +27,11 @@ elseif strcmp(const.noise_color, 'white')                                   % wh
     colVal = 0;
 end
 
-freqD1 = repmat([(0:floor(noiseDim(1) / 2)) - ...                           % set of frequencies along the first dimension
-    (ceil(noiseDim(1) / 2) - 1:-1:1)]' / noiseDim(1), 1, noiseDim(2));
-freqD2 = repmat([(0:floor(noiseDim(2) / 2)) - ...                           % set of frequencies along the second dimension.
-    (ceil(noiseDim(2) / 2) - 1:-1:1)] / noiseDim(2), noiseDim(1), 1);
+% set of frequencies along the first dimension
+freqD1 = repmat([(0:floor(noiseDim(1)/2)) -(ceil(noiseDim(1)/2)-1:-1:1)]'/noiseDim(1),1,noiseDim(2));
+% set of frequencies along the second dimension.
+freqD2 = repmat([(0:floor(noiseDim(2)/2)) -(ceil(noiseDim(2)/2)-1:-1:1)]/noiseDim(2),noiseDim(1),1);                 
+
 pSpect = (freqD1.^2 + freqD2.^2).^(-colVal/2);                              % power spectrum
 pSpect(pSpect==inf) = 0;                                                    % set any infinities to zero
 phi = rand(noiseDim);                                                       % generate a grid of random phase shifts
@@ -51,3 +52,5 @@ noiseMatFiltNorm = (noiseMatFilt - min(noiseMatFilt(:))) / ...              % no
     (max(noiseMatFilt(:)) - min(noiseMatFilt(:)));
 
 end
+
+
