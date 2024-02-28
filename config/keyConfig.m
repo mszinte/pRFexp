@@ -17,23 +17,18 @@ function my_key = keyConfig(const)
 KbName('UnifyKeyNames');
 
 my_key.mri_trVal = 't';         % mri trigger letter
-my_key.left1Val = 'r';          % left button 1 - empty
+my_key.left1Val = 'r';          % left button 1 - not used
 my_key.left2Val = 'f';          % left button 2 - ccw pattern
-my_key.left3Val = 'v';          % left button 3 - empty
-my_key.right1Val = 'i';         % right button 1 - empty
+my_key.left3Val = 'v';          % left button 3 - not used
+my_key.right1Val = 'i';         % right button 1 - pass instructions
 my_key.right2Val = 'j';         % right button 2 - cw pattern
-my_key.right3Val = 'n';         % right button 3 - empty
+my_key.right3Val = 'n';         % right button 3 - not used
 my_key.escapeVal = 'escape';    % escape button
 my_key.spaceVal = 'space';      % space button
 
 my_key.mri_tr = KbName(my_key.mri_trVal);
-my_key.left1 = KbName(my_key.left1Val);
-my_key.left2 = KbName(my_key.left2Val);
-my_key.left3 = KbName(my_key.left3Val);
-my_key.right1 = KbName(my_key.right1Val);
-my_key.right2 = KbName(my_key.right2Val);
-my_key.right3 = KbName(my_key.right3Val);
 my_key.escape = KbName(my_key.escapeVal);
+my_key.right1 = KbName(my_key.right1Val);
 my_key.space = KbName(my_key.spaceVal);
 
 my_key.keyboard_idx = GetKeyboardIndices;
@@ -49,10 +44,10 @@ if const.scanner == 1 && ~const.scannerTest
     
     % NI board acquisition settings
     warning off;
-    daqreset; % replace daq.reset;
-    my_key.ni_devices = daqlist; % replace daq.getDevices
-    my_key.ni_session1 = daq(my_key.ni_devices(1).Vendor.ID); % replace daq.createSession
-    my_key.ni_session2 = daq(my_key.ni_devices(2).Vendor.ID); % replace daq.createSession
+    daq.reset;
+    my_key.ni_devices = daq.getDevices;
+    my_key.ni_session1 = daq.createSession(my_key.ni_devices(1).Vendor.ID);
+    my_key.ni_session2 = daq.createSession(my_key.ni_devices(2).Vendor.ID);
     my_key.ni_device_ID1 = 'Dev1';
     my_key.ni_device_ID2 = 'Dev2';
     my_key.ni_measurement_type = 'InputOnly';
@@ -76,7 +71,7 @@ if const.scanner == 1 && ~const.scannerTest
     % MRI trigger settings
     fprintf(1,'\n\n\tDon''t forget to put MRI trigger in "Toggle" mode\n');
     my_key.port_mri_bands = 'port1/line0';
-    my_key.idx_mri_bands = 3;
+    my_key.idx_mri_bands = 7;
     
     if ~isempty(my_key.port_mri_bands)
         my_key.channel_mri_bands = my_key.ni_session1.addDigitalChannel(my_key.ni_device_ID1,my_key.port_mri_bands,my_key.ni_measurement_type); 

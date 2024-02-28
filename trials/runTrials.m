@@ -96,7 +96,7 @@ for bar_pass = 1:const.bar_dir_num
         drawEmptyTarget(scr, const, scr.x_mid, scr.y_mid);
         Screen('Flip', scr.main);
         first_trigger = 0;
-        expDes.mri_band_val = my_key.first_val(3);
+        expDes.mri_band_val = my_key.first_val(end);
         
         while ~first_trigger
             if const.scanner == 0 || const.scannerTest
