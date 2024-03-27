@@ -260,13 +260,13 @@ for bar_pass = 1:const.bar_dir_num
                 if const.expStart == 0
                     overDone(const, my_key)
                 end
-            elseif keyCode(my_key.left2)
+            elseif keyCode(my_key.left3)
                 % update staircase
                 if time2resp_cond(drawf, bar_pass) && resp == 0
                     % write in log/edf
                     log_txt = sprintf('bar pass %i trial %i event %s', ...
                         bar_pass, bar_trials_num(bar_step), ...
-                        my_key.left2Val);
+                        my_key.left3Val);
                     if const.tracker
                         Eyelink('message', '%s', log_txt);
                     end
@@ -283,13 +283,13 @@ for bar_pass = 1:const.bar_dir_num
                     expDes = updateStaircase(const, expDes, response);
                     resp = 1;
                 end
-            elseif keyCode(my_key.right2) % cw button
+            elseif keyCode(my_key.right3) % cw button
                 % update staircase
                 if time2resp_cond(drawf,bar_pass) && resp == 0
                     % write in log/edf
                     log_txt = sprintf('bar pass %i trial %i event %s', ...
                         bar_pass, bar_trials_num(bar_step), ...
-                        my_key.right2Val);
+                        my_key.right3Val);
                     if const.tracker
                         Eyelink('message', '%s', log_txt);
                     end
