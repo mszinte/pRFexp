@@ -1,6 +1,6 @@
-function [noiseMatFiltNorm,vonMisses] = oriFiltNoise(fftNoiseMat,kappaPower)
+function [noiseMatFiltNorm, vonMisses] = oriFiltNoise(fftNoiseMat, kappaPower)
 % ----------------------------------------------------------------------
-% [noiseMatFiltNorm,vonMisses] = oriFiltNoise(fftNoiseMat,kappaPower)
+% [noiseMatFiltNorm, vonMisses] = oriFiltNoise(fftNoiseMat, kappaPower)
 % ----------------------------------------------------------------------
 % Goal of the function :
 % Filter a noise image filtered as a function of an orientation
@@ -16,19 +16,17 @@ function [noiseMatFiltNorm,vonMisses] = oriFiltNoise(fftNoiseMat,kappaPower)
 % vonMisses: von misses filter
 % ----------------------------------------------------------------------
 % Function created by Martin SZINTE (martin.szinte@gmail.com)
-% Last update : 17 / 06 / 2020
-% Project :     pRFexp
-% Version :     1.0
 % ----------------------------------------------------------------------
 
 %% Generate von misses distribution
-alphaVonMisses          =   linspace(0, 2*pi, size(fftNoiseMat,1))';                                                    % alpha angle of von misses
-vonMisses               =   (1/(2*pi*besseli(0,10^kappaPower))) * exp((10^kappaPower)*cos(alphaVonMisses+pi));  % von misses formula
-vonMisses               =   repmat(vonMisses,1,size(fftNoiseMat,2));                                            % repeat the matrix over the other dimension
+alphaVonMisses = linspace(0, 2 * pi, size(fftNoiseMat, 1))';            	% alpha angle of von misses
+vonMisses = (1 / (2 * pi * besseli(0, 10^kappaPower))) * ...                % von misses formula
+    exp((10^kappaPower) * cos(alphaVonMisses + pi));                        
+vonMisses = repmat(vonMisses, 1, size(fftNoiseMat, 2));                     % repeat the matrix over the other dimension
 
 %% Convolve both and normalize
-noiseMatFilt            =   real(ifft2(ifftshift(fftNoiseMat.*vonMisses)));
-noiseMatFiltNorm        =   (noiseMatFilt- min(noiseMatFilt(:)))/(max(noiseMatFilt(:)) - min(noiseMatFilt(:)));
-
+noiseMatFilt = real(ifft2(ifftshift(fftNoiseMat .* vonMisses)));
+noiseMatFiltNorm = (noiseMatFilt - min(noiseMatFilt(:))) / ...
+    (max(noiseMatFilt(:)) - min(noiseMatFilt(:)));
 
 end

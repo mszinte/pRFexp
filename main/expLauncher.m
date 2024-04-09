@@ -1,67 +1,55 @@
 %% General experimenter launcher
 %  =============================
-% By :      Martin SZINTE
-% Projet :  pRFexp
-% With :    Vanessa C MORITA, Anna MONTAGNINI & Guillaume MASSON
+% By: Martin SZINTE
+% Projet: pRFexp for MotConf
+% With: Can OLUK, Pascal MAMASSIAN & Guillaume MASSON
 
 % Version description
 % ===================
-% Experiment in which we first use a square full screen 4 directions (left/right/up/down) 
-% bar pass stimuli with an attention task to the bar in order to obtain pRF retinotopy of 
-% the occipital, parietal, frontal and subcortical structures.
-
-% design idea
-% -----------
+% Experiment in which we first use a square full screen 4 directions 
+% (left/right/up/down) bar pass stimuli with an attention task to the bar 
+% in order to obtain pRF retinotopy of the occipital, parietal, frontal 
+% and subcortical structures.
 
 % To do
 % -----
-% behavioral data with python
+% 2/ test data analysis
+% 4/ test with Eyelink and fast screen
 
 % First settings
-% --------------
-Screen('CloseAll');clear all;clear mex;clear functions;close all;home;AssertOpenGL;
+Screen('CloseAll'); clear all; clear mex; clear functions; close all; ...
+    home; AssertOpenGL;
 
 % General settings
-% ----------------
-const.expName           =   'pRFexp';       % experiment name
-const.expStart          =   1;              % Start of a recording exp                          0 = NO  , 1 = YES
-const.checkTrial        =   0;              % Print trial conditions (for debugging)            0 = NO  , 1 = YES
-const.genStimuli        =   0;              % Generate the stimuli                              0 = NO  , 1 = YES
-const.drawStimuli       =   0;              % Draw stimuli generated                            0 = NO  , 1 = YES
-const.mkVideo           =   0;              % Make a video of a run                             0 = NO  , 1 = YES
+const.expName = 'pRF';          % experiment name
+const.expStart = 1;             % Start of a recording exp (0 = NO, 1 = YES)
+const.checkTrial = 0;           % Print trial conditions (0 = NO, 1 = YES)
+const.genStimuli = 0;           % Generate the stimuli (0 = NO, 1 = YES)
+const.drawStimuli = 0;          % Draw stimuli generated (0 = NO, 1 = YES)
+const.mkVideo = 0;              % Make a video of a run
 
 % External controls
-% -----------------
-const.tracker           =   1;              % run with eye tracker                              0 = NO  , 1 = YES
-const.scanner           =   1;              % run in MRI scanner                                0 = NO  , 1 = YES
-const.scannerTest       =   0;              % run with T returned at TR time                    0 = NO  , 1 = YES
-const.room              =   1;              % run in MRI or eye-tracking room                   1 = MRI , 2 = eye-tracking
-const.training          =   0;              % training session                                  0 = NO  , 1 = YES
-
-% Run order and number per condition
-% ----------------------------------
-const.cond_run_order    =   [01;01;01;01;01];
-const.cond_run_num      =   [01;02;03;04;05];
+const.tracker = 1;              % run with eye tracker (0 = NO, 1 = YES)
+const.comp = 1;                 % run in which computer (1 = MRI; 2 = Can laptop; 3 = Diplay++)
+const.scanner = 1;              % run in MRI scanner (0 = NO, 1 = YES)
+const.scannerTest = 0;          % fake scanner trigger (0 = NO, 1 = YES)
+const.training = 0;             % training session (0 = NO, 1 = YES)
+const.run_total = 5;            % number of run in total
 
 % Desired screen setting
-% ----------------------
-const.desiredFD         =   120;            % Desired refresh rate
-%fprintf(1,'\n\n\tDon''t forget to change before testing\n');
-const.desiredRes        =   [1920,1080];    % Desired resolution
+const.desiredFD = 120;          % Desired refresh rate
+const.desiredRes = [1920, 1080];% Desired resolution
 
 % Path
-% ----
-dir                     =   (which('expLauncher'));
+dir = which('expLauncher');
 cd(dir(1:end-18));
 
 % Add Matlab path
-% ---------------
-addpath('config','main','conversion','eyeTracking','instructions','trials','stim','stats');
+addpath('config', 'main', 'conversion', 'eyeTracking', 'instructions',...
+    'trials', 'stim');
 
 % Subject configuration
-% ---------------------
-[const]                 =   sbjConfig(const);
-                        
+const = sbjConfig(const);
+
 % Main run
-% --------
 main(const);

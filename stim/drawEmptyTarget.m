@@ -16,14 +16,12 @@ function drawEmptyTarget(scr,const,targetX,targetY)
 % none
 % ----------------------------------------------------------------------
 % Function created by Martin SZINTE (martin.szinte@gmail.com)
-% Last update : 20 / 01 / 2020
-% Project :     pMFexp
-% Version :     1.0
 % ----------------------------------------------------------------------
 
-
-Screen('DrawDots',scr.main,[targetX,targetY],const.fix_out_rim_rad*2, const.dot_color , [], 2);
-Screen('DrawDots',scr.main,[targetX,targetY],const.fix_rim_rad*2, const.background_color, [], 2);
+Screen('DrawDots', scr.main, [targetX, targetY], ...
+    const.fix_out_rim_rad * 2, const.dot_color , [], 2);
+Screen('DrawDots', scr.main, [targetX, targetY], ...
+    const.fix_rim_rad * 2, const.background_color, [], 2);
     
 
 end

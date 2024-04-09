@@ -1,6 +1,6 @@
-function drawTrialInfoEL(scr,const)
+function drawTrialInfoEL(scr, const)
 % ----------------------------------------------------------------------
-% drawTrialInfoEL(scr,const)
+% drawTrialInfoEL(scr, const)
 % ----------------------------------------------------------------------
 % Goal of the function :
 % Draw on the eyelink display the experiment configuration
@@ -14,9 +14,6 @@ function drawTrialInfoEL(scr,const)
 % none
 % ----------------------------------------------------------------------
 % Function created by Martin SZINTE (martin.szinte@gmail.com)
-% Last update : 17 / 01 / 2020
-% Project :     pRFexp
-% Version :     1.0
 % ----------------------------------------------------------------------
 
 % o--------------------------------------------------------------------o
@@ -58,21 +55,18 @@ function drawTrialInfoEL(scr,const)
 % o----o----------------------------o----------------------------------o
 
 % Color config
-frameCol                =   15;
-ftCol                   =   15;
-bgCol                   =   0;
+frameCol = 15;
+ftCol = 15;
+bgCol = 0;
 
 % Clear screen
 eyeLinkClearScreen(bgCol);
 
-% Cond2 : fixation direction
-rect_ctr                =   [scr.x_mid,scr.y_mid];
-
-%% Draw Stimulus
+% Draw Stimulus
 % Fixation box
-eyeLinkDrawBox(rect_ctr(1),rect_ctr(2),const.fix_out_rim_rad*2,const.fix_out_rim_rad*2,2,frameCol,ftCol);
-
-
+rect_ctr = [scr.x_mid, scr.y_mid];
+eyeLinkDrawBox(rect_ctr(1), rect_ctr(2), const.fix_out_rim_rad * 2, ...
+    const.fix_out_rim_rad * 2, 2, frameCol, ftCol);
 WaitSecs(0.1);
 
 end
