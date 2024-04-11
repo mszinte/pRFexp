@@ -13,8 +13,6 @@
 
 % To do
 % -----
-% 2/ test data analysis
-% 4/ test with Eyelink and fast screen
 
 % First settings
 Screen('CloseAll'); clear all; clear mex; clear functions; close all; ...
