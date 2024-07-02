@@ -108,7 +108,7 @@ if const.tracker
         'TASK INSTRUCTIONS - PRESS SPACE')
 end
 instructionsIm(scr, const, my_key, ...
-    sprintf('%s%s', const.task, scanTxt), 0);
+    sprintf('%s%s', const.expName, scanTxt), 0);
 for keyb = 1:size(my_key.keyboard_idx, 2)
     KbQueueFlush(my_key.keyboard_idx(keyb));
 end

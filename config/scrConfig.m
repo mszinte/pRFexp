@@ -40,19 +40,20 @@ if const.comp == 1
     scr.distTop = 1230;
     scr.distBot = 1230;
 elseif const.comp == 2
-    % Can laptop
-    scr.disp_sizeX = 309;
-    scr.disp_sizeY = 174;
-    scr.dist = 42;
-    scr.distTop = 450;
-    scr.distBot = 450;
-elseif const.comp == 3
     % Settings for Display ++ INT
-    scr.disp_sizeX = 696;
-    scr.disp_sizeY = 391;
+    scr.disp_sizeX = 696; 
+    scr.disp_sizeY = 391; 
     scr.dist = 120;
     scr.distTop = 1210;
     scr.distBot = 1210;
+elseif const.comp == 3
+    % Settings for 7T BOLD screen Spinoza centre
+    scr.disp_sizeX = 698.4;
+    scr.disp_sizeY = 392.9;
+    scr.dist = 210;
+    scr.distTop = 2100;
+    scr.distBot = 2100;
+
 end
 scr.disp_sizeLeft = round(-scr.disp_sizeX/2);
 scr.disp_sizeRight = round(scr.disp_sizeX/2);

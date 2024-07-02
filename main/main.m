@@ -23,7 +23,7 @@ const = dirSaveFile(const);
 scr = scrConfig(const);
 
 % Triggers and button configurations
-my_key = keyConfig(const);
+my_key = keyConfig;
 
 % Experimental constant
 const = constConfig(scr, const);

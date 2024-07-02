@@ -56,7 +56,22 @@ else
 end
 
 % Define task
-const.task = const.expName;
+%const.task = const.expName;
+const.task_num = input(sprintf('\n\tTask: (1:prf_7T,2:prf_anyso,3:prf_occl_patch,4:prf_occl_grey,5:prf_strabism): '));
+
+switch const.task_num
+    case 1
+        const.task = 'prf_7T';
+    case 2
+        const.task = 'prf_anyso';
+    case 3
+        const.task = 'prf_occl_patch';
+    case 4
+        const.task = 'prf_occl_grey';
+    otherwise
+        const.task = 'prf_strabism';
+end 
+
 fprintf(1,'\n\tTask: %s\n',const.task);
 
 % Define recording eye

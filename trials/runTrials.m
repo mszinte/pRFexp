@@ -92,16 +92,18 @@ for bar_pass = 1:const.bar_dir_num
     
     % wait for bar_pass press in trial beginning
     if bar_pass == 1
+        time_start = GetSecs;
         Screen('FillRect', scr.main, const.background_color);
         drawEmptyTarget(scr, const, scr.x_mid, scr.y_mid);
         Screen('Flip', scr.main);
+        tellapsed               =   GetSecs - time_start;
         first_trigger = 0;
-        expDes.mri_band_val = my_key.first_val(end);
+        
         
         while ~first_trigger
             if const.scanner == 0 || const.scannerTest
+                WaitSecs(const.TR_dur-tellapsed);
                 first_trigger = 1;
-                mri_band_val = -8;
             else
                 keyPressed = 0;
                 keyCode = zeros(1,my_key.keyCodeNum);
@@ -110,29 +112,20 @@ for bar_pass = 1:const.bar_dir_num
                     keyPressed = keyPressed + keyP;
                     keyCode = keyCode + keyC;
                 end
-                if const.scanner == 1
-                    input_return = [my_key.ni_session2.inputSingleScan, ...
-                        my_key.ni_session1.inputSingleScan];
-                    if input_return(my_key.idx_mri_bands) == ...
-                            ~expDes.mri_band_val
-                        keyPressed = 1;
-                        keyCode(my_key.mri_tr) = 1;
-                        expDes.mri_band_val = ~expDes.mri_band_val;
-                        mri_band_val = input_return(my_key.idx_mri_bands);
+                if keyPressed
+                    if keyCode(my_key.escape) && const.expStart == 0
+                        overDone(const, my_key)
+                    elseif keyCode(my_key.mri_tr)
+                        first_trigger = 1;
                     end
-                end
-                if keyCode(my_key.escape) && const.expStart == 0
-                    overDone(const, my_key)
-                elseif keyCode(my_key.mri_tr)
-                    first_trigger = 1;
-                    mri_band_val = -8;
                 end
             end
         end
         
         % write in log/edf
-        log_txt = sprintf('bar pass %i event mri_trigger val = %i', ...
-            bar_pass, mri_band_val);
+        bar_pass_start = GetSecs;
+        log_txt = sprintf('bar pass %i event at = %f', ...
+            bar_pass, bar_pass_start);
         if const.tracker; Eyelink('message', '%s', log_txt);end
         
         t_start = GetSecs;
@@ -206,52 +199,12 @@ for bar_pass = 1:const.bar_dir_num
             keyPressed = keyPressed+keyP;
             keyCode = keyCode + keyC;
         end
-        
-        if const.scanner == 1 && ~const.scannerTest
-            input_return = [my_key.ni_session2.inputSingleScan, ...
-                my_key.ni_session1.inputSingleScan];
-            
-            % button press trigger
-            if input_return(my_key.idx_button_left1) == ...
-                    my_key.button_press_val
-                keyPressed = 1;
-                keyCode(my_key.left1) = 1;
-            elseif input_return(my_key.idx_button_left2) == ... 
-                    my_key.button_press_val
-                keyPressed = 1;
-                keyCode(my_key.left2) = 1;
-            elseif input_return(my_key.idx_button_left3) == ...
-                    my_key.button_press_val
-                keyPressed = 1;
-                keyCode(my_key.left3) = 1;
-            elseif input_return(my_key.idx_button_right1) == ...
-                    my_key.button_press_val
-                keyPressed = 1;
-                keyCode(my_key.right1) = 1;
-            elseif input_return(my_key.idx_button_right2) == ...
-                    my_key.button_press_val
-                keyPressed = 1;
-                keyCode(my_key.right2) = 1;
-            elseif input_return(my_key.idx_button_right3) == ...
-                    my_key.button_press_val
-                keyPressed = 1;
-                keyCode(my_key.right3) = 1;
-            end
 
-            % mri trigger
-            if input_return(my_key.idx_mri_bands) == ~expDes.mri_band_val
-                keyPressed = 1;
-                keyCode(my_key.mri_tr) = 1;
-                expDes.mri_band_val = ~expDes.mri_band_val;
-                mri_band_val = input_return(my_key.idx_mri_bands);
-            end
-        end
-        
         if keyPressed
             if keyCode(my_key.mri_tr)
-                % write in log/edf
-                log_txt = sprintf('bar pass %i event mri_trigger val = %i', ...
-                    bar_pass, mri_band_val);
+                %write in log/edf
+                %log_txt = sprintf('bar pass %i event mri_trigger val = %i', ...
+                %   bar_pass, mri_band_val);
                 if const.tracker
                     Eyelink('message', '%s', log_txt);
                 end
@@ -264,9 +217,9 @@ for bar_pass = 1:const.bar_dir_num
                 % update staircase
                 if time2resp_cond(drawf, bar_pass) && resp == 0
                     % write in log/edf
-                    log_txt = sprintf('bar pass %i trial %i event %s', ...
-                        bar_pass, bar_trials_num(bar_step), ...
-                        my_key.left3Val);
+                    %log_txt = sprintf('bar pass %i trial %i event %s', ...
+                     %   bar_pass, bar_trials_num(bar_step), ...
+                     %   my_key.left3Val);
                     if const.tracker
                         Eyelink('message', '%s', log_txt);
                     end
@@ -287,9 +240,9 @@ for bar_pass = 1:const.bar_dir_num
                 % update staircase
                 if time2resp_cond(drawf,bar_pass) && resp == 0
                     % write in log/edf
-                    log_txt = sprintf('bar pass %i trial %i event %s', ...
-                        bar_pass, bar_trials_num(bar_step), ...
-                        my_key.right3Val);
+                    %log_txt = sprintf('bar pass %i trial %i event %s', ...
+                    %    bar_pass, bar_trials_num(bar_step), ...
+                    %    my_key.right3Val);
                     if const.tracker
                         Eyelink('message', '%s', log_txt);
                     end
