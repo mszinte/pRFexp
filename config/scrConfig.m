@@ -53,6 +53,13 @@ elseif const.comp == 3
     scr.dist = 210;
     scr.distTop = 2100;
     scr.distBot = 2100;
+elseif const.comp == 4 
+    % Settings for 7T Projector Spinoza centre
+    scr.disp_sizeX = 280;
+    scr.disp_sizeY = 157.5;
+    scr.dist = 14;
+    scr.distTop = 140;
+    scr.distBot = 140;
 
 end
 scr.disp_sizeLeft = round(-scr.disp_sizeX/2);

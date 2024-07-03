@@ -203,8 +203,8 @@ for bar_pass = 1:const.bar_dir_num
         if keyPressed
             if keyCode(my_key.mri_tr)
                 %write in log/edf
-                %log_txt = sprintf('bar pass %i event mri_trigger val = %i', ...
-                %   bar_pass, mri_band_val);
+                log_txt = sprintf('bar pass %i event', ...
+                   bar_pass);
                 if const.tracker
                     Eyelink('message', '%s', log_txt);
                 end
@@ -213,13 +213,13 @@ for bar_pass = 1:const.bar_dir_num
                 if const.expStart == 0
                     overDone(const, my_key)
                 end
-            elseif keyCode(my_key.left3)
+            elseif keyCode(my_key.left4)
                 % update staircase
                 if time2resp_cond(drawf, bar_pass) && resp == 0
                     % write in log/edf
-                    %log_txt = sprintf('bar pass %i trial %i event %s', ...
-                     %   bar_pass, bar_trials_num(bar_step), ...
-                     %   my_key.left3Val);
+                    log_txt = sprintf('bar pass %i trial %i event %s', ...
+                        bar_pass, bar_trials_num(bar_step), ...
+                        my_key.left4Val);
                     if const.tracker
                         Eyelink('message', '%s', log_txt);
                     end
@@ -236,13 +236,13 @@ for bar_pass = 1:const.bar_dir_num
                     expDes = updateStaircase(const, expDes, response);
                     resp = 1;
                 end
-            elseif keyCode(my_key.right3) % cw button
+            elseif keyCode(my_key.right4) % cw button
                 % update staircase
                 if time2resp_cond(drawf,bar_pass) && resp == 0
                     % write in log/edf
-                    %log_txt = sprintf('bar pass %i trial %i event %s', ...
-                    %    bar_pass, bar_trials_num(bar_step), ...
-                    %    my_key.right3Val);
+                    log_txt = sprintf('bar pass %i trial %i event %s', ...
+                        bar_pass, bar_trials_num(bar_step), ...
+                        my_key.right4Val);
                     if const.tracker
                         Eyelink('message', '%s', log_txt);
                     end

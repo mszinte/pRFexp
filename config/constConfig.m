@@ -30,7 +30,7 @@ const.dot_color = const.stim_color;                                         % de
 const.dot_probe_color = const.black;                                        % define fixation dot color when probe
 
 % Time parameters
-const.TR_dur = 1.3;                                                         % repetition time
+const.TR_dur = 1.6;                                                         % repetition time
 const.TR_num = (round(const.TR_dur / scr.frame_duration));                  % repetition time in screen frames
 const.bar_dir_num = 9;                                                   	% number of bar passes and break
 
@@ -66,7 +66,7 @@ const.dur_max_hor = const.bar_step_hor * const.TR_dur;                      % du
 const.dur_max_ver = const.bar_step_ver * const.TR_dur;                      % duration of pass in vertical bar pass
 const.dur_max_blk = const.blk_step * const.TR_dur;                          % duration of pass when blank bar pass
 
-const.probe_duration = const.patch_dur * 7;                                 % probe duration in seconds (changed from 600 to 700ms) 
+const.probe_duration = const.patch_dur * 8;                                 % probe duration in seconds 
 const.probe_drawf = round(const.probe_duration / const.patch_dur);          % probe duration in screen frames drawn
 const.bef_probe_drawf = (const.bar_step_drawf_ver - const.probe_drawf) / 2; % time before probe per bar step in screen frames drawn
 
@@ -95,8 +95,11 @@ const.noise_pixelVal = 0.1;                                                 % st
 const.noise_pixel = vaDeg2pix(const.noise_pixelVal, scr);                   % stimulus noise pixel size in pixels
 const.native_noise_dim = round([const.noise_size / const.noise_pixel,...
     const.noise_size / const.noise_pixel]);                                 % starting size of the patch
-const.noise_color       =   'pink';                                         % stimuli noise color ('white','pink','brownian');
-const.apt_rad_val       =   6;                                              % aperture stimuli radius in dva
+const.noise_color       =   'pink';                                         % stimuli noise color ('white','pink','brownian')
+const.apt_rad_val       =   5;                                              % aperture stimuli radius in dva
+if const.comp == 4
+    const.apt_rad_val =  30;                                                %aperture stimuli radius for large field of view (projetor)
+end
 const.apt_rad           =   vaDeg2pix(const.apt_rad_val,scr);               % aperture stimuli radius in pixels
 
 % compute random image order
