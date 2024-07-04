@@ -13,10 +13,6 @@
 
 % To do
 % -----
-% clean code
-% logs for keys? 
-% prf tasks
-
 
 
 % First settings

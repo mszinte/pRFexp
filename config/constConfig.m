@@ -72,7 +72,7 @@ const.bef_probe_drawf = (const.bar_step_drawf_ver - const.probe_drawf) / 2; % ti
 
 % Stim parameters
 % Noise patches
-const.noise_num = 5;                                                        % number of generated patches per kappa
+const.noise_num = 3;                                                        % number of generated patches per kappa
 const.stim_size = [scr.scr_sizeY / 2, scr.scr_sizeY / 2];                   % full screen stimuli size in pixels
 
 const.stim_rect = [ scr.x_mid - const.stim_size(1); ...                     % rect of the actual stimulus
@@ -152,9 +152,9 @@ const.fix_dot_probe = const.fix_dot;
 
 % Bar
 const.bar_dir_run = [9,1,9,3,9,5,9,7,9];                                    % direction (1 = 180 deg, 2 = 225 deg, 3 =  270 deg, 4 = 315 deg,
-%            5 = 0 deg,   6 = 45 deg,  7 = 90 deg,   8 = 135 deg; 9 = none)
+% 5 = 0 deg,   6 = 45 deg,  7 = 90 deg,   8 = 135 deg; 9 = none)
 
-const.bar_width_deg = 2;                                                    % bar width in dva
+const.bar_width_deg = const.apt_rad_val / 5;                                % bar width in dva
 const.bar_width = vaDeg2pix(const.bar_width_deg, scr);                      % bar width in pixels
 
 const.bar_mask_size = const.stim_size(1) * 4;                               % bar mask size in pixels
