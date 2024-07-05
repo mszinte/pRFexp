@@ -36,7 +36,7 @@ const.bar_dir_num = 9;                                                   	% numb
 
 const.bar_step_ver = 32;                                                    % bar steps for vertical bar pass
 const.bar_step_hor = 32;                                                    % bar steps for horizontal bar pass
-const.blk_step = 16;                                                        % blank period step
+const.blk_step = 12;                                                        % blank period step
 
 const.noise_freq = 10;                                                      % compute noise frequency in hertz
 const.patch_dur = 1 / const.noise_freq;                                     % compute single patch duration in seconds

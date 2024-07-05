@@ -25,7 +25,7 @@ const.expStart = 0;             % Start of a recording exp (0 = NO, 1 = YES)
 const.checkTrial = 0;           % Print trial conditions (0 = NO, 1 = YES)
 const.genStimuli = 1;           % Generate the stimuli (0 = NO, 1 = YES)
 const.drawStimuli = 1;          % Draw stimuli generated (0 = NO, 1 = YES)
-const.mkVideo = 0;              % Make a video of a run
+const.mkVideo = 1;              % Make a video of a run
 
 % External controls
 const.tracker = 0;              % run with eye tracker (0 = NO, 1 = YES)
