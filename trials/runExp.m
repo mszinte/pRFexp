@@ -2,18 +2,18 @@ function const = runExp(scr, const, expDes, my_key, eyetrack)
 % ----------------------------------------------------------------------
 % const = runExp(scr, const, expDes, my_key, eyetrack)
 % ----------------------------------------------------------------------
-% Goal of the function :
+% Goal of the function:
 % Launch experiement instructions and connection with eyelink
 % ----------------------------------------------------------------------
-% Input(s) :
-% scr : struct containing screen configurations
-% const : struct containing constant configurations
-% expDes : struct containg experimental design
-% my_key : structure containing keyboard configurations
-% eyetrack : structure containing eytracking configurations
+% Input(s):
+% scr: struct containing screen configurations
+% const: struct containing constant configurations
+% expDes: struct containg experimental design
+% my_key: structure containing keyboard configurations
+% eyetrack: structure containing eytracking configurations
 % ----------------------------------------------------------------------
 % Output(s):
-% const : struct containing constant configurations
+% const: struct containing constant configurations
 % ----------------------------------------------------------------------
 % Function created by Martin SZINTE (martin.szinte@gmail.com)
 % ----------------------------------------------------------------------

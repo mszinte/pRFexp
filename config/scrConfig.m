@@ -2,14 +2,14 @@ function scr = scrConfig(const)
 % ----------------------------------------------------------------------
 % scr = scrConfig(const)
 % ----------------------------------------------------------------------
-% Goal of the function :
+% Goal of the function:
 % Define screen settings
 % ----------------------------------------------------------------------
-% Input(s) :
-% const : struct containing constant configurations
+% Input(s):
+% const: struct containing constant configurations
 % ----------------------------------------------------------------------
 % Output(s):
-% scr : struct containing screen configurations
+% scr: struct containing screen configurations
 % ----------------------------------------------------------------------
 % Function created by Martin SZINTE (martin.szinte@gmail.com)
 % ----------------------------------------------------------------------
@@ -33,34 +33,29 @@ end
 
 % Size of the display
 if const.comp == 1
-    % Settings 3T MRI room projector
-    scr.disp_sizeX = 781.9;
-    scr.disp_sizeY = 440;
-    scr.dist = 123;
-    scr.distTop = 1230;
-    scr.distBot = 1230;
-elseif const.comp == 2
-    % Settings for Display ++ INT
+    % Settings for INT Display++
     scr.disp_sizeX = 696; 
     scr.disp_sizeY = 391; 
     scr.dist = 120;
     scr.distTop = 1210;
     scr.distBot = 1210;
-elseif const.comp == 3
-    % Settings for 7T BOLD screen Spinoza centre
+    
+elseif const.comp == 2
+    % Settings for Spinoza BOLDSCREEN
     scr.disp_sizeX = 698.4;
     scr.disp_sizeY = 392.9;
     scr.dist = 210;
     scr.distTop = 2100;
     scr.distBot = 2100;
-elseif const.comp == 4 
-    % Settings for 7T Projector Spinoza centre
+
+elseif const.comp == 3
+    % Settings for Spinoza PROPIXX
     scr.disp_sizeX = 280;
     scr.disp_sizeY = 157.5;
     scr.dist = 14;
     scr.distTop = 140;
     scr.distBot = 140;
-
+    
 end
 scr.disp_sizeLeft = round(-scr.disp_sizeX/2);
 scr.disp_sizeRight = round(scr.disp_sizeX/2);
@@ -99,6 +94,5 @@ else
     Screen('Preference','SuppressAllWarnings', 1);
     Screen('Preference','Verbosity', 0);
 end
-
 
 end

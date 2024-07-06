@@ -1,8 +1,8 @@
 %% General experimenter launcher
 %  =============================
 % By: Martin SZINTE
-% Projet: pRFexp for MotConf
-% With: Can OLUK, Pascal MAMASSIAN & Guillaume MASSON
+% Projet: pRFexp for altered vision (pilot project in Amsterdam)
+% With: Sina KLING, Tomas KNAPEN & Uriel LASCOMBES
 
 % Version description
 % ===================
@@ -11,29 +11,31 @@
 % in order to obtain pRF retinotopy of the occipital, parietal, frontal 
 % and subcortical structures.
 
-% To do
-% -----
-
+% This task is adapted to test condition suppose to mimic symptoms of
+% amblyopic patients, pRF task is then ran with prisms on the non-dominant
+% eye (pRFStrab), with an incorrect eye correction on the non-dominant eye
+% (pRFAniso), and short exposure to a occlusion path on the non-dominant
+% eye (pRFOccl)or without (pRFCtrl). 
 
 % First settings
 Screen('CloseAll'); clear all; clear mex; clear functions; close all; ...
     home; AssertOpenGL;
 
 % General settings 
-const.expName = 'pRF';          % experiment name
+const.expName = 'pRFexp';       % experiment name
 const.expStart = 0;             % Start of a recording exp (0 = NO, 1 = YES)
 const.checkTrial = 0;           % Print trial conditions (0 = NO, 1 = YES)
 const.genStimuli = 1;           % Generate the stimuli (0 = NO, 1 = YES)
 const.drawStimuli = 1;          % Draw stimuli generated (0 = NO, 1 = YES)
-const.mkVideo = 1;              % Make a video of a run
+const.mkVideo = 0;              % Make a video of a run
 
 % External controls
 const.tracker = 0;              % run with eye tracker (0 = NO, 1 = YES)
-const.comp = 4;                 % run in which computer (1 = MRI; 2 = Diplay++; 3 = Spinoza)
+const.comp = 3;                 % run in which computer (1 = INT Diplay++; 2 = BOLDSCREEN; 3 = PROPIXX)
 const.scanner = 0;              % run in MRI scanner (0 = NO, 1 = YES)
-const.scannerTest = 1;          % fake scanner trigger (0 = NO, 1 = YES)
+const.scannerTest = 0;          % fake scanner trigger (0 = NO, 1 = YES)
 const.training = 0;             % training session (0 = NO, 1 = YES)
-const.run_total = 5;            % number of run in total
+const.run_total = 3;            % number of run in total
 
 % Desired screen setting
 const.desiredFD = 120;          % Desired refresh rate

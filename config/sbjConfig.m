@@ -27,7 +27,6 @@ if const.expStart
         const.sjct = sprintf('sub-0%i',const.sjctNum);
     end
 
-
     % Define session
     const.sesNum = input(sprintf('\n\tSession number: '));
     if const.sesNum > 9
@@ -56,25 +55,21 @@ if const.expStart
     end
 
     % Define task
-    %const.task = const.expName;
-    const.task_num = input(sprintf('\n\tTask: (1:prf_7T,2:prf_anyso,3:prf_occl_patch,4:prf_occl_grey,5:prf_strabism): '));
+    const.task_num = input(sprintf('\n\tTask: (1: pRFCtrl; 2: pRFAniso; 3: pRFStrab; 4: prfOccl: '));
 
     switch const.task_num
         case 1
-            const.task = 'prf_7T';
+            const.task = 'pRFCtrl'; % control
         case 2
-            const.task = 'prf_anyso';
+            const.task = 'pRFAniso'; % anisotropia
         case 3
-            const.task = 'prf_occl_patch';
+            const.task = 'pRFStrab'; % strabism
         case 4
-            const.task = 'prf_occl_grey';
-        otherwise
-            const.task = 'prf_strabism';
+            const.task = 'pRFOccl'; % occlusion
     end 
-
-    fprintf(1,'\n\tTask: %s\n',const.task);
-
+    fprintf(1,'\n\tTask: %s\n', const.task);
 end
+
 % Define recording eye
 const.recEye = 1;
 
@@ -86,11 +81,11 @@ if ~const.expStart
     const.runNum = 1; 
     const.task = 'task-X';
     const.modality = 'beh';
-    const.recEye = 1;
 end
 
-% training
+% Training
 if const.training
     const.task = sprintf('%sTraining',const.task);
 end
+
 end

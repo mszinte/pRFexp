@@ -2,15 +2,15 @@ function const = constConfig(scr, const)
 % ----------------------------------------------------------------------
 % const = constConfig(scr, const)
 % ----------------------------------------------------------------------
-% Goal of the function :
+% Goal of the function:
 % Define all constant configurations
 % ----------------------------------------------------------------------
-% Input(s) :
-% scr : struct containing screen configurations
-% const : struct containing constant configurations
+% Input(s):
+% scr: struct containing screen configurations
+% const: struct containing constant configurations
 % ----------------------------------------------------------------------
 % Output(s):
-% const : struct containing constant configurations
+% const: struct containing constant configurations
 % ----------------------------------------------------------------------
 % Function created by Martin SZINTE (martin.szinte@gmail.com)
 % ----------------------------------------------------------------------
@@ -95,10 +95,14 @@ const.noise_pixelVal = 0.1;                                                 % st
 const.noise_pixel = vaDeg2pix(const.noise_pixelVal, scr);                   % stimulus noise pixel size in pixels
 const.native_noise_dim = round([const.noise_size / const.noise_pixel,...
     const.noise_size / const.noise_pixel]);                                 % starting size of the patch
-const.noise_color       =   'pink';                                         % stimuli noise color ('white','pink','brownian')
-const.apt_rad_val       =   5;                                              % aperture stimuli radius in dva
-if const.comp == 4
-    const.apt_rad_val =  30;                                                %aperture stimuli radius for large field of view (projetor)
+const.noise_color = 'pink';                                                 % stimuli noise color ('white','pink','brownian')
+
+if const.comp == 1
+    const.apt_rad_val = 5;                                                  % aperture stimuli radius in dva
+elseif const.comp == 2
+    const.apt_rad_val = 5;                                                  % aperture stimuli radius in dva
+elseif const.comp == 3
+    const.apt_rad_val =  30;                                                % aperture stimuli radius for large field of view (projetor)
 end
 const.apt_rad           =   vaDeg2pix(const.apt_rad_val,scr);               % aperture stimuli radius in pixels
 
@@ -152,7 +156,7 @@ const.fix_dot_probe = const.fix_dot;
 
 % Bar
 const.bar_dir_run = [9,1,9,3,9,5,9,7,9];                                    % direction (1 = 180 deg, 2 = 225 deg, 3 =  270 deg, 4 = 315 deg,
-% 5 = 0 deg,   6 = 45 deg,  7 = 90 deg,   8 = 135 deg; 9 = none)
+                                                                            % 5 = 0 deg,   6 = 45 deg,  7 = 90 deg,   8 = 135 deg; 9 = none)
 
 const.bar_width_deg = const.apt_rad_val / 5;                                % bar width in dva
 const.bar_width = vaDeg2pix(const.bar_width_deg, scr);                      % bar width in pixels

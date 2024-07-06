@@ -2,14 +2,14 @@ function expDes = designConfig(const)
 % ----------------------------------------------------------------------
 % expDes = designConfig(const)
 % ----------------------------------------------------------------------
-% Goal of the function :
+% Goal of the function:
 % Define experimental design
 % ----------------------------------------------------------------------
-% Input(s) :
-% const : struct containing constant configurations
+% Input(s):
+% const: struct containing constant configurations
 % ----------------------------------------------------------------------
 % Output(s):
-% expDes : struct containg experimental design
+% expDes: struct containg experimental design
 % ----------------------------------------------------------------------
 % Function created by Martin SZINTE (martin.szinte@gmail.com)
 % ----------------------------------------------------------------------
@@ -18,7 +18,7 @@ function expDes = designConfig(const)
 % Var 1 : bar direction (9 modalities)
 expDes.oneV = [1;3;5;7];
 expDes.txt_var1 = {'180 deg', '225 deg', '270 deg', '315 deg', '0 deg',...
-    '45 deg','90 deg','135 deg','none'};
+                    '45 deg','90 deg','135 deg','none'};
 % 01 = 180 deg
 % 02 = 225 deg
 % 03 = 270 deg
@@ -98,6 +98,4 @@ for t_bar_pass = 1:size(const.bar_dir_run, 2)
 end
 
 expDes.nb_trials = size(expDes.expMat,1);
-
-
 end

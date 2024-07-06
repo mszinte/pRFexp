@@ -2,14 +2,14 @@ function const = dirSaveFile(const)
 % ----------------------------------------------------------------------
 % const = dirSaveFile(const)
 % ----------------------------------------------------------------------
-% Goal of the function :
+% Goal of the function:
 % Make directory and saving files name and fid.
 % ----------------------------------------------------------------------
-% Input(s) :
+% Input(s):
 % const : struct containing constant configurations
 % ----------------------------------------------------------------------
 % Output(s):
-% const : struct containing constant configurations
+% const: struct containing constant configurations
 % ----------------------------------------------------------------------
 % Function created by Martin SZINTE (martin.szinte@gmail.com)
 % ----------------------------------------------------------------------

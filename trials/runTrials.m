@@ -2,10 +2,10 @@ function expDes = runTrials(scr, const, expDes, my_key)
 % ----------------------------------------------------------------------
 % expDes = runTrials(scr, const, expDes, my_key)
 % ----------------------------------------------------------------------
-% Goal of the function :
+% Goal of the function:
 % Draw stimuli of each indivual trial and waiting for inputs.
 % ----------------------------------------------------------------------
-% Input(s) :
+% Input(s):
 % scr: struct containing screen configurations
 % const: struct containing constant configurations
 % expDes: struct containg experimental design
@@ -236,7 +236,7 @@ for bar_pass = 1:const.bar_dir_num
                     expDes = updateStaircase(const, expDes, response);
                     resp = 1;
                 end
-            elseif keyCode(my_key.right4) % cw button
+            elseif keyCode(my_key.right1) % cw button
                 % update staircase
                 if time2resp_cond(drawf,bar_pass) && resp == 0
                     % write in log/edf
