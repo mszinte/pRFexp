@@ -31,7 +31,7 @@ const.mkVideo = 0;              % Make a video of a run
 
 % External controls
 const.tracker = 0;              % run with eye tracker (0 = NO, 1 = YES)
-const.comp = 3;                 % run in which computer (1 = INT Diplay++; 2 = BOLDSCREEN; 3 = PROPIXX)
+const.comp = 2;                 % run in which computer (1 = INT Diplay++; 2 = BOLDSCREEN; 3 = PROPIXX)
 const.scanner = 0;              % run in MRI scanner (0 = NO, 1 = YES)
 const.scannerTest = 0;          % fake scanner trigger (0 = NO, 1 = YES)
 const.training = 0;             % training session (0 = NO, 1 = YES)
