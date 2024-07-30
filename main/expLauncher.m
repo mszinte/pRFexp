@@ -11,7 +11,7 @@
 % in order to obtain pRF retinotopy of the occipital, parietal, frontal 
 % and subcortical structures.
 
-% This task is adapted to test condition suppose to mimic symptoms of
+% This task is adapted to test condition suppose to mimic symptoms ofwy
 % amblyopic patients, pRF task is then ran with prisms on the non-dominant
 % eye (pRFStrab), with an incorrect eye correction on the non-dominant eye
 % (pRFAniso), and short exposure to a occlusion path on the non-dominant
@@ -23,7 +23,7 @@ Screen('CloseAll'); clear all; clear mex; clear functions; close all; ...
 
 % General settings 
 const.expName = 'pRFexp';       % experiment name
-const.expStart = 0;             % Start of a recording exp (0 = NO, 1 = YES)
+const.expStart = 1;             % Start of a recording exp (0 = NO, 1 = YES)
 const.checkTrial = 0;           % Print trial conditions (0 = NO, 1 = YES)
 const.genStimuli = 0;           % Generate the stimuli (0 = NO, 1 = YES)
 const.drawStimuli = 0;          % Draw stimuli generated (0 = NO, 1 = YES)
