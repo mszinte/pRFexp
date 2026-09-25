@@ -61,7 +61,13 @@ expDes.nb_var = 1;
 expDes.nb_rand = 2;
 
 % Fixation position of this run (same shuffled order across all runs of a subject)
-expDes.fix_pos_run = expDes.twoR(randperm(numel(expDes.twoR)));
+if const.expStart;
+    sjct_seed = const.sjctNum;
+else
+    sjct_seed = 1;
+end 
+
+expDes.fix_pos_run = expDes.twoR(randperm(RandStream('mt19937ar', 'Seed', sjct_seed), numel(expDes.twoR)));
 rand_rand2 = expDes.fix_pos_run(const.runNum);
 
 t_trial = 0;

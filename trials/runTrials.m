@@ -31,14 +31,14 @@ for bar_pass = 1:const.bar_dir_num
     
     % Compute and simplify var and rand
     % Trials number in this bar pass
-    bar_trials = expDes.expMat(:, 6) == bar_pass;
+    bar_trials = expDes.expMat(:, 7) == bar_pass;
     bar_trials_num = expDes.expMat(bar_trials, 4);
     
     % Var 1: Bar direction
-    var1 = expDes.expMat(bar_trials, 5);
+    var1 = expDes.expMat(bar_trials, 6);
     
     % Rand 1: Stimulus orientation
-    rand1 = expDes.expMat(bar_trials, 8);
+    rand1 = expDes.expMat(bar_trials, 9);
 
      % Rand 2: Fixation position
     rand2 = expDes.expMat(bar_trials, 5);
@@ -98,7 +98,7 @@ for bar_pass = 1:const.bar_dir_num
     % wait for bar_pass press in trial beginning
     if bar_pass == 1
         Screen('FillRect', scr.main, const.background_color);
-        drawEmptyTarget(scr, const, scr.x_mid, scr.y_mid);
+        drawEmptyTarget(scr, const, const.fix_pos_xy(rand2(1),1), const.fix_pos_xy(rand2(1),2));
         Screen('Flip', scr.main);
         first_trigger = 0;
         expDes.mri_band_val = my_key.first_val(end);
@@ -174,7 +174,7 @@ for bar_pass = 1:const.bar_dir_num
         
         % save stim staircase level
         if probe_onset_cond(drawf, bar_pass)
-            expDes.expMat(bar_trials_num(bar_step), 10) = ...
+            expDes.expMat(bar_trials_num(bar_step), 11) = ...
                 expDes.stim_stair_val;
         end
         
@@ -202,6 +202,17 @@ for bar_pass = 1:const.bar_dir_num
         
         % draw texture
         Screen('DrawTexture', scr.main, expDes.tex, [], const.stim_rect)
+        % Draw fixation at this runs position
+        fix_xy = const.fix_pos_xy(rand2(1),:);
+        if time2probe_cond(drawf, bar_pass)
+            dot_col = const.dot_probe_color;
+        else
+            dot_col = const.dot_color;
+        end 
+        drawEmptyTarget(scr, const, fix_xy(1), fix_xy(2));
+        Screen('DrawDots', scr.main, fix_xy, const.fix_rad * 2, dot_col, [], 2);
+        
+        
         
         % Check keyboard
         keyPressed = 0;
@@ -282,9 +293,9 @@ for bar_pass = 1:const.bar_dir_num
                         case 2; response = 1;
                     end
                     
-                    expDes.expMat(bar_trials_num(bar_step), 11) = response;
-                    expDes.expMat(bar_trials_num(bar_step), 13) = GetSecs ...
-                        - expDes.expMat(bar_trials_num(bar_step), 12);
+                    expDes.expMat(bar_trials_num(bar_step), 12) = response;
+                    expDes.expMat(bar_trials_num(bar_step), 14) = GetSecs ...
+                        - expDes.expMat(bar_trials_num(bar_step), 13);
                     expDes = updateStaircase(const, expDes, response);
                     resp = 1;
                 end
@@ -302,8 +313,8 @@ for bar_pass = 1:const.bar_dir_num
                         case 1; response = 1;
                         case 2; response = 0;
                     end
-                    expDes.expMat(bar_trials_num(bar_step), 11) = response;
-                    expDes.expMat(bar_trials_num(bar_step), 13) = GetSecs ...
+                    expDes.expMat(bar_trials_num(bar_step), 12) = response;
+                    expDes.expMat(bar_trials_num(bar_step), 14) = GetSecs ...
                          - expDes.expMat(bar_trials_num(bar_step), 12);
                     expDes = updateStaircase(const, expDes, response);
                     resp = 1;
@@ -333,7 +344,7 @@ for bar_pass = 1:const.bar_dir_num
             if const.tracker
                 Eyelink('message', '%s', log_txt);
             end
-            expDes.expMat(bar_trials_num(bar_step), 12) = vbl;
+            expDes.expMat(bar_trials_num(bar_step), 13) = vbl;
         end
         
         if trial_end_cond(drawf,bar_pass)
@@ -343,7 +354,7 @@ for bar_pass = 1:const.bar_dir_num
             if const.tracker
                 Eyelink('message', '%s', log_txt);
             end
-            expDes.expMat(bar_trials_num(bar_step), 9) = vbl;
+            expDes.expMat(bar_trials_num(bar_step), 10) = vbl;
             expDes.expMat(bar_trials_num(bar_step), 2) = vbl - ...
                 expDes.expMat(bar_trials_num(bar_step), 1);
         end

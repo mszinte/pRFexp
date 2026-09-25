@@ -144,9 +144,10 @@ const.fix_dot_probe = const.fix_dot;
 
 
 % Fixation position
-const.fix_offset = const.stim_size(1);                                      % fixation at stimulus square corners
-%const.fix_offset = vaDeg2pix(const.fix_offset_deg, scr);                    % fixation offset from screen center in pixels
-const.fix_pos_xy = [scr.x_mid,                    scr.y_mid; ...            % 1 = center
+%const.fix_offset = const.stim_size(1);                                      % fixation at stimulus square corners
+const.fix_margin_deg = 2; 
+const.fix_offset = const.stim_size(1) - vaDeg2pix(const.fix_margin_deg, scr);
+const.fix_pos_xy = [scr.x_mid,                    scr.y_mid; ...                    % 1 = center
                     scr.x_mid - const.fix_offset, scr.y_mid - const.fix_offset; ... % 2 = up-left
                     scr.x_mid + const.fix_offset, scr.y_mid - const.fix_offset; ... % 3 = up-right
                     scr.x_mid - const.fix_offset, scr.y_mid + const.fix_offset; ... % 4 = down-left

@@ -128,22 +128,15 @@ for kappa_val_stim = 2:kappa_val_num
                 for bar_step = 1:bar_step_num
                     % define all texture parameters
                     rects = [rect_noise, ...                                % stim noise
-                        bar_aperture_rect(:,:,bar_step,bar_dir)', ...       % bar aperture
-                        rect_noise, ...                                     % fix annulus
-                        rect_noise, ...                                     % empty center
-                        rect_noise];                                        % fixation dot
+                        bar_aperture_rect(:,:,bar_step,bar_dir)'];          % bar aperture];                                        
                     
                     texs = [tex_stim, ...                                   % stim noise
-                        tex_bar_aperture, ...                               % bar aperture
-                        tex_fix_ann_probe, ...                              % fix anulus
-                        tex_black_fix_noise, ...                            % empty center
-                        tex_fix_dot_probe];                                 % fixation dot
+                        tex_bar_aperture];                                  % bar aperture
+                   
                     
                     angles = [const.noise_angle(stim_ori), ...              % stim noise
-                        -const.bar_dir_ang(bar_dir) + 90, ...               % bar aperture
-                        0, ...                                              % fix anulus
-                        0, ...                                              % empty center
-                        0];                                                 % fixation dot
+                        -const.bar_dir_ang(bar_dir) + 90];                  % bar aperture
+              
                     
                     % draw all textures
                     Screen('FillRect', scr.main, const.background_color);
@@ -211,23 +204,16 @@ for noise_rand = 1:noise_rand_num
             
             % define all texture parameters
             rects = [rect_noise, ...                                        % stim noise
-                bar_aperture_rect(:, :, bar_step,bar_dir)', ...             % bar aperture
-                rect_noise, ...                                             % fix annulus
-                rect_noise, ...                                             % empty center
-                rect_noise];                                                % fixation dot
+                bar_aperture_rect(:, :, bar_step,bar_dir)'];                % bar aperture
+              
             
             texs = [tex_stim, ...                                           % stim noise
-                tex_bar_aperture, ...                                       % bar aperture
-                tex_fix_ann_no_probe, ...                                   % fix anulus
-                tex_black_fix_noise, ...                                    % empty center
-                tex_fix_dot_no_probe];                                      % fixation dot
+                tex_bar_aperture];                                          % bar aperture
+              
             
             angles = [0, ...                                                % stim noise
-                -const.bar_dir_ang(bar_dir) + 90, ...                       % bar aperture
-                0, ...                                                      % fix anulus
-                0, ...                                                      % empty center
-                0];                                                         % fixation dot
-          
+                -const.bar_dir_ang(bar_dir) + 90];                          % bar aperture
+             
             % draw all textures
             Screen('FillRect', scr.main, const.background_color);
             Screen('DrawTextures', scr.main, texs, [], rects, angles)
@@ -262,17 +248,9 @@ for noise_rand = 1:noise_rand_num
 	Screen('Close', tex_stim);
 end
 
-% make inter-interval screenshot
-rects = [rect_noise, ...                                                    % fix annulus
-    rect_noise, ...                                                         % empty center
-    rect_noise];                                                            % fixation dot
-
-texs= [tex_fix_ann_no_probe, ...                                            % fix annulus
-    tex_black_fix_noise, ...                                                % empty center
-    tex_fix_dot_no_probe];                                                  % fixation dot
 
 Screen('FillRect', scr.main, const.background_color);
-Screen('DrawTextures', scr.main, texs, [], rects)
+
 Screen('FillRect', scr.main, const.background_color, ...
     const.left_propixx_hide)
 Screen('FillRect', scr.main, const.background_color, ...
