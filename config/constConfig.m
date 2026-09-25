@@ -142,6 +142,17 @@ const.fix_annulus = compFixAnnulus(const);
 const.fix_dot = compFixDot(const);
 const.fix_dot_probe = const.fix_dot;
 
+
+% Fixation position
+const.fix_offset = const.stim_size(1);                                      % fixation at stimulus square corners
+%const.fix_offset = vaDeg2pix(const.fix_offset_deg, scr);                    % fixation offset from screen center in pixels
+const.fix_pos_xy = [scr.x_mid,                    scr.y_mid; ...            % 1 = center
+                    scr.x_mid - const.fix_offset, scr.y_mid - const.fix_offset; ... % 2 = up-left
+                    scr.x_mid + const.fix_offset, scr.y_mid - const.fix_offset; ... % 3 = up-right
+                    scr.x_mid - const.fix_offset, scr.y_mid + const.fix_offset; ... % 4 = down-left
+                    scr.x_mid + const.fix_offset, scr.y_mid + const.fix_offset];    % 5 = down-right
+
+
 % Bar
 const.bar_dir_run = [9,1,9,3,9,5,9,7,9];                                    % direction (1 = 180 deg, 2 = 225 deg, 3 =  270 deg, 4 = 315 deg,
 %            5 = 0 deg,   6 = 45 deg,  7 = 90 deg,   8 = 135 deg; 9 = none)

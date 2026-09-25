@@ -36,6 +36,12 @@ expDes.txt_rand1 = {'cw', 'ccw', 'none'};
 % 02 = tilt ccw
 % 03 = none
 
+% Rand 2: fixation position (5 modalities) 
+expDes.twoR = [1;2;3;4;5];
+expDes.txt_rand2 = {'center', 'up-left', 'up-right', 'down-left', 'down-right'};
+% 01 = center, 02 = up-left, 03 = up-right, 04 = down-left, 05 = down-right
+
+
 % Staircase
 if const.runNum == 1
     % create staircase starting value
@@ -52,7 +58,11 @@ end
 
 %% Experimental configuration :
 expDes.nb_var = 1;
-expDes.nb_rand = 1;
+expDes.nb_rand = 2;
+
+% Fixation position of this run (same shuffled order across all runs of a subject)
+expDes.fix_pos_run = expDes.twoR(randperm(numel(expDes.twoR)));
+rand_rand2 = expDes.fix_pos_run(const.runNum);
 
 t_trial = 0;
 for t_bar_pass = 1:size(const.bar_dir_run, 2)
@@ -78,22 +88,23 @@ for t_bar_pass = 1:size(const.bar_dir_run, 2)
     
         t_trial = t_trial + 1;
         expDes.expMat(t_trial, :) = [NaN, NaN, const.runNum, t_trial, ...
-            rand_var1, t_bar_pass, bar_step, rand_rand1, NaN, NaN, NaN, ...
+            rand_rand2, rand_var1, t_bar_pass, bar_step, rand_rand1, NaN, NaN, NaN, ...
             NaN, NaN];
         
         % 01: trial onset
         % 02: trial duration
         % 03: run number
         % 04: trial number
-        % 05: bar direction
-        % 06: bar pass period
-        % 07: bar step
-        % 08: stimulus orientation
-        % 09: trial offset time
-        % 10: stimulus noise staircase value
-        % 11: reponse value (correct/incorrect)
-        % 12: Probe time
-        % 13: Reaction time
+        % 05: fixation position   % new
+        % 06: bar direction
+        % 07: bar pass period
+        % 08: bar step
+        % 09: stimulus orientation
+        % 10: trial offset time
+        % 11: stimulus noise staircase value
+        % 12: reponse value (correct/incorrect)
+        % 13: Probe time
+        % 14: Reaction time
     end
 end
 

@@ -39,6 +39,9 @@ for bar_pass = 1:const.bar_dir_num
     
     % Rand 1: Stimulus orientation
     rand1 = expDes.expMat(bar_trials, 8);
+
+     % Rand 2: Fixation position
+    rand2 = expDes.expMat(bar_trials, 5);
     
     if const.checkTrial && const.expStart == 0
         fprintf(1,'\n\n\t========================  BAR PASS %3.0f ========================\n', ...
@@ -47,6 +50,8 @@ for bar_pass = 1:const.bar_dir_num
         fprintf(1,'%s', expDes.txt_var1{var1(1)});
         fprintf(1,'\n\tStimulus orientation         =\t');
         fprintf(1,'%s',expDes.txt_rand1{rand1});
+        fprintf(1,'\n\tFixation position            =\t');
+        fprintf(1,'%s', expDes.txt_rand2{rand2(1)});
     end
     
     % Prepare stimuli
