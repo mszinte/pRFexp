@@ -104,7 +104,7 @@ for bar_pass = 1:const.bar_dir_num
         expDes.mri_band_val = my_key.first_val(end);
         
         while ~first_trigger
-            if const.scanner == 0 || const.scannerTest
+            if const.scanner == 0 %|| const.scannerTest
                 first_trigger = 1;
                 mri_band_val = -8;
             else
@@ -115,7 +115,7 @@ for bar_pass = 1:const.bar_dir_num
                     keyPressed = keyPressed + keyP;
                     keyCode = keyCode + keyC;
                 end
-                if const.scanner == 1
+                if const.scanner == 1 && ~const.scannerTest
                     input_return = [my_key.ni_session2.inputSingleScan, ...
                         my_key.ni_session1.inputSingleScan];
                     if input_return(my_key.idx_mri_bands) == ...
