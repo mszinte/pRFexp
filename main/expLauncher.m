@@ -9,7 +9,8 @@
 % Experiment in which we first use a square full screen 4 directions 
 % (left/right/up/down) bar pass stimuli with an attention task to the bar 
 % in order to obtain pRF retinotopy of the occipital, parietal, frontal 
-% and subcortical structures.
+% and subcortical structures. Fixation point can be on one of 5 positions 
+% (left up, left down, right up, right down, center).
 
 % To do
 % -----
