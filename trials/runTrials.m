@@ -228,32 +228,13 @@ for bar_pass = 1:const.bar_dir_num
                 my_key.ni_session1.inputSingleScan];
             
             % button press trigger
-            if input_return(my_key.idx_button_left1) == ...
-                    my_key.button_press_val
-                keyPressed = 1;
-                keyCode(my_key.left1) = 1;
-            elseif input_return(my_key.idx_button_left2) == ... 
-                    my_key.button_press_val
-                keyPressed = 1;
-                keyCode(my_key.left2) = 1;
-            elseif input_return(my_key.idx_button_left3) == ...
-                    my_key.button_press_val
+            if input_return(my_key.idx_button_left3) == my_key.button_press_val
                 keyPressed = 1;
                 keyCode(my_key.left3) = 1;
-            elseif input_return(my_key.idx_button_right1) == ...
-                    my_key.button_press_val
-                keyPressed = 1;
-                keyCode(my_key.right1) = 1;
-            elseif input_return(my_key.idx_button_right2) == ...
-                    my_key.button_press_val
-                keyPressed = 1;
-                keyCode(my_key.right2) = 1;
-            elseif input_return(my_key.idx_button_right3) == ...
-                    my_key.button_press_val
+            elseif input_return(my_key.idx_button_right3) == my_key.button_press_val
                 keyPressed = 1;
                 keyCode(my_key.right3) = 1;
             end
-
             % mri trigger
             if input_return(my_key.idx_mri_bands) == ~expDes.mri_band_val
                 keyPressed = 1;
@@ -315,7 +296,7 @@ for bar_pass = 1:const.bar_dir_num
                     end
                     expDes.expMat(bar_trials_num(bar_step), 12) = response;
                     expDes.expMat(bar_trials_num(bar_step), 14) = GetSecs ...
-                         - expDes.expMat(bar_trials_num(bar_step), 12);
+                         - expDes.expMat(bar_trials_num(bar_step), 13);
                     expDes = updateStaircase(const, expDes, response);
                     resp = 1;
                 end

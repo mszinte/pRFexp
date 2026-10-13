@@ -58,25 +58,17 @@ if const.scanner == 1 && ~const.scannerTest
     my_key.ni_measurement_type = 'InputOnly';
     my_key.button_press_val = 1;
     
-    % button press settings
-    my_key.port_button_left1 = 'port2/line0'; my_key.idx_button_left1 = 1;
-    my_key.port_button_left2 = 'port2/line3'; my_key.idx_button_left2 = 2;
-    my_key.port_button_left3 = 'port0/line0'; my_key.idx_button_left3 = 3;    
-    if ~isempty(my_key.port_button_left1); my_key.channel_button_left1 = my_key.ni_session2.addDigitalChannel(my_key.ni_device_ID2,my_key.port_button_left1,my_key.ni_measurement_type); end
-    if ~isempty(my_key.port_button_left2); my_key.channel_button_left2 = my_key.ni_session2.addDigitalChannel(my_key.ni_device_ID2,my_key.port_button_left2,my_key.ni_measurement_type); end
-    if ~isempty(my_key.port_button_left3); my_key.channel_button_left3 = my_key.ni_session2.addDigitalChannel(my_key.ni_device_ID2,my_key.port_button_left3,my_key.ni_measurement_type); end
     
-    my_key.port_button_right1 = 'port2/line1'; my_key.idx_button_right1 = 4;
-    my_key.port_button_right2 = 'port2/line2'; my_key.idx_button_right2 = 5;
-    my_key.port_button_right3 = 'port0/line1'; my_key.idx_button_right3 = 6;   
-    if ~isempty(my_key.port_button_right1); my_key.channel_button_right1 = my_key.ni_session2.addDigitalChannel(my_key.ni_device_ID2,my_key.port_button_right1,my_key.ni_measurement_type); end
-    if ~isempty(my_key.port_button_right2); my_key.channel_button_right2 = my_key.ni_session2.addDigitalChannel(my_key.ni_device_ID2,my_key.port_button_right2,my_key.ni_measurement_type); end
-    if ~isempty(my_key.port_button_right3); my_key.channel_button_right3 = my_key.ni_session2.addDigitalChannel(my_key.ni_device_ID2,my_key.port_button_right3,my_key.ni_measurement_type); end
+    % button press settings (CERIMED: 2 buttons)
+    my_key.port_button_left3 = 'port0/line0'; my_key.idx_button_left3 = 1;     % left button - ccw
+    my_key.port_button_right3 = 'port0/line1'; my_key.idx_button_right3 = 2;   % right button - cw
+    my_key.channel_button_left3 = my_key.ni_session2.addDigitalChannel(my_key.ni_device_ID2,my_key.port_button_left3,my_key.ni_measurement_type);
+    my_key.channel_button_right3 = my_key.ni_session2.addDigitalChannel(my_key.ni_device_ID2,my_key.port_button_right3,my_key.ni_measurement_type);
     
     % MRI trigger settings
     fprintf(1,'\n\n\tDon''t forget to put MRI trigger in "Toggle" mode\n');
     my_key.port_mri_bands = 'port1/line0';
-    my_key.idx_mri_bands = 7;
+    my_key.idx_mri_bands = 3;
     
     if ~isempty(my_key.port_mri_bands)
         my_key.channel_mri_bands = my_key.ni_session1.addDigitalChannel(my_key.ni_device_ID1,my_key.port_mri_bands,my_key.ni_measurement_type); 

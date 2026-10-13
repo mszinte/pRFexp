@@ -39,7 +39,7 @@ expDes.txt_rand1 = {'cw', 'ccw', 'none'};
 % Rand 2: fixation position (5 modalities) 
 expDes.twoR = [1;2;3;4;5];
 expDes.txt_rand2 = {'center', 'up-left', 'up-right', 'down-left', 'down-right'};
-% 01 = center, 02 = up-left, 03 = up-right, 04 = down-left, 05 = down-right
+% 01 = up-left, 02 = up-right, 03 = down-right, 04 = down-left, 05 = center
 
 
 % Staircase
